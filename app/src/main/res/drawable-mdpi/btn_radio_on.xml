@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+      android:drawable="@android:color/transparent"
+      android:height="24dp"
+      android:gravity="center"
+      android:width="24dp"/>
+
+    <item
+      android:drawable="@drawable/oval_4"
+      android:height="23dp"
+      android:gravity="center"
+      android:width="23dp"/>
+
+    <item
+      android:drawable="@drawable/ic_check"
+      android:top="-1dp"
+      android:height="6dp"
+      android:gravity="center"
+      android:width="6dp"/>
+
+</layer-list>

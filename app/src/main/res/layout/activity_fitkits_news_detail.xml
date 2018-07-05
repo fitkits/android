@@ -1,0 +1,234 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+  android:id="@+id/content"
+  android:visibility="invisible"
+    android:layout_height="match_parent">
+  <LinearLayout
+    android:id="@+id/apply_guestlist_lay"
+    android:layout_alignParentBottom="true"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+  <LinearLayout
+    android:layout_alignParentBottom="true"
+    android:layout_width="match_parent"
+    android:layout_height="3dp"
+    android:background="@color/red"/>
+    <Button
+        android:id="@+id/apply_guestlist"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+      android:textSize="20sp"
+      android:text="REGISTER NOW!"
+      android:background="@color/black"
+        android:textColor="@color/white"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:textAllCaps="true"/>
+  </LinearLayout>
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_above="@+id/apply_guestlist_lay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="192dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/collapsing_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:contentScrim="@color/black"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_collapseMode="pin">
+
+    <ImageView
+                    android:id="@+id/blog_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/fitkit_dummy_bg"
+                    />
+                <LinearLayout
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:background="@color/red">
+                </LinearLayout>
+
+                </RelativeLayout>
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@drawable/gradient_trans_bg_inv"
+                    app:theme="@style/MyActionBarTheme"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                    app:layout_collapseMode="pin" >
+                    <LinearLayout
+                        android:id="@+id/cancel"
+                        android:layout_centerVertical="true"
+                        android:gravity="center"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp">
+                      <ImageView
+                      android:id="@+id/back"
+                      android:layout_margin="20dp"
+                      android:layout_width="18dp"
+                      android:layout_height="10dp"
+                      android:scaleType="fitXY"
+                      app:srcCompat="@drawable/ic_arrow_down_white"/>
+
+                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/toolbar_title"
+                        android:textSize="@dimen/abc_text_size_title_material_toolbar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="marquee"
+                        android:focusable="true"
+                        android:singleLine="true"
+                        android:textColor="@color/white" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical|right">
+                        <ImageView
+                            android:id="@+id/share"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginRight="20dp"
+                            android:src="@drawable/share"/>
+                    </LinearLayout>
+
+                </android.support.v7.widget.Toolbar>
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="20dp"
+            android:visibility="visible"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+              android:padding="10dp"
+                android:orientation="vertical">
+              <TextView
+                android:id="@+id/blogTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                android:textColor="@color/black2"
+                android:text="Introducing Fitkits’ FITCAMP"
+                />
+              <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="@color/black2_58"
+                android:text="Nov 23- Dec 3"
+                />
+              <TextView
+                android:id="@+id/author"
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#3a3a48"
+                android:text="Frank from Fitkits"
+                />
+              <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+              <TextView
+                android:id="@+id/tags"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/black45"
+                android:text="Fitkits News"
+                />
+                <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:textSize="12sp"
+                  android:textColor="@color/black45"
+                  android:text=" | "
+                  />
+                <TextView
+                  android:id="@+id/postDate"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:textSize="12sp"
+                  android:textColor="@color/black45"
+                  android:text="17th Oct 2017"
+                  />
+              </LinearLayout>
+              <LinearLayout
+                android:layout_width="28dp"
+                android:layout_height="wrap_content"
+                android:weightSum="4"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
+                <ImageView
+                  android:layout_width="4dp"
+                  android:layout_height="4dp"
+                  android:layout_weight="1"
+                  android:src="@drawable/circle_dot_grey"/>
+                <ImageView
+                  android:layout_width="4dp"
+                  android:layout_height="4dp"
+                  android:layout_weight="1"
+                  android:src="@drawable/circle_dot_grey"/>
+                <ImageView
+                  android:layout_width="4dp"
+                  android:layout_height="4dp"
+                  android:layout_weight="1"
+                  android:src="@drawable/circle_dot_grey"/>
+                <ImageView
+                  android:layout_width="4dp"
+                  android:layout_height="4dp"
+                  android:layout_weight="1"
+                  android:src="@drawable/circle_dot_grey"/>
+              </LinearLayout>
+              <TextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="#000000"
+                android:lineSpacingExtra="5sp"
+                android:text="11 days of fat shredding HIIT workouts designed, customised and optimised for you!
+
+11 day bootcamp to get in shape for the Holidays!
+
+Two batches, morning and evening from 6 to 7:15 from the 23rd of November to 3rd of December.
+
+5000 INR per head
+
+Limited spots, so register now!"
+                />
+                </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</RelativeLayout>

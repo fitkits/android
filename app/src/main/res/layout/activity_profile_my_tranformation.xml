@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+  <android.support.v7.widget.Toolbar
+    android:layout_alignParentTop="true"
+    android:id="@+id/appbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:elevation="4dp"
+    android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+      <LinearLayout
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:paddingRight="10dp"
+        android:layout_height="48dp">
+        <ImageView
+          android:layout_gravity="center_vertical"
+          android:layout_width="18dp"
+          android:layout_height="10dp"
+          android:src="@drawable/arrow_down"
+          android:scaleType="fitXY"/>
+      </LinearLayout>
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+        <TextView
+          android:id="@+id/toolbar_title"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textSize="20sp"
+          android:text="My Transformation"
+          android:textColor="#000000"
+          />
+      </LinearLayout>
+    </LinearLayout>
+  </android.support.v7.widget.Toolbar>
+
+<ScrollView
+  android:layout_below="@id/appbar"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:fillViewport="true"
+  android:layout_above="@id/close_lay"
+  >
+<RelativeLayout
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:background="#f1f1f1">
+<LinearLayout
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical">
+    <ImageView
+      android:layout_width="match_parent"
+      android:layout_height="200dp"
+      android:scaleType="matrix"
+      android:src="@drawable/full_bg"/>
+  <View
+    android:layout_marginTop="199.5dp"
+    android:layout_width="match_parent"
+    android:layout_height="0.1dp"
+    android:background="#d5d5d5"/>
+
+</LinearLayout>
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:gravity="top"
+          android:padding="15dp"
+          android:orientation="vertical">
+<LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+  android:layout_marginTop="40dp"
+              android:layout_marginBottom="10dp"
+              android:orientation="vertical">
+                <LinearLayout
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:gravity="center_vertical"
+                  android:layout_gravity="left"
+                  android:layout_marginBottom="-35dp"
+                  android:layout_marginLeft="10dp"
+                  android:elevation="3dp"
+                  android:orientation="horizontal">
+
+                    <RelativeLayout
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content">
+                        <de.hdodenhof.circleimageview.CircleImageView
+                          android:layout_width="100dp"
+                          android:layout_height="100dp"
+                          app:border_width="5dp"
+                          app:border_color="@color/white"
+                          android:src="@drawable/fitkits_logo"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+                <android.support.v7.widget.CardView
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  app:cardCornerRadius="5dp"
+                  app:cardElevation="2dp"
+                  app:cardBackgroundColor="@color/white">
+                  <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                  <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#000000"
+                    android:text="Upload pictures"
+                    />
+                        <LinearLayout
+                          android:orientation="vertical"
+                          android:gravity="center"
+                          android:padding="15dp"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content">
+                          <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:textColor="#000000"
+                            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ornare ipsum ac mattis aliquam. In nec tempus tortor."
+                            />
+
+                        </LinearLayout>
+                  </LinearLayout>
+                </android.support.v7.widget.CardView>
+<android.support.v7.widget.RecyclerView
+  android:id="@+id/uploadRecyclerView"
+  android:layout_width="match_parent"
+  android:layout_marginTop="20dp"
+  android:layout_height="wrap_content"
+  android:nestedScrollingEnabled="false"></android.support.v7.widget.RecyclerView>
+  <android.support.v7.widget.CardView
+    android:id="@+id/uploadPic"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/red"
+    android:layout_marginTop="20dp"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="2dp"
+    app:cardUseCompatPadding="true">
+    <LinearLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:gravity="center_vertical"
+      android:layout_margin="10dp">
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:textColor="@color/white"
+        android:layout_marginRight="5dp"
+        android:scaleType="fitXY"
+        android:text="+"/>
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:textColor="#ffffff"
+        android:letterSpacing="0.01"
+        android:text="CLICK HERE TO UPLOAD A PHOTO"
+        />
+    </LinearLayout>
+  </android.support.v7.widget.CardView>
+
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+</RelativeLayout>
+</ScrollView>
+  <LinearLayout
+    android:id="@+id/close_lay"
+    android:layout_alignParentBottom="true"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <View
+      android:layout_width="match_parent"
+      android:layout_height="3dp"
+      android:background="@color/white"></View>
+    <Button
+
+      android:id="@+id/close"
+      android:layout_width="match_parent"
+      android:layout_height="46dp"
+      android:text="CLOSE"
+      android:textColor="@color/white"
+      android:textSize="20sp"
+      android:background="@color/red"></Button>
+  </LinearLayout>
+</RelativeLayout>

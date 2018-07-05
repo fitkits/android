@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:gravity="center"
+  android:fillViewport="true"
+  android:layout_height="match_parent">
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+      android:gravity="center"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+        <android.support.v7.widget.CardView
+          android:layout_marginRight="15dp"
+          android:layout_marginLeft="15dp"
+          android:layout_marginBottom="35dp"
+            android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          app:cardCornerRadius="3dp"
+          android:layout_marginTop="35dp">
+            <LinearLayout
+              android:layout_width="match_parent"
+              android:background="@drawable/card_border_line_red_top"
+              android:layout_height="3dp"></LinearLayout>
+            <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:gravity="center_vertical"
+              android:weightSum="1"
+              android:orientation="horizontal">
+                <LinearLayout
+                  android:layout_weight="0.4"
+                  android:layout_margin="10dp"
+                  android:gravity="center_vertical"
+                  android:layout_width="match_parent"
+                  android:orientation="horizontal"
+                  android:layout_height="wrap_content">
+                    <ImageView
+                      android:layout_width="30dp"
+                      android:layout_height="30dp"
+                      android:src="@drawable/check_mark"
+                      android:layout_marginRight="10dp"/>
+                    <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:textSize="12sp"
+                      android:textColor="#000000"
+                      android:letterSpacing="0.01"
+                      android:text="Your Attendance this month"
+                      />
+                </LinearLayout>
+
+                <View
+                  android:id="@+id/line_break2"
+                  android:layout_width="0.5dp"
+                  android:layout_marginTop="3dp"
+                  android:layout_height="match_parent"
+                  android:background="@color/black22"></View>
+                <RelativeLayout
+                  android:layout_weight="0.6"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent">
+                    <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:gravity="center"
+                      android:orientation="horizontal">
+                        <TextView
+                          android:id="@+id/attended"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textSize="22sp"
+                          android:textColor="#000000"
+                          android:letterSpacing="0.01"
+                          android:gravity="end"
+                          android:text="0"
+                          />
+                        <TextView
+                          android:id="@+id/totalThisMonth"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textSize="14sp"
+                          android:paddingTop="10dp"
+                          android:textColor="@color/black30"
+                          android:letterSpacing="0.0"
+                          android:gravity="end"
+                          android:text="/30"
+                          />
+                    </LinearLayout>
+                    <ImageView
+                      android:layout_width="10dp"
+                      android:layout_height="18dp"
+                      android:layout_marginRight="10dp"
+                      android:layout_centerVertical="true"
+                      android:layout_alignParentRight="true"
+                      android:src="@drawable/arrow_right"/>
+                </RelativeLayout>
+
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+  <LinearLayout
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  style="?styleCaldroidViewLayout"
+  android:orientation="vertical">
+
+    <LinearLayout
+      android:id="@+id/calendar_title_view"
+      android:padding="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/calendar_left_arrow"
+            android:layout_height="19dp"
+            android:layout_width="10dp"
+            android:background="@drawable/ic_cal_left_arrow"
+
+          />
+
+        <TextView
+            android:id="@+id/calendar_month_year_textview"
+            style="?styleCaldroidMonthName"/>
+
+        <Button
+            android:id="@+id/calendar_right_arrow"
+          android:layout_height="19dp"
+          android:layout_width="10dp"
+          android:background="@drawable/ic_cal_right_arrow" />
+    </LinearLayout>
+<LinearLayout
+  android:layout_width="match_parent"
+  android:gravity="center"
+  android:layout_marginTop="50dp"
+  android:layout_marginBottom="50dp"
+  android:layout_height="wrap_content"
+  android:orientation="vertical">
+    <com.fitkits.MyGridView
+        android:id="@+id/weekday_gridview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+      android:paddingLeft="15dp"
+      android:paddingRight="15dp"
+        android:numColumns="7" >
+    </com.fitkits.MyGridView>
+
+    <com.fitkits.CustomCalendarView.InfiniteViewPager
+        android:id="@+id/months_infinite_pager"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"/>
+
+</LinearLayout>
+      <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="40dp"
+        android:layout_height="wrap_content">
+      <TextView
+        android:id="@+id/attendance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="28sp"
+        android:textColor="#ffffff"
+        android:letterSpacing="0.01"
+        android:text="0%"
+        />
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#ffffff"
+        android:letterSpacing="0.02"
+        android:text="Attendance Average"
+        />
+      </LinearLayout>
+
+</LinearLayout>
+</LinearLayout>
+</ScrollView>

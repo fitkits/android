@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "22040219813",
+    "firebase_url": "https://fitkits-mobile-app.firebaseio.com",
+    "project_id": "fitkits-mobile-app",
+    "storage_bucket": "fitkits-mobile-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:22040219813:android:e555a12cd3915838",
+        "android_client_info": {
+          "package_name": "com.fitkits"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "22040219813-ttfuh0ik8n9d3bi0hlo0svmcbrbcl15b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYSDjYBIg9-ziPwmAHfHPf8vBSCAtdx6Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

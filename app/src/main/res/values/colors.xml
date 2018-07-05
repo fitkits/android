@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="colorPrimary">#3F51B5</color>
+  <color name="colorPrimaryDark">#303F9F</color>
+  <color name="colorAccent">#FF4081</color>
+  <color name="black">#000000</color>
+  <color name="white">#ffffff</color>
+  <color name="white_32">#52ffffff</color>
+  <color name="white_30">#4dffffff</color>
+
+  <color name="white_15">#26ffffff</color>
+  <color name="white_20">#33ffffff</color>
+  <color name="white_94">#f0ffffff</color>
+
+
+
+  <color name="black2">#3a3948</color>
+
+  <color name="black2_58">#943a3948</color>
+  <color name="black45">#73000000</color>
+
+  <color name="black58">#94000000</color>
+  <color name="black50">#80000000</color>
+  <color name="black40">#66000000</color>
+  <color name="black78">#c8000000</color>
+
+  <color name="black15">#26000000</color>
+  <color name="black22">#38000000</color>
+  <color name="black30">#4c000000</color>
+  <color name="black8">#15000000</color>
+  <color name="black18">#2e000000</color>
+
+  <color name="weightGraphRed">#b32137</color>
+  <color name="waterGraphBlue">#2195b3</color>
+  <color name="red">#ce0518</color>
+  <color name="sleepViolet">#392bb3</color>
+  <color name="light_green_19">#3145ce05</color>
+  <color name="light_blue">#55b5e2</color>
+
+  <color name="caldroid_white">#FFFFFF</color>
+  <color name="caldroid_black">#000000</color>
+  <color name="caldroid_transparent">#00000000</color>
+  <!-- For settings framework -->
+  <color name="caldroid_lighter_gray">#ddd</color>
+  <color name="caldroid_gray">#CCC</color>
+  <color name="caldroid_darker_gray">#aaa</color>
+  <color name="caldroid_middle_gray">#888</color>
+  <!-- A light Holo shade of blue -->
+  <color name="caldroid_holo_blue_light">#ff33b5e5</color>
+  <!-- A dark Holo shade of blue -->
+  <color name="caldroid_holo_blue_dark">#ff0099cc</color>
+  <!-- A really bright Holo shade of blue -->
+  <color name="caldroid_sky_blue">#FFA3E8F7</color>
+
+  <color name="caldroid_333">#333</color>
+  <color name="caldroid_555">#555</color>
+  <color name="caldroid_light_red">#ff7f7f</color>
+  <color name="flo_green">#90ff5c</color>
+</resources>

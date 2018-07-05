@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+
+<LinearLayout
+  android:layout_above="@+id/nextLay"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:weightSum="10"
+  android:layout_height="match_parent">
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_splash_bg"
+    android:gravity="center"
+    android:layout_weight="4.5">
+    <ImageView
+      android:layout_width="213dp"
+      android:layout_height="213dp"
+      android:src="@drawable/fitkits_logo"
+      android:scaleType="fitXY"/>
+  </LinearLayout>
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_weight="5.5">
+    <View
+      android:layout_width="match_parent"
+      android:layout_height="6dp"
+      android:background="@color/black"></View>
+    <android.support.v7.widget.CardView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:cardCornerRadius="0dp"
+      app:cardElevation="2dp"
+      android:background="@color/white"
+      android:gravity="center">
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:textColor="#000000"
+        android:letterSpacing="0.03"
+        android:text="WELCOME TO FITKITS!"/>
+    </android.support.v7.widget.CardView>
+
+
+<LinearLayout
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:weightSum="1"
+  android:orientation="vertical">
+
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="horizontal"
+      android:gravity="center"
+      android:layout_weight="1"
+      android:weightSum="1">
+
+
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+
+        android:layout_weight="1">
+        <android.support.v7.widget.CardView
+          android:layout_margin="15dp"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          app:cardCornerRadius="5dp"
+          android:layout_marginTop="10dp"
+          android:layout_marginBottom="10dp"
+          app:cardElevation="2dp"
+          app:cardBackgroundColor="@color/white">
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:orientation="vertical">
+            <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:letterSpacing="0.04"
+              android:text="Registered Mobile Number"
+              android:textColor="@color/black58"
+              android:textSize="11sp"
+              />
+            <EditText
+              android:id="@+id/mobileNumber"
+              android:padding="0dp"
+              android:layout_marginTop="5dp"
+              android:backgroundTint="@android:color/transparent"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:textSize="18sp"
+              android:imeOptions="actionDone"
+              android:singleLine="true"
+              android:textColorHint="@color/black15"
+              android:textColor="#000000"
+              android:inputType="phone"
+              android:letterSpacing="0.03"
+              android:hint="8122689650"
+              />
+          </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+      </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+
+  </LinearLayout>
+</LinearLayout>
+
+  <LinearLayout
+    android:id="@+id/nextLay"
+    android:layout_alignParentBottom="true"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+  <View
+    android:layout_width="match_parent"
+    android:layout_height="3dp"
+    android:background="#ce0518"></View>
+  <Button
+
+    android:id="@+id/next"
+    android:layout_width="match_parent"
+    android:layout_height="46dp"
+    android:text="NEXT"
+    android:textColor="@color/white"
+    android:textSize="20sp"
+    android:background="@color/black"></Button>
+  </LinearLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<RelativeLayout
+  android:layout_width="match_parent"
+  android:background="@drawable/ic_splash_bg"
+
+  android:layout_height="match_parent">
+    <ImageView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:src="@drawable/full_bg"/>
+  <View
+    android:layout_marginTop="198dp"
+    android:layout_width="match_parent"
+    android:layout_height="0.1dp"
+    android:background="#d5d5d5"/>
+    <LinearLayout
+      android:layout_marginTop="200dp"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"></LinearLayout>
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:gravity="center"
+          android:padding="15dp"
+          android:orientation="vertical">
+<LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginBottom="10dp"
+              android:orientation="vertical">
+                <LinearLayout
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:gravity="center_vertical"
+                  android:layout_gravity="left"
+                  android:layout_marginBottom="-35dp"
+                  android:layout_marginLeft="10dp"
+                  android:elevation="3dp"
+                  android:orientation="horizontal">
+
+                    <RelativeLayout
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content">
+                        <de.hdodenhof.circleimageview.CircleImageView
+                          android:layout_width="100dp"
+                          android:layout_height="100dp"
+                          app:border_width="5dp"
+                          app:border_color="@color/white"
+                          android:src="@drawable/fitkits_logo"/>
+
+                    </RelativeLayout>
+                    <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:textSize="16sp"
+                      android:layout_marginLeft="10dp"
+                      android:textColor="#ffffff"
+                      android:text="You’re done!"
+                      />
+                </LinearLayout>
+                <android.support.v7.widget.CardView
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  app:cardCornerRadius="5dp"
+                  app:cardElevation="2dp"
+                  app:cardBackgroundColor="@color/white">
+
+                        <LinearLayout
+                          android:orientation="vertical"
+                          android:gravity="center"
+                          android:padding="20dp"
+                          android:layout_width="match_parent"
+                          android:layout_height="match_parent">
+
+
+                            <ImageView
+                              android:layout_width="100dp"
+                              android:layout_height="140dp"
+                              android:src="@drawable/fire"/>
+                          <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textSize="22sp"
+                            android:layout_marginTop="10dp"
+                            android:textColor="#000000"
+                            android:letterSpacing="-0.03"
+                            android:text="LETS GET LEAN AND MEAN!"
+                            />
+                          <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:layout_marginTop="5dp"
+                            android:textColor="#000000"
+                            android:gravity="center_horizontal"
+                            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ornare ipsum ac mattis aliquam. In nec tempus tortor. mattis aliquam.
+
+In nec tempus tortor."
+                            />
+                        </LinearLayout>
+                </android.support.v7.widget.CardView>
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textSize="12sp"
+      android:layout_marginTop="15dp"
+      android:layout_gravity="center_horizontal"
+      android:textColor="#ffffff"
+      android:text="Skip and Renew Later >>"
+      />
+            </LinearLayout>
+        </LinearLayout>
+
+</RelativeLayout>
+
+</RelativeLayout>

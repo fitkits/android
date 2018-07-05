@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center"
+  android:background="@drawable/gradient_chart_red_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+  <LinearLayout
+    android:background="@drawable/gradient_chart_red_bg"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize">
+    <ImageView
+      android:id="@+id/back"
+      android:layout_margin="20dp"
+      android:layout_width="18dp"
+      android:layout_height="10dp"
+      android:scaleType="fitXY"
+      app:srcCompat="@drawable/ic_arrow_down_white"/>
+  </LinearLayout>
+  <TextView
+    android:id="@+id/average"
+    android:layout_marginTop="70dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="18sp"
+    android:textColor="#ffffff"
+    android:layout_marginBottom="2dp"
+    android:letterSpacing="0.02"
+    android:text="2360 calories consumed "
+    />
+  <TextView
+    android:id="@+id/averageTitle"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="18sp"
+    android:textColor="@color/white_32"
+    android:letterSpacing="0.02"
+    android:layout_marginBottom="30dp"
+    android:text="Weekly Average"
+    />
+
+  <android.support.design.widget.TabLayout
+    android:id="@+id/tabs"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    app:tabTextColor="@color/white_30"
+    app:tabSelectedTextColor="@color/white"
+    app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
+    app:tabIndicatorHeight="@null"
+    android:background="@android:color/transparent"
+    app:tabGravity="fill"
+    app:tabMode="fixed">
+  </android.support.design.widget.TabLayout>
+<android.support.v4.view.ViewPager
+  android:id="@+id/activeHoursGraphViewPager"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"></android.support.v4.view.ViewPager>
+
+</LinearLayout>
+

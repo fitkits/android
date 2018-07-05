@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<RelativeLayout
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@drawable/renew_bg">
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+  <ImageView
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:scaleType="matrix"
+    android:src="@drawable/full_bg"/>
+  <View
+    android:layout_width="match_parent"
+    android:layout_height="3dp"
+    android:background="#d5d5d5"/>
+  </LinearLayout>
+    <LinearLayout
+      android:layout_marginTop="202dp"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="@drawable/renew_bg"></LinearLayout>
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:padding="15dp"
+          android:orientation="vertical">
+<LinearLayout
+  android:layout_marginTop="50dp"
+
+  android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginBottom="10dp"
+              android:orientation="vertical">
+                <LinearLayout
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:gravity="center_vertical"
+                  android:layout_gravity="left"
+                  android:layout_marginBottom="-35dp"
+                  android:layout_marginLeft="10dp"
+                  android:elevation="3dp"
+                  android:orientation="horizontal">
+
+                    <RelativeLayout
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content">
+                        <de.hdodenhof.circleimageview.CircleImageView
+                          android:layout_width="100dp"
+                          android:layout_height="100dp"
+                          app:border_width="5dp"
+                          app:border_color="@color/white"
+                          android:src="@drawable/fitkits_logo"/>
+
+                    </RelativeLayout>
+                    <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:textSize="16sp"
+                      android:textColor="#ffffff"
+                      android:layout_marginLeft="10dp"
+                      android:text="Link Social Media!"
+                      />
+                </LinearLayout>
+                <android.support.v7.widget.CardView
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  app:cardCornerRadius="5dp"
+                  app:cardElevation="2dp"
+                  app:cardBackgroundColor="@color/white">
+
+                        <LinearLayout
+                          android:orientation="vertical"
+                          android:gravity="center"
+                          android:padding="30dp"
+                          android:layout_width="match_parent"
+                          android:layout_height="match_parent">
+                            <TextView
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:textSize="22sp"
+                              android:textColor="#000000"
+                              android:gravity="center_horizontal"
+                              android:text="Connect and share to your Social media accounts!"
+                              />
+
+                        </LinearLayout>
+                </android.support.v7.widget.CardView>
+  <android.support.v7.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="5dp"
+    android:layout_marginTop="15dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="@color/white">
+
+    <LinearLayout
+      android:orientation="horizontal"
+      android:gravity="center"
+      android:padding="15dp"
+      android:weightSum="1"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.1"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <ImageView
+          android:layout_width="20dp"
+          android:layout_height="20dp"
+          android:scaleType="fitXY"
+          android:src="@drawable/facebook_1"/>
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textSize="16sp"
+          android:layout_marginLeft="10dp"
+          android:textColor="#000000"
+          android:gravity="center"
+          android:text="Connect with Facebook"
+          />
+      </LinearLayout>
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:layout_weight="0.9">
+        <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:src="@drawable/arrow_right"/>
+      </LinearLayout>
+
+    </LinearLayout>
+  </android.support.v7.widget.CardView>
+  <android.support.v7.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="2dp"
+    android:layout_marginTop="15dp"
+    app:cardBackgroundColor="@color/white">
+
+    <LinearLayout
+      android:orientation="horizontal"
+      android:gravity="center"
+      android:padding="15dp"
+      android:weightSum="1"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_weight="0.1"
+        android:orientation="horizontal">
+        <ImageView
+          android:layout_width="20dp"
+          android:layout_height="20dp"
+          android:scaleType="fitXY"
+          android:src="@drawable/twitter"/>
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textSize="16sp"
+          android:layout_marginLeft="10dp"
+          android:textColor="#000000"
+          android:gravity="center"
+          android:text="Connect with Twitter"
+          />
+      </LinearLayout>
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:layout_weight="0.9">
+        <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:src="@drawable/arrow_right"/>
+      </LinearLayout>
+
+    </LinearLayout>
+  </android.support.v7.widget.CardView>
+            </LinearLayout>
+        </LinearLayout>
+  <LinearLayout
+    android:layout_alignParentBottom="true"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <View
+      android:layout_width="match_parent"
+      android:layout_height="3dp"
+      android:background="@color/white"></View>
+    <Button
+
+      android:id="@+id/close"
+      android:layout_width="match_parent"
+      android:layout_height="46dp"
+      android:text="CLOSE"
+      android:textColor="@color/white"
+      android:textSize="20sp"
+      android:background="@color/red"></Button>
+  </LinearLayout>
+</RelativeLayout>
+
+</RelativeLayout>

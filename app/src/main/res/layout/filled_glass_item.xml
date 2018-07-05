@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:paddingBottom="15dp"
+  android:orientation="vertical">
+
+    <ImageView
+      android:layout_width="40dp"
+      android:layout_height="60dp"
+      android:scaleType="fitXY"
+      app:srcCompat="@drawable/ic_glass_filled"
+      android:layout_gravity="center_horizontal"/>
+
+
+</LinearLayout>
