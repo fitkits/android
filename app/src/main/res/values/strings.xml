@@ -3,5 +3,6 @@
   <string name="action_settings">Settings</string>
   <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
 
+  <string name="freshchat_file_provider_authority">com.fitkits.provider</string>
 
 </resources>

@@ -1,203 +1,206 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.fitkits">
-  <uses-feature android:name="android.hardware.camera" android:required="false"></uses-feature>
-  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-  <uses-permission android:name="android.permission.CAMERA"/>
-  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-  <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-  <uses-permission android:name="android.permission.INTERNET" />
+    package="com.fitkits">
 
-  <application
-    android:allowBackup="true"
-    android:icon="@mipmap/ic_launcher"
-    android:label="@string/app_name"
-    android:roundIcon="@mipmap/ic_launcher_round"
-    android:supportsRtl="true">
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false"></uses-feature>
 
-    <activity
-      android:screenOrientation="portrait"
-      android:label="@string/app_name"
-      android:name=".LoginActivity"
-      android:theme="@style/AppTheme.NoActionBar">
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
-        <category android:name="android.intent.category.LAUNCHER"/>
-      </intent-filter>
-    </activity>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true">
 
-    <activity
-      android:screenOrientation="portrait"
-      android:label="@string/app_name"
-      android:name=".MyStatsActivity"
-      android:theme="@style/SubTheme">
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-    </activity>
-    <activity
-      android:name=".BarChartActivity">
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
-    </activity>
-    <meta-data
-      android:name="com.razorpay.ApiKey"
-      android:value="rzp_test_EZUc85OddZeYex" />
-    <activity
-      android:screenOrientation="portrait"
-      android:label="@string/app_name"
-      android:name=".SubscriptionActivity"
-      android:theme="@style/SubTheme"/>
-    <activity
-      android:screenOrientation="portrait"
-      android:label="@string/app_name"
-      android:name=".SleepActivity"
-      android:theme="@style/SubTheme"/>
-    <activity
-      android:screenOrientation="portrait"
-      android:label="@string/app_name"
-      android:name=".MyTransformationActivity"
-      android:theme="@style/SubTheme"/>
-    <activity
-      android:screenOrientation="portrait"
-      android:label="@string/app_name"
-      android:name=".PreviewActivity"
-      android:theme="@style/SubTheme"/>
-    <activity
-      android:screenOrientation="portrait"
-      android:label="@string/app_name"
-      android:name=".OnboardActivity"
-      android:theme="@style/SubTheme"/>
-    <activity
-      android:screenOrientation="portrait"
-      android:label="@string/app_name"
-      android:name=".HomeActivity"
-      android:theme="@style/SubTheme">
+        <activity
+            android:name=".MyStatsActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/SubTheme">
 
-    </activity>
-    <activity
-      android:screenOrientation="portrait"
-      android:label="@string/app_name"
-      android:name=".GoalActivity"
-      android:theme="@style/SubTheme">
+        </activity>
+        <activity android:name=".BarChartActivity">
 
-    </activity>
-    <activity
-      android:screenOrientation="portrait"
-      android:label="@string/app_name"
-      android:name=".MyDetailActivity"
-      android:theme="@style/SubTheme"/>
-    <activity
-      android:screenOrientation="portrait"
-      android:label="@string/app_name"
-    android:name=".LinkSocialMediaActivity"
-    android:theme="@style/LinkSocialTheme"/>
-    <activity
-      android:screenOrientation="portrait"
-      android:label="@string/app_name"
-      android:name=".FitkitsNewsDetailActivity"
-      android:theme="@style/NewsTheme"/>
-    <activity
-      android:screenOrientation="portrait"
-      android:label="@string/app_name"
-      android:name=".Analytics.Calories.CalorieGraphDetailActivity"
-      android:theme="@style/CalorieGraphAppTheme">
-    </activity>
-    <activity
-      android:screenOrientation="portrait"
-      android:label="@string/app_name"
-      android:name=".Analytics.Sleep.SleepGraphDetailActivity"
-      android:theme="@style/SleepGraphAppTheme">
-    </activity>
-    <activity
-      android:screenOrientation="portrait"
-      android:label="@string/app_name"
-      android:name=".Analytics.ActiveHours.ActiveHoursGraphDetailActivity"
-      android:theme="@style/ActiveHoursGraphAppTheme">
-    </activity>
-    <activity
-      android:screenOrientation="portrait"
-      android:label="@string/app_name"
-      android:name=".Analytics.Weight.WeightGraphActivity"
-      android:theme="@style/WeightGraphAppTheme">
-    </activity>
-    <activity
-      android:screenOrientation="portrait"
-      android:label="@string/app_name"
-      android:name=".Analytics.Weight.WeightGraphDetailActivity"
-      android:theme="@style/WeightGraphAppTheme">
-    </activity>
+        </activity>
 
-    <activity
-      android:screenOrientation="portrait"
-      android:label="@string/app_name"
-      android:name=".Analytics.ActiveHours.ActiveHoursGraphActivity"
-      android:theme="@style/ActiveHoursGraphAppTheme">
-    </activity>
-    <activity
-      android:screenOrientation="portrait"
-      android:label="@string/app_name"
-      android:name=".Analytics.Sleep.SleepGraphActivity"
-      android:theme="@style/SleepGraphAppTheme">
-    </activity>
-    <activity
-      android:screenOrientation="portrait"
-      android:label="@string/app_name"
-      android:name=".Analytics.Calories.CalorieGraphActivity"
-      android:theme="@style/CalorieGraphAppTheme">
-    </activity>
-    <activity
-      android:screenOrientation="portrait"
-      android:label="@string/app_name"
-      android:name=".Analytics.Water.WaterGraphActivity"
-      android:theme="@style/WaterGraphAppTheme">
-    </activity>
-    <activity
-      android:screenOrientation="portrait"
-      android:label="@string/app_name"
-      android:name=".Analytics.Water.WaterGraphDetailActivity"
-      android:theme="@style/WaterGraphAppTheme">
-    </activity>
-    <!-- Register the Alarm Receiver -->
-    <receiver android:name=".AlarmReceiver"
-      android:enabled="false">
-      <intent-filter>
-        <action android:name="android.intent.action.BOOT_COMPLETED" />
-      </intent-filter>
-    </receiver>
-    <service
-      android:exported="false"
-      android:name=".ServerSync">
-      <intent-filter>
-        <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE"/>
-      </intent-filter>
-    </service>
+        <meta-data
+            android:name="com.razorpay.ApiKey"
+            android:value="rzp_test_EZUc85OddZeYex" />
 
-    <!-- [START firebase_service] -->
-    <service
-      android:name=".MyFirebaseMessagingService">
-      <intent-filter>
-        <action android:name="com.google.firebase.MESSAGING_EVENT"/>
-      </intent-filter>
-    </service>
-    <!-- [END firebase_service] -->
-    <!-- [START firebase_iid_service] -->
-    <service
-      android:name=".MyFirebaseInstanceIDService">
-      <intent-filter>
-        <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
-      </intent-filter>
-    </service>
-    <!-- [END firebase_iid_service] -->
+        <activity
+            android:name=".SubscriptionActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/SubTheme" />
+        <activity
+            android:name=".SleepActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/SubTheme" />
+        <activity
+            android:name=".MyTransformationActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/SubTheme" />
+        <activity
+            android:name=".PreviewActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/SubTheme" />
+        <activity
+            android:name=".OnboardActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/SubTheme" />
+        <activity
+            android:name=".HomeActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/SubTheme">
+
+        </activity>
+        <activity
+            android:name=".GoalActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/SubTheme">
+
+        </activity>
+        <activity
+            android:name=".MyDetailActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/SubTheme" />
+        <activity
+            android:name=".LinkSocialMediaActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/LinkSocialTheme" />
+        <activity
+            android:name=".FitkitsNewsDetailActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/NewsTheme" />
+        <activity
+            android:name=".Analytics.Calories.CalorieGraphDetailActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/CalorieGraphAppTheme"></activity>
+        <activity
+            android:name=".Analytics.Sleep.SleepGraphDetailActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/SleepGraphAppTheme"></activity>
+        <activity
+            android:name=".Analytics.ActiveHours.ActiveHoursGraphDetailActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActiveHoursGraphAppTheme"></activity>
+        <activity
+            android:name=".Analytics.Weight.WeightGraphActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/WeightGraphAppTheme"></activity>
+        <activity
+            android:name=".Analytics.Weight.WeightGraphDetailActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/WeightGraphAppTheme"></activity>
+
+        <activity
+            android:name=".Analytics.ActiveHours.ActiveHoursGraphActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActiveHoursGraphAppTheme"></activity>
+        <activity
+            android:name=".Analytics.Sleep.SleepGraphActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/SleepGraphAppTheme"></activity>
+        <activity
+            android:name=".Analytics.Calories.CalorieGraphActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/CalorieGraphAppTheme"></activity>
+        <activity
+            android:name=".Analytics.Water.WaterGraphActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/WaterGraphAppTheme"></activity>
+        <activity
+            android:name=".Analytics.Water.WaterGraphDetailActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/WaterGraphAppTheme"></activity>
+        <!-- Register the Alarm Receiver -->
+        <receiver
+            android:name=".AlarmReceiver"
+            android:enabled="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <service
+            android:name=".ServerSync"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE" />
+            </intent-filter>
+        </service>
+
+        <!-- [START firebase_service] -->
+        <service android:name=".MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <!-- [END firebase_service] -->
+        <!-- [START firebase_iid_service] -->
+        <service android:name=".MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <!-- [END firebase_iid_service] -->
 
 
-    <!-- [START fcm_default_channel] -->
-    <meta-data
-      android:name="com.google.firebase.messaging.default_notification_channel_id"
-      android:value="@string/default_notification_channel_id"/>
-    <!-- [END fcm_default_channel] -->
+        <!-- [START fcm_default_channel] -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
+        <!-- [END fcm_default_channel] -->
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.fitkits.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/freshchat_file_provider_paths" />
+        </provider>
 
 
-
-  </application>
+    </application>
 
 
 </manifest>
