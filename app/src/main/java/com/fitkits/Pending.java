@@ -37,16 +37,16 @@ public class Pending extends BlurDialogFragment {
         renew = (Button) dialog.findViewById(R.id.renew1);
 
 
-//        renew.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                dismiss();
-//                Intent intent = new Intent(getActivity(), SubscriptionActivity.class);
-//                intent.putExtra("start", "1");
-//                startActivity(intent);
-//                getActivity().finish();
-//            }
-//        });
+        renew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dismiss();
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                //intent.putExtra("start", "1");
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
 
 
         return dialog;

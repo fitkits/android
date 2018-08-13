@@ -1755,7 +1755,7 @@ public class CaldroidFragment extends DialogFragment {
         ApiService apiService= RetroClient.getApiService(myPrefs.getString("token", ""),getContext().getApplicationContext());
 
 
-        apiService.getAttendanceAvg("/api/v1/analytics/attendance?type=totalPercentage&status=true&user="+myPrefs.getString("user_id","")).subscribeOn(
+        apiService.getAttendanceAvg("/api/v1/analytics/attendance?type=average&status=true&user="+myPrefs.getString("user_id","")).subscribeOn(
             Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
             new Observer<AttAggregate>() {
                 @Override
@@ -1767,7 +1767,7 @@ public class CaldroidFragment extends DialogFragment {
 
                     DecimalFormat decimalFormat = new DecimalFormat("#.00");
                     if(value.getAggregate().getValue()!=null&&value.getAggregate().getValue().size()>0)
-                    attendanceText.setText(decimalFormat.format(value.getAggregate().getValue().get(0).getAverage().get(0).getPercentage())+"%");
+                    attendanceText.setText(decimalFormat.format(value.getAggregate().getValue().get(0).getPercentage())+"%");
 
 
 

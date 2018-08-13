@@ -9,13 +9,13 @@ public class AttAggregate_ {
 
 @SerializedName("value")
 @Expose
-private List<AttValue> value = null;
+private List<Average> value = null;
 
-public List<AttValue> getValue() {
+public List<Average> getValue() {
 return value;
 }
 
-public void setValue(List<AttValue> value) {
+public void setValue(List<Average> value) {
 this.value = value;
 }
 

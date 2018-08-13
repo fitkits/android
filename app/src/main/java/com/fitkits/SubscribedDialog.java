@@ -77,7 +77,7 @@ public class SubscribedDialog extends BlurDialogFragment {
 
             }
                // sub_icon.setImageDrawable(getResources().getDrawable(R.drawable.strong));
-                desc.setText("Your subsctiption for "+getArguments().getString("title")+ " plan has been activated.");
+                desc.setText("Your subscription for "+getArguments().getString("title")+ " plan has been activated.");
 
         }
 
