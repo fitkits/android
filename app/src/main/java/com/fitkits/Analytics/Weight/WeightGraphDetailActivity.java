@@ -93,7 +93,7 @@ public static TextView average,averageTitle;
 
   void getWeightAggregateWeekly() {
     ApiService apiService = RetroClient
-        .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""), getApplicationContext());
+        .getApiService(myPrefs.getString("token", ""), getApplicationContext());
 
     apiService.getWeightAggregateMonthly(myPrefs.getString("user_id","")).subscribeOn(
         Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
@@ -144,7 +144,7 @@ public static TextView average,averageTitle;
 
   void getWeightAggregateMonthly() {
     ApiService apiService = RetroClient
-        .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""), getApplicationContext());
+        .getApiService(myPrefs.getString("token", ""), getApplicationContext());
 
     apiService.getWeightAggregateQuarterly(myPrefs.getString("user_id","")).subscribeOn(
         Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
@@ -187,7 +187,7 @@ public static TextView average,averageTitle;
 
   void getWeightAggregateQuarterly() {
     ApiService apiService = RetroClient
-        .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""), getApplicationContext());
+        .getApiService(myPrefs.getString("token", ""), getApplicationContext());
 
     apiService.getWeightAggregateYearly(myPrefs.getString("user_id","")).subscribeOn(
         Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
@@ -255,7 +255,7 @@ public static TextView average,averageTitle;
 
   void getWeightAggregateYearly() {
     ApiService apiService = RetroClient
-        .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""), getApplicationContext());
+        .getApiService(myPrefs.getString("token", ""), getApplicationContext());
 
     apiService.getWeightAggregateAllYear(myPrefs.getString("user_id","")).subscribeOn(
         Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(

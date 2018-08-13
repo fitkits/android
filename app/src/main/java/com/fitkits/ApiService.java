@@ -7,12 +7,15 @@ import com.fitkits.Model.CalorieAnswer;
 import com.fitkits.Model.Feed;
 import com.fitkits.Model.ItemParent;
 import com.fitkits.Model.Membership;
+import com.fitkits.Model.PendingMembership;
 import com.fitkits.Model.SleepAnswer;
 import com.fitkits.Model.WaterAnswer;
 import com.fitkits.Model.WeeklyData;
 import com.fitkits.Model.WeightAnswer;
 import io.reactivex.Observable;
 import java.util.List;
+import java.util.function.Consumer;
+
 import okhttp3.MultipartBody;
 import okhttp3.ResponseBody;
 import retrofit2.http.Body;
@@ -50,6 +53,8 @@ public interface ApiService {
 
   @GET
   Observable<User> getUserProfile(@Url String path);
+  @GET
+  Observable<User> getPendingMembership(@Url String path);
 
 
   @GET
@@ -57,6 +62,10 @@ public interface ApiService {
 
   @PATCH
   Observable<User> updateProfile(@Url String path, @Body User user_profile);
+
+  @PATCH
+  Observable<User> update_PendingMembership(@Url String path, @Body User user);
+
 
   @GET("/api/v1/cms/memberships/")
   Observable<ItemParent> getMemberships();
@@ -166,7 +175,8 @@ public interface ApiService {
 
   @GET("/api/v1/cms/attendance")
   Observable<ItemParent> getAttendance();
-
+  @GET
+  Observable<ItemParent> getAttendance(@Url String path);
 
   @Multipart
   @PATCH

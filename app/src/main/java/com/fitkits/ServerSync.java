@@ -46,7 +46,7 @@ ApiService apiService;
         realmUI=Realm.getDefaultInstance();
         myPrefs= PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
        apiService= RetroClient
-          .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""),getApplicationContext());
+          .getApiService(myPrefs.getString("token", ""),getApplicationContext());
       SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy");
       final Calendar myCalendar = Calendar.getInstance();
       String user=myPrefs.getString("user_id","");
@@ -142,7 +142,7 @@ ApiService apiService;
 
   void networkSyncWater(WaterAnswer waterAnswer,String current){
     ApiService apiService= RetroClient
-        .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""),getApplicationContext());
+        .getApiService(myPrefs.getString("token", ""),getApplicationContext());
     apiService.logWater(waterAnswer)
         .subscribeOn(
             Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
@@ -180,7 +180,7 @@ ApiService apiService;
   }
   void networkSyncSleep(SleepAnswer sleepAnswer,String current){
     ApiService apiService= RetroClient
-        .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""),getApplicationContext());
+        .getApiService(myPrefs.getString("token", ""),getApplicationContext());
     apiService.logSleep(sleepAnswer)
         .subscribeOn(
             Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
@@ -221,7 +221,7 @@ ApiService apiService;
 
   void networkSyncCalorie(CalorieAnswer calorieAnswer,String current){
     ApiService apiService= RetroClient
-        .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""),getApplicationContext());
+        .getApiService(myPrefs.getString("token", ""),getApplicationContext());
     apiService.logCalorie(calorieAnswer)
         .subscribeOn(
             Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
@@ -262,7 +262,7 @@ ApiService apiService;
 
   void networkSyncActive(ActivityAnswer activityAnswer,String current){
     ApiService apiService= RetroClient
-        .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""),getApplicationContext());
+        .getApiService(myPrefs.getString("token", ""),getApplicationContext());
     apiService.logActivity(activityAnswer)
         .subscribeOn(
             Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(

@@ -93,7 +93,7 @@ public static TextView average,averageTitle;
 
   void getWaterAggregateWeekly() {
     ApiService apiService = RetroClient
-        .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""), getApplicationContext());
+        .getApiService(myPrefs.getString("token", ""), getApplicationContext());
 
     apiService.getWaterAggregateMonthly(myPrefs.getString("user_id","")).subscribeOn(
         Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
@@ -144,7 +144,7 @@ public static TextView average,averageTitle;
 
   void getWaterAggregateMonthly() {
     ApiService apiService = RetroClient
-        .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""), getApplicationContext());
+        .getApiService(myPrefs.getString("token", ""), getApplicationContext());
 
     apiService.getWaterAggregateQuarterly(myPrefs.getString("user_id","")).subscribeOn(
         Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
@@ -187,7 +187,7 @@ public static TextView average,averageTitle;
 
   void getWaterAggregateQuarterly() {
     ApiService apiService = RetroClient
-        .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""), getApplicationContext());
+        .getApiService(myPrefs.getString("token", ""), getApplicationContext());
 
     apiService.getWaterAggregateYearly(myPrefs.getString("user_id","")).subscribeOn(
         Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
@@ -254,7 +254,7 @@ public static TextView average,averageTitle;
 
   void getWaterAggregateYearly() {
     ApiService apiService = RetroClient
-        .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""), getApplicationContext());
+        .getApiService(myPrefs.getString("token", ""), getApplicationContext());
 
     apiService.getWaterAggregateAllYear(myPrefs.getString("user_id","")).subscribeOn(
         Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(

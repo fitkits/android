@@ -187,7 +187,7 @@ public class ActiveDialog extends BlurDialogFragment {
     }
 
     void setActiveHours(int activeHours)  {
-        apiService=RetroClient.getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""),getActivity().getApplicationContext());
+        apiService=RetroClient.getApiService(myPrefs.getString("token", ""),getActivity().getApplicationContext());
         ActivePerDay activePerDay=new ActivePerDay(activeHours);
         Goals goal=new Goals(activePerDay);
         com.fitkits.Model.User user_profile = new com.fitkits.Model.User(goal);

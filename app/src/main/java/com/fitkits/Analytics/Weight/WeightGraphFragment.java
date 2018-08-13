@@ -319,7 +319,7 @@ int i=3;
 
     void getWeightAggregateMonthly() {
         ApiService apiService = RetroClient
-            .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""), getContext().getApplicationContext());
+            .getApiService(myPrefs.getString("token", ""), getContext().getApplicationContext());
 
         apiService.getWeightAggregateMonthly(myPrefs.getString("user_id","")).subscribeOn(
             Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
@@ -484,7 +484,7 @@ float sum=0;
 
   void getWeightAggregateQuaterly() {
     ApiService apiService = RetroClient
-        .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""), getContext().getApplicationContext());
+        .getApiService(myPrefs.getString("token", ""), getContext().getApplicationContext());
 
     apiService.getWeightAggregateQuarterly(myPrefs.getString("user_id","")).subscribeOn(
         Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
@@ -622,7 +622,7 @@ float sum=0;
 
   void getWeightAggregateYearly() {
     ApiService apiService = RetroClient
-        .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""), getContext().getApplicationContext());
+        .getApiService(myPrefs.getString("token", ""), getContext().getApplicationContext());
 
     apiService.getWeightAggregateYearly(myPrefs.getString("user_id","")).subscribeOn(
         Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
@@ -737,7 +737,7 @@ float sum=0;
   }
 
   void getWeightAggregateWeekly(Date  stDate,Date enDate) {
-    ApiService apiService=RetroClient.getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""),getContext().getApplicationContext());
+    ApiService apiService=RetroClient.getApiService(myPrefs.getString("token", ""),getContext().getApplicationContext());
     SimpleDateFormat formatUTC = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
     formatUTC.setTimeZone(TimeZone.getTimeZone("UTC"));
     apiService.getWeeklyAggregate("/api/v1/cms/answers?start="+formatUTC.format(stDate)+"&end="+formatUTC.format(enDate)+"&user="+myPrefs.getString("user_id","")).subscribeOn(

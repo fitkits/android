@@ -94,7 +94,8 @@
                           android:layout_height="wrap_content"
                           android:textSize="12sp"
                           android:textColor="@color/black40"
-                          android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                          android:text="Keep yourself active daily, walk/bicycle wherever possible.
+"
                           />
 
                     </LinearLayout>

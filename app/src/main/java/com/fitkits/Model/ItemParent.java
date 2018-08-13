@@ -17,16 +17,16 @@ public class ItemParent {
   @SerializedName("totalPages")
   @Expose
   private Integer totalPages;
-  @SerializedName("Membership")
+  @SerializedName("Memberships")
   @Expose
   private List<MembershipItem> membership = null;
-  @SerializedName("subscriptions")
+  @SerializedName("Subscriptions")
   @Expose
   private List<Membership> subscriptions = null;
   @SerializedName("Attendance")
   @Expose
   private List<Attendance> attendance = null;
-  @SerializedName("Feed")
+  @SerializedName("Feeds")
   @Expose
   private List<Feed> feeds = null;
   @SerializedName("Answers")

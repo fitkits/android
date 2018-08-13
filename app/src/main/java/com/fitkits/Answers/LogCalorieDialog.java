@@ -229,7 +229,7 @@ public class LogCalorieDialog extends BlurDialogFragment {
 
     void networkSync(CalorieAnswer calorieAnswer){
         ApiService apiService= RetroClient
-            .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""),getActivity().getApplicationContext());
+            .getApiService(myPrefs.getString("token", ""),getActivity().getApplicationContext());
         apiService.logCalorie(calorieAnswer)
             .subscribeOn(
                 Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(

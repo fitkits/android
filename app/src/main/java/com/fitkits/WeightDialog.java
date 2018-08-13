@@ -202,7 +202,7 @@ ApiService apiService;
     }
 
     void setWeightGoal(int weight,String weightGoalDate)  {
-        apiService=RetroClient.getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""),getActivity().getApplicationContext());
+        apiService=RetroClient.getApiService(myPrefs.getString("token", ""),getActivity().getApplicationContext());
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss.SSS'Z'");
         SimpleDateFormat sdf_new = new SimpleDateFormat("MMM dd, yyyy");
         String formattedGoalDate="";

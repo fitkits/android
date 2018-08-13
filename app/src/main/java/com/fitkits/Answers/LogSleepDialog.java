@@ -303,7 +303,7 @@ int rating=0;
 
     void networkSync(SleepAnswer sleepAnswer){
         ApiService apiService= RetroClient
-            .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""),getActivity().getApplicationContext());
+            .getApiService(myPrefs.getString("token", ""),getActivity().getApplicationContext());
         apiService.logSleep(sleepAnswer)
             .subscribeOn(
                 Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(

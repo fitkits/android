@@ -208,7 +208,7 @@ public class OtpDialog extends BlurDialogFragment {
     }
 
     public void verifyOtp(String otp){
-        final ApiService apiService = RetroClient.getApiService("","",getActivity().getApplicationContext());
+        final ApiService apiService = RetroClient.getApiService("",getActivity().getApplicationContext());
 
 
         OTP userOtp=new OTP(myPrefs.getString("mobileNumber",""),otp);
@@ -232,6 +232,8 @@ public class OtpDialog extends BlurDialogFragment {
                     try {
                         myPrefs.edit().putString("user_id",value.getId()).commit();
                         myPrefs.edit().putString("otp",otp).commit();
+                        myPrefs.edit().putString("token", "Bearer " + value.getJmt()).commit();
+
                         Log.d("JWT",myPrefs.getString("jwtToken","")) ;
                         dismiss();
                         if(value.getHeight()!=null&&value.getHeight()!=0) {
@@ -267,7 +269,7 @@ public class OtpDialog extends BlurDialogFragment {
     void getRenewDetail(Context context) {
 
         ApiService apiService = RetroClient
-            .getApiService(myPrefs.getString("mobileNumber", ""), myPrefs.getString("otp", ""),
+            .getApiService(myPrefs.getString("token", ""),
                 getActivity().getApplicationContext());
 
         apiService.getSubscriptions("/api/v1/cms/subscriptions?user="+myPrefs.getString("user_id","")).subscribeOn(

@@ -201,7 +201,7 @@ public class WeightGraphActivity extends AppCompatActivity implements LogWeightD
 
   }
   void getWeightAggregate(String  startDate,String endDate,List<List<String>> weeksinMonth,int from) {
-    ApiService apiService=RetroClient.getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""),getApplicationContext());
+    ApiService apiService=RetroClient.getApiService(myPrefs.getString("token", ""),getApplicationContext());
 
       apiService.getWeeklyAggregate("/api/v1/cms/answers?startTime="+startDate+"&endTime="+endDate).subscribeOn(
           Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(

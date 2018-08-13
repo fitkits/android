@@ -221,7 +221,7 @@ public class LogActiveDialog extends BlurDialogFragment {
 
     void networkSync(ActivityAnswer activityAnswer){
         ApiService apiService= RetroClient
-            .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""),getActivity().getApplicationContext());
+            .getApiService(myPrefs.getString("token", ""),getActivity().getApplicationContext());
         apiService.logActivity(activityAnswer)
             .subscribeOn(
                 Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(

@@ -28,9 +28,12 @@ import com.fitkits.Analytics.Water.WaterGraphActivity;
 import com.fitkits.Analytics.Weight.WeightGraphActivity;
 import com.fitkits.CustomCalendarView.CaldroidFragment;
 import com.fitkits.Model.*;
+
+import hirondelle.date4j.DateTime;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import io.realm.Realm;
 import java.text.ParseException;
@@ -173,77 +176,119 @@ public class HomeFragment extends Fragment {
   }
 
 
-  void getAttendance() {
-    ApiService apiService= RetroClient.getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""),getContext().getApplicationContext());
+//  void getAttendance() {
+//    ApiService apiService= RetroClient.getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""),getContext().getApplicationContext());
+//
+//
+//    apiService.getAttendance().subscribeOn(
+//        Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
+//        new Observer<ItemParent>() {
+//          @Override
+//          public void onSubscribe(Disposable d) {
+//            progressDialog = new ProgressDialog(getContext());
+//            progressDialog.setMessage("Loading....");
+//            progressDialog.show();
+//            progressDialog.setCancelable(false);
+//          }
+//
+//          @Override
+//          public void onNext(ItemParent itemParent) {
+//
+//            List<Attendance> value=itemParent.getAttendance();
+//
+//
+//            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss.SSS'Z'");
+//            sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
+//
+//            Date attendanceDate = new Date();
+//            Calendar calendar=Calendar.getInstance();
+//            Calendar calendarToday=Calendar.getInstance();
+//
+//
+//            int attendanceThisMonth=0;
+//            for(int i=0;i<value.size();i++){
+//
+//              if(value.get(i).getStatus()==true) {
+//                try {
+//                  attendanceDate = sdf.parse(value.get(i).getModifiedAt());
+//                  calendar.setTime(attendanceDate);
+//                  if (calendar.get(Calendar.MONTH) == calendarToday
+//                      .get(Calendar.MONTH)) {
+//                    attendanceThisMonth = attendanceThisMonth + 1;
+//                  }
+//
+//                } catch (ParseException e) {
+//                  e.printStackTrace();
+//                }
+//              }
+//            }
+//            attended.setText(String.valueOf(attendanceThisMonth));
+//            totalThisMonth.setText("/"+String.valueOf(calendarToday.getActualMaximum(Calendar.DAY_OF_MONTH)));
+//            loadBlogList(apiService);
+//
+//
+//          }
+//
+//          @Override
+//          public void onError(Throwable e) {
+//            if (progressDialog.isShowing() && this != null) {
+//              progressDialog.dismiss();
+//            }
+//            Log.d("Response", e.getMessage());
+//            Toast.makeText(homeActivity,"Something went wrong. Please try again later.", Toast.LENGTH_LONG).show();
+//
+//          }
+//
+//          @Override
+//          public void onComplete() {
+//
+//          }
+//        });
+//
+//
+//  }
+void getAttendance() {
+  ApiService apiService = RetroClient.getApiService(myPrefs.getString("token", ""), getContext().getApplicationContext());
+  apiService.getAttendance("/api/v1/cms/attendance?user=" + myPrefs.getString("user_id", "") + "&page=1&perPageCount=10000").subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<ItemParent>() {
+    @Override
+    public void accept(ItemParent itemParent) throws Exception {
+
+      List<Attendance> value=itemParent.getAttendance();
+      SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss.SSS'Z'");
+      sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
+
+      Date attendanceDate = new Date();
+      Calendar calendar=Calendar.getInstance();
+      Calendar calendarToday=Calendar.getInstance();
 
 
-    apiService.getAttendance().subscribeOn(
-        Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
-        new Observer<ItemParent>() {
-          @Override
-          public void onSubscribe(Disposable d) {
-            progressDialog = new ProgressDialog(getContext());
-            progressDialog.setMessage("Loading....");
-            progressDialog.show();
-            progressDialog.setCancelable(false);
-          }
+      int attendanceThisMonth=0;
+      for(int i=0;i<value.size();i++){
 
-          @Override
-          public void onNext(ItemParent itemParent) {
-
-            List<Attendance> value=itemParent.getAttendance();
-
-
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss.SSS'Z'");
-            sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
-
-            Date attendanceDate = new Date();
-            Calendar calendar=Calendar.getInstance();
-            Calendar calendarToday=Calendar.getInstance();
-
-
-            int attendanceThisMonth=0;
-            for(int i=0;i<value.size();i++){
-
-              if(value.get(i).getStatus()==true) {
-                try {
-                  attendanceDate = sdf.parse(value.get(i).getModifiedAt());
-                  calendar.setTime(attendanceDate);
-                  if (calendar.get(Calendar.MONTH) == calendarToday
-                      .get(Calendar.MONTH)) {
-                    attendanceThisMonth = attendanceThisMonth + 1;
-                  }
-
-                } catch (ParseException e) {
-                  e.printStackTrace();
-                }
-              }
+        if(value.get(i).getStatus()==true) {
+          try {
+            attendanceDate = sdf.parse(value.get(i).getModifiedAt());
+            calendar.setTime(attendanceDate);
+            if (calendar.get(Calendar.MONTH) == calendarToday
+                    .get(Calendar.MONTH)) {
+              attendanceThisMonth = attendanceThisMonth + 1;
             }
-            attended.setText(String.valueOf(attendanceThisMonth));
-            totalThisMonth.setText("/"+String.valueOf(calendarToday.getActualMaximum(Calendar.DAY_OF_MONTH)));
-            loadBlogList(apiService);
 
 
+          } catch (ParseException e) {
+            e.printStackTrace();
           }
+        }
+      }
+      attended.setText(String.valueOf(attendanceThisMonth));
 
-          @Override
-          public void onError(Throwable e) {
-            if (progressDialog.isShowing() && this != null) {
-              progressDialog.dismiss();
-            }
-            Log.d("Response", e.getMessage());
-            Toast.makeText(homeActivity,"Something went wrong. Please try again later.", Toast.LENGTH_LONG).show();
+      totalThisMonth.setText("/"+String.valueOf(calendarToday.getActualMaximum(Calendar.DAY_OF_MONTH)));
 
-          }
+      loadBlogList(apiService);
+    }
+  });
 
-          @Override
-          public void onComplete() {
-
-          }
-        });
-
-
-  }
+}
 
 
 
@@ -254,14 +299,15 @@ public class HomeFragment extends Fragment {
         new Observer<ItemParent>() {
           @Override
           public void onSubscribe(Disposable d) {
+
           }
 
           @Override
           public void onNext(ItemParent itemParent) {
 
-            if (progressDialog.isShowing() && this != null) {
-              progressDialog.dismiss();
-            }
+//            if (progressDialog.isShowing() && this != null) {
+//              progressDialog.dismiss();
+//            }
 
             List<Feed> value=itemParent.getFeeds();
 

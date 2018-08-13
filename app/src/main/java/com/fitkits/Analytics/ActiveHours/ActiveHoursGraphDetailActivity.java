@@ -95,7 +95,7 @@ public static TextView average,averageTitle;
 
   void getActiveHoursAggregateWeekly() {
     ApiService apiService = RetroClient
-        .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""), getApplicationContext());
+        .getApiService(myPrefs.getString("token", ""), getApplicationContext());
 
     apiService.getActiveHoursAggregateMonthly(myPrefs.getString("user_id","")).subscribeOn(
         Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
@@ -146,7 +146,7 @@ public static TextView average,averageTitle;
 
   void getActiveHoursAggregateMonthly() {
     ApiService apiService = RetroClient
-        .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""), getApplicationContext());
+        .getApiService(myPrefs.getString("token", ""), getApplicationContext());
 
     apiService.getActiveHoursAggregateQuarterly(myPrefs.getString("user_id","")).subscribeOn(
         Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
@@ -189,7 +189,7 @@ public static TextView average,averageTitle;
 
   void getActiveHoursAggregateQuarterly() {
     ApiService apiService = RetroClient
-        .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""), getApplicationContext());
+        .getApiService(myPrefs.getString("token", ""), getApplicationContext());
 
     apiService.getActiveHoursAggregateYearly(myPrefs.getString("user_id","")).subscribeOn(
         Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
@@ -257,7 +257,7 @@ public static TextView average,averageTitle;
 
   void getActiveHoursAggregateYearly() {
     ApiService apiService = RetroClient
-        .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""), getApplicationContext());
+        .getApiService(myPrefs.getString("token", ""), getApplicationContext());
 
     apiService.getActiveHoursAggregateAllYear(myPrefs.getString("user_id","")).subscribeOn(
         Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(

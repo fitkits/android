@@ -164,7 +164,7 @@ public class MyTransformationActivity extends AppCompatActivity {
 
   void getProfileDetail() {
     apiService = RetroClient
-        .getApiService(myPrefs.getString("mobileNumber", ""), myPrefs.getString("otp", ""),
+        .getApiService(myPrefs.getString("token", ""),
             getApplicationContext());
     apiService.getUserProfile("/api/v1/cms/users/" + myPrefs.getString("user_id", "")).subscribeOn(
         Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
@@ -228,7 +228,7 @@ public class MyTransformationActivity extends AppCompatActivity {
   }
   void updateProfileDetail(String selectedImage) {
     apiService = RetroClient
-        .getApiService(myPrefs.getString("mobileNumber", ""), myPrefs.getString("otp", ""),
+        .getApiService(myPrefs.getString("token", ""),
             getApplicationContext());
     File file = new File(selectedImage);
     Log.d("URI", "Filename " + file.getName());

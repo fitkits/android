@@ -107,7 +107,7 @@ public class GoalDataFragment extends Fragment {
     void getWeightAggregate(Date stDate,Date enDate) {
 
         ApiService apiService= RetroClient
-            .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""),getActivity().getApplicationContext());
+            .getApiService(myPrefs.getString("token", ""),getActivity().getApplicationContext());
 
         SimpleDateFormat formatNew = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
         formatNew.setTimeZone(TimeZone.getTimeZone("UTC"));

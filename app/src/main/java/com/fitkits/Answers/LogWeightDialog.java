@@ -240,7 +240,7 @@ String current;
 
     void networkSync(WeightAnswer weightAnswer){
         ApiService apiService= RetroClient
-            .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""),getActivity().getApplicationContext());
+            .getApiService(myPrefs.getString("token", ""),getActivity().getApplicationContext());
 
         apiService.logWeight(weightAnswer)
             .subscribeOn(

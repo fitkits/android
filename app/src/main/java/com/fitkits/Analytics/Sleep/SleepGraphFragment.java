@@ -327,7 +327,7 @@ int i=3;
 
     void getSleepAggregateMonthly() {
         ApiService apiService = RetroClient
-            .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""), getContext().getApplicationContext());
+            .getApiService(myPrefs.getString("token", ""), getContext().getApplicationContext());
 
         apiService.getSleepAggregateMonthly(myPrefs.getString("user_id","")).subscribeOn(
             Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
@@ -491,7 +491,7 @@ float sum=0;
 
   void getSleepAggregateQuaterly() {
     ApiService apiService = RetroClient
-        .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""), getContext().getApplicationContext());
+        .getApiService(myPrefs.getString("token", ""), getContext().getApplicationContext());
 
     apiService.getSleepAggregateQuarterly(myPrefs.getString("user_id","")).subscribeOn(
         Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
@@ -628,7 +628,7 @@ float sum=0;
 
   void getSleepAggregateYearly() {
     ApiService apiService = RetroClient
-        .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""), getContext().getApplicationContext());
+        .getApiService(myPrefs.getString("token", ""), getContext().getApplicationContext());
 
     apiService.getSleepAggregateYearly(myPrefs.getString("user_id","")).subscribeOn(
         Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
@@ -742,7 +742,7 @@ float sum=0;
   }
 
   void getSleepAggregateWeekly(Date  stDate,Date enDate) {
-    ApiService apiService=RetroClient.getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""),getContext().getApplicationContext());
+    ApiService apiService=RetroClient.getApiService(myPrefs.getString("token", ""),getContext().getApplicationContext());
 
     SimpleDateFormat formatUTC = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
     formatUTC.setTimeZone(TimeZone.getTimeZone("UTC"));

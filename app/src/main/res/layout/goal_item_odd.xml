@@ -92,7 +92,7 @@
                           android:layout_height="wrap_content"
                           android:textSize="12sp"
                           android:textColor="@color/black40"
-                          android:text="Let's track everything you cdvdveat throughout the day."
+                          android:text="Set yourself a calorie goal. Stay within the limits daily, go!"
                           />
 
                     </LinearLayout>

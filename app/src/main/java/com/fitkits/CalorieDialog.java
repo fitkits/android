@@ -212,7 +212,7 @@ public class CalorieDialog extends BlurDialogFragment {
     }
 
     void setCalorieGoal(float calorieGoal)  {
-        apiService=RetroClient.getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""),getActivity().getApplicationContext());
+        apiService=RetroClient.getApiService(myPrefs.getString("token", ""),getActivity().getApplicationContext());
         CaloriesPerDay caloriesPerDay=new CaloriesPerDay(calorieGoal);
         Goals goal=new Goals(caloriesPerDay);
         User user_profile = new User(goal);

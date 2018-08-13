@@ -253,7 +253,7 @@ public class LogWaterDialog extends BlurDialogFragment {
 
     void networkSync(WaterAnswer waterAnswer){
         ApiService apiService= RetroClient
-            .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""),getActivity().getApplicationContext());
+            .getApiService(myPrefs.getString("token", ""),getActivity().getApplicationContext());
         apiService.logWater(waterAnswer)
             .subscribeOn(
                 Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(

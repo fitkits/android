@@ -92,7 +92,7 @@ public static LinearLayout disable_overlay;
       @Override
       public void onClick(View view) {
 
-        final ApiService apiService = RetroClient.getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""),getApplicationContext());
+        final ApiService apiService = RetroClient.getApiService(myPrefs.getString("token", ""),getApplicationContext());
 
         String gender="";
         String ht="";
@@ -116,6 +116,7 @@ public static LinearLayout disable_overlay;
           foodPref="VEG";
         if(flagNonVeg)
           foodPref="NON-VEG";
+        //
         //User_Profile user_profile=new User_Profile(myPrefs.getString("name",""),bloodGroupList.get(blood_group.getSelectedItemPosition()),gender,yearList.get(year.getSelectedItemPosition())+"-01-01T00:00:01.000Z",ht,weight.getText().toString(),foodPref);
         com.fitkits.Model.User user_profile=new User(bloodGroupList.get(blood_group.getSelectedItemPosition()),gender,yearList.get(year.getSelectedItemPosition())+"-01-01T00:00:01.000Z",ht,weight.getText().toString(),foodPref);
         apiService.updateProfile("/api/v1/cms/users/"+myPrefs.getString("user_id",""),user_profile).subscribeOn(

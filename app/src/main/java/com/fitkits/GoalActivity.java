@@ -42,7 +42,7 @@ public class GoalActivity extends AppCompatActivity implements CalorieDialog.Int
   @Override
   public void onBackPressed() {
 
-    Toast.makeText(this,"please select the subsription ",Toast.LENGTH_SHORT);
+   finish();
 
   }
   @Override
@@ -58,9 +58,7 @@ public class GoalActivity extends AppCompatActivity implements CalorieDialog.Int
     back.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View view) {
-        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
+       finish();
       }
     });
     realmUI = Realm.getDefaultInstance();
@@ -157,7 +155,7 @@ public class GoalActivity extends AppCompatActivity implements CalorieDialog.Int
 
   }
     public void getGoals(){
-      final ApiService apiService = RetroClient.getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""),getApplicationContext());
+      final ApiService apiService = RetroClient.getApiService(myPrefs.getString("token", ""),getApplicationContext());
       apiService.getUserProfile("/api/v1/cms/users/"+myPrefs.getString("user_id","")).subscribeOn(
         Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<User>() {
           @Override

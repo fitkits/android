@@ -81,7 +81,7 @@ public class RegistrationDialog extends BlurDialogFragment {
     }
 
     public void sendOtp(String name,String mobileNumber){
-        final ApiService apiService = RetroClient.getApiService("","",getActivity().getApplicationContext());
+        final ApiService apiService = RetroClient.getApiService("",getActivity().getApplicationContext());
 
         OTP user_=new OTP(mobileNumber);
         apiService.sendOTP(user_).subscribeOn(

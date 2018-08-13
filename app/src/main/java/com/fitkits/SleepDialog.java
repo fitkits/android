@@ -314,7 +314,7 @@ public class SleepDialog extends BlurDialogFragment {
         SleepDurationPerDay sleepDurationPerDay=new SleepDurationPerDay(bedTimeString,wakeupTimeString,Integer.valueOf(sleephours));
         Goals goals=new Goals(sleepDurationPerDay);
 
-        apiService=RetroClient.getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""),getActivity().getApplicationContext());
+        apiService=RetroClient.getApiService(myPrefs.getString("token", ""),getActivity().getApplicationContext());
         com.fitkits.Model.User user_profile = new com.fitkits.Model.User(goals);
 
         apiService.updateProfile("/api/v1/cms/users/" + myPrefs.getString("user_id", ""), user_profile)

@@ -95,7 +95,8 @@
                             android:layout_marginTop="10dp"
                             android:textColor="#000000"
                             android:gravity="end"
-                            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ornare ipsum ac mattis aliquam. In nec tempus tortor."
+                            android:text="You don’t need endless time and perfect conditions. Do it now. Do it today. And we’re done!
+"
                             />
                            
                         </LinearLayout>

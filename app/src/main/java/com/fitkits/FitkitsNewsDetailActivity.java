@@ -74,7 +74,7 @@ public class FitkitsNewsDetailActivity extends AppCompatActivity {
   }
 
   void loadBlogDetail(String blog_id){
-ApiService apiService=RetroClient.getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""),getApplicationContext());
+ApiService apiService=RetroClient.getApiService(myPrefs.getString("token", ""),getApplicationContext());
     apiService.getFeedDetail("/api/v1/cms/feeds/"+blog_id).subscribeOn(
         Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
         new Observer<Feed>() {

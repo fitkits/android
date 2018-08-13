@@ -95,7 +95,8 @@
                             android:layout_marginTop="10dp"
                             android:textColor="#000000"
                             android:gravity="end"
-                            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ornare ipsum ac mattis aliquam. In nec tempus tortor."
+                            android:text="You’re only one workout away from a good mood. And only one step away from completing this, yay!
+"
                             />
                            
                         </LinearLayout>

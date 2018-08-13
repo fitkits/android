@@ -92,7 +92,7 @@ ProgressDialog progressDialog;
   }
 
   void getProfileDetail(){
-    apiService = RetroClient.getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""),getApplicationContext());
+    apiService = RetroClient.getApiService(myPrefs.getString("token", ""),getApplicationContext());
 
 
     apiService.getUserProfile("/api/v1/cms/users/"+myPrefs.getString("user_id","")).subscribeOn(

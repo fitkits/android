@@ -225,7 +225,7 @@ public class WeightGraphActivity extends AppCompatActivity implements LogWeightD
 
   }
   void getWeightAggregate(Date stDate,Date enDate,List<List<String>> weeksinMonth,int from) {
-    ApiService apiService=RetroClient.getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""),getApplicationContext());
+    ApiService apiService=RetroClient.getApiService(myPrefs.getString("token", ""),getApplicationContext());
 
     SimpleDateFormat formatUTC = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
     formatUTC.setTimeZone(TimeZone.getTimeZone("UTC"));

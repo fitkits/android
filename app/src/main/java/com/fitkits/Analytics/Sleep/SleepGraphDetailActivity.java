@@ -92,7 +92,7 @@ public static TextView average,averageTitle;
 
   void getSleepAggregateWeekly() {
     ApiService apiService = RetroClient
-        .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""), getApplicationContext());
+        .getApiService(myPrefs.getString("token", ""), getApplicationContext());
 
     apiService.getSleepAggregateMonthly(myPrefs.getString("user_id","")).subscribeOn(
         Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
@@ -143,7 +143,7 @@ public static TextView average,averageTitle;
 
   void getSleepAggregateMonthly() {
     ApiService apiService = RetroClient
-        .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""), getApplicationContext());
+        .getApiService(myPrefs.getString("token", ""), getApplicationContext());
 
     apiService.getSleepAggregateQuarterly(myPrefs.getString("user_id","")).subscribeOn(
         Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
@@ -186,7 +186,7 @@ public static TextView average,averageTitle;
 
   void getSleepAggregateQuarterly() {
     ApiService apiService = RetroClient
-        .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""), getApplicationContext());
+        .getApiService(myPrefs.getString("token", ""), getApplicationContext());
 
     apiService.getSleepAggregateYearly(myPrefs.getString("user_id","")).subscribeOn(
         Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
@@ -254,7 +254,7 @@ public static TextView average,averageTitle;
 
   void getSleepAggregateYearly() {
     ApiService apiService = RetroClient
-        .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""), getApplicationContext());
+        .getApiService(myPrefs.getString("token", ""), getApplicationContext());
 
     apiService.getSleepAggregateAllYear(myPrefs.getString("user_id","")).subscribeOn(
         Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(

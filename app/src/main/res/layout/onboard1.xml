@@ -95,7 +95,8 @@
                             android:layout_marginTop="10dp"
                             android:textColor="#000000"
                             android:gravity="end"
-                            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ornare ipsum ac mattis aliquam. In nec tempus tortor."
+                            android:text="Always remember, you’re working on yourself for yourself
+                             by yourself. Let’s get started? "
                             />
                            
                         </LinearLayout>

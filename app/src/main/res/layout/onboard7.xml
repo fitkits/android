@@ -100,9 +100,9 @@
                             android:layout_marginTop="5dp"
                             android:textColor="#000000"
                             android:gravity="center_horizontal"
-                            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ornare ipsum ac mattis aliquam. In nec tempus tortor. mattis aliquam.
+                            android:text="The last 3 or 4 reps is what makes the muscles grow. This well of pain divides the champion from someone else who is not a champion."
 
-In nec tempus tortor."
+
                             />
                         </LinearLayout>
                 </android.support.v7.widget.CardView>

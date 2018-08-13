@@ -95,7 +95,7 @@
                             android:layout_marginTop="10dp"
                             android:textColor="#000000"
                             android:gravity="end"
-                            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ornare ipsum ac mattis aliquam. In nec tempus tortor."
+                            android:text="That feeling when you know you are a part of something amazing and it just keeps getting better? Soon. For now, how much do you weigh?"
                             />
                            
                         </LinearLayout>

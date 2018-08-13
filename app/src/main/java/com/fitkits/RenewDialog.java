@@ -59,7 +59,7 @@ TextView skip,remainDays;
                 if(getArguments()!=null&&getArguments().getString("start").equals("1"))
                 intent.putExtra("start","1");
                 startActivity(intent);
-                getActivity().finish();
+                //getActivity().finish();
             }
         });
         skip.setOnClickListener(new OnClickListener() {

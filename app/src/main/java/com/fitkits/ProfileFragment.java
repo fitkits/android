@@ -109,7 +109,7 @@ ApiService apiService;
 
 
 
-        apiService = RetroClient.getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""),getActivity());
+        apiService = RetroClient.getApiService(myPrefs.getString("token", ""),getActivity());
 
 
         apiService.getUserProfile("/api/v1/cms/users/"+myPrefs.getString("user_id","")).subscribeOn(
@@ -124,7 +124,7 @@ ApiService apiService;
                   public void onNext(User value) {
 //
                       FreshchatUser user = Freshchat.getInstance(getActivity()).getUser();
-                      user.setFirstName("John"+value.getName()).setPhone("0091", ""+value.getMobileNumber());
+                      user.setFirstName(""+value.getName()).setPhone("0091", ""+value.getMobileNumber());
                       Freshchat.getInstance(getActivity()).setUser(user);
 
 
@@ -189,7 +189,7 @@ ApiService apiService;
   void getRenewDetail(){
 
 
-    ApiService apiService=RetroClient.getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""),getActivity().getApplicationContext());
+    ApiService apiService=RetroClient.getApiService(myPrefs.getString("token", ""),getActivity().getApplicationContext());
 
     apiService.getSubscriptions("/api/v1/cms/subscriptions?user="+myPrefs.getString("user_id","")).subscribeOn(
         Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
@@ -262,7 +262,7 @@ ApiService apiService;
               progressDialog.dismiss();
             }
             Log.d("Response",e.getMessage());
-            Toast.makeText(getActivity(),"Something went wrong. Please try again later.",Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(),"Something went wrong. Please try again later3.",Toast.LENGTH_LONG).show();
 
           }
 
@@ -358,7 +358,7 @@ ApiService apiService;
   void getRenewDetail1() {
 
 
-    ApiService apiService = RetroClient.getApiService(myPrefs.getString("mobileNumber", ""), myPrefs.getString("otp", ""), getActivity().getApplicationContext());
+    ApiService apiService = RetroClient.getApiService(myPrefs.getString("token", ""), getActivity().getApplicationContext());
 
     apiService.getSubscriptions("/api/v1/cms/subscriptions?user=" + myPrefs.getString("user_id", "")).subscribeOn(
             Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(

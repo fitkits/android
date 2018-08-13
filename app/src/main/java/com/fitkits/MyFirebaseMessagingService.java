@@ -16,6 +16,7 @@ import com.firebase.jobdispatcher.Constraint;
 import com.firebase.jobdispatcher.FirebaseJobDispatcher;
 import com.firebase.jobdispatcher.GooglePlayDriver;
 import com.firebase.jobdispatcher.Job;
+import com.freshchat.consumer.sdk.Freshchat;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
@@ -36,6 +37,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             Log.d(TAG, "Message data payload: " + remoteMessage.getData());
             sendNotification(remoteMessage.getData().get("message"));
 
+        }
+        if (Freshchat.isFreshchatNotification(remoteMessage)) {
+            Freshchat.getInstance(this).handleFcmMessage(remoteMessage);
         }
 
         // Check if message contains a notification payload.

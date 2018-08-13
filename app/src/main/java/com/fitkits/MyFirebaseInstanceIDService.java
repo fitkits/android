@@ -6,6 +6,7 @@ import android.util.Log;
 import android.widget.Toast;
 import com.fitkits.Model.*;
 import com.fitkits.Model.User;
+import com.freshchat.consumer.sdk.Freshchat;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;
 import io.reactivex.Observer;
@@ -23,6 +24,7 @@ public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
     @Override
     public void onTokenRefresh() {
         String token = FirebaseInstanceId.getInstance().getToken();
+        Freshchat.getInstance(this).setPushRegistrationToken(token);
         Log.d(TAG, "Refreshed token: " + token);
         myPrefs= PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         sendRegistrationToServer(token);
@@ -30,7 +32,7 @@ public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
     }
     private void sendRegistrationToServer(String token) {
         // TODO: Implement this method to send token to your app server.
-        ApiService apiService = RetroClient.getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""),getApplicationContext());
+        ApiService apiService = RetroClient.getApiService(myPrefs.getString("token", ""),getApplicationContext());
         User user=new User(token);
         apiService.updateProfile("/api/v1/cms/users/"+myPrefs.getString("user_id",""),user).subscribeOn(
             Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(

@@ -320,7 +320,7 @@ int i=3;
 
     void getCalorieAggregateMonthly() {
         ApiService apiService = RetroClient
-            .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""), getContext().getApplicationContext());
+            .getApiService(myPrefs.getString("token", ""), getContext().getApplicationContext());
 
         apiService.getCalorieAggregateMonthly(myPrefs.getString("user_id","")).subscribeOn(
             Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
@@ -482,7 +482,7 @@ float sum=0;
 
   void getCalorieAggregateQuaterly() {
     ApiService apiService = RetroClient
-        .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""), getContext().getApplicationContext());
+        .getApiService(myPrefs.getString("token", ""), getContext().getApplicationContext());
 
     apiService.getCalorieAggregateQuarterly(myPrefs.getString("user_id","")).subscribeOn(
         Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
@@ -619,7 +619,7 @@ float sum=0;
 
   void getCalorieAggregateYearly() {
     ApiService apiService = RetroClient
-        .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""), getContext().getApplicationContext());
+        .getApiService(myPrefs.getString("token", ""), getContext().getApplicationContext());
 
     apiService.getCalorieAggregateYearly(myPrefs.getString("user_id","")).subscribeOn(
         Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
@@ -733,7 +733,7 @@ float sum=0;
   }
 
   void getCalorieAggregateWeekly(Date  stDate,Date enDate) {
-    ApiService apiService=RetroClient.getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""),getContext().getApplicationContext());
+    ApiService apiService=RetroClient.getApiService(myPrefs.getString("token", ""),getContext().getApplicationContext());
 
     SimpleDateFormat formatUTC = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
     formatUTC.setTimeZone(TimeZone.getTimeZone("UTC"));

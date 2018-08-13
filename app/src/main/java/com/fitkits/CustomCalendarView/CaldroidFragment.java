@@ -45,6 +45,7 @@ import hirondelle.date4j.DateTime;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import java.lang.reflect.Field;
 import java.text.DecimalFormat;
@@ -1453,6 +1454,7 @@ public class CaldroidFragment extends DialogFragment {
 
         // Setup pageChangeListener
         dateViewPager.setOnPageChangeListener(pageChangeListener);
+       // getw();
 
         getAttendance();
         getAttendanceAvg();
@@ -1668,89 +1670,89 @@ public class CaldroidFragment extends DialogFragment {
     }
 
 
-    void getAttendance() {
-        ApiService apiService= RetroClient.getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""),getContext().getApplicationContext());
-
-
-        apiService.getAttendance().subscribeOn(
-            Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
-            new Observer<ItemParent>() {
-                @Override
-                public void onSubscribe(Disposable d) {
-                    progressDialog = new ProgressDialog(getContext());
-                    progressDialog.setMessage("Loading....");
-                    progressDialog.show();
-                    progressDialog.setCancelable(false);
-                }
-
-                @Override
-                public void onNext(ItemParent itemParent) {
-                    if (progressDialog.isShowing() && this != null) {
-                        progressDialog.dismiss();
-                    }
-
-                    List<Attendance> value=itemParent.getAttendance();
-
-                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss.SSS'Z'");
-                    sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
-
-                    Date attendanceDate = new Date();
-                    Calendar calendar=Calendar.getInstance();
-                    Calendar calendarToday=Calendar.getInstance();
-
-
-                    int attendanceThisMonth=0;
-                    for(int i=0;i<value.size();i++){
-
-                        if(value.get(i).getStatus()==true) {
-                            try {
-                                attendanceDate = sdf.parse(value.get(i).getModifiedAt());
-                                calendar.setTime(attendanceDate);
-                                if (calendar.get(Calendar.MONTH) == calendarToday
-                                    .get(Calendar.MONTH)) {
-                                    attendanceThisMonth = attendanceThisMonth + 1;
-                                }
-
-                                selectedDates.add(new DateTime(calendar.get(Calendar.YEAR),
-                                    calendar.get(Calendar.MONTH) + 1,
-                                    calendar.get(Calendar.DAY_OF_MONTH), 0, 0, 0, 0));
-
-                            } catch (ParseException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }
-                    attended.setText(String.valueOf(attendanceThisMonth));
-
-                    totalThisMonth.setText("/"+String.valueOf(calendarToday.getActualMaximum(Calendar.DAY_OF_MONTH)));
-
-                    pageChangeListener.onPageSelected(pageChangeListener.currentPage);
-                }
-
-                @Override
-                public void onError(Throwable e) {
-                    if (progressDialog.isShowing() && this != null) {
-                        progressDialog.dismiss();
-                    }
-                    Log.d("Response", e.getMessage());
-                    Toast.makeText(getContext(),
-                        "Something went wrong. Please try again later.",
-                        Toast.LENGTH_LONG).show();
-
-                }
-
-                @Override
-                public void onComplete() {
-
-                }
-            });
-
-
-    }
+//    void getAttendance() {
+//        ApiService apiService= RetroClient.getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""),getContext().getApplicationContext());
+//
+//
+//        apiService.getAttendance().subscribeOn(
+//            Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
+//            new Observer<ItemParent>() {
+//                @Override
+//                public void onSubscribe(Disposable d) {
+//                    progressDialog = new ProgressDialog(getContext());
+//                    progressDialog.setMessage("Loading....");
+//                    progressDialog.show();
+//                    progressDialog.setCancelable(false);
+//                }
+//
+//                @Override
+//                public void onNext(ItemParent itemParent) {
+//                    if (progressDialog.isShowing() && this != null) {
+//                        progressDialog.dismiss();
+//                    }
+//
+//                    List<Attendance> value=itemParent.getAttendance();
+//
+//                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss.SSS'Z'");
+//                    sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
+//
+//                    Date attendanceDate = new Date();
+//                    Calendar calendar=Calendar.getInstance();
+//                    Calendar calendarToday=Calendar.getInstance();
+//
+//
+//                    int attendanceThisMonth=0;
+//                    for(int i=0;i<value.size();i++){
+//
+//                        if(value.get(i).getStatus()==true) {
+//                            try {
+//                                attendanceDate = sdf.parse(value.get(i).getModifiedAt());
+//                                calendar.setTime(attendanceDate);
+//                                if (calendar.get(Calendar.MONTH) == calendarToday
+//                                    .get(Calendar.MONTH)) {
+//                                    attendanceThisMonth = attendanceThisMonth + 1;
+//                                }
+//
+//                                selectedDates.add(new DateTime(calendar.get(Calendar.YEAR),
+//                                    calendar.get(Calendar.MONTH) + 1,
+//                                    calendar.get(Calendar.DAY_OF_MONTH), 0, 0, 0, 0));
+//
+//                            } catch (ParseException e) {
+//                                e.printStackTrace();
+//                            }
+//                        }
+//                    }
+//                    attended.setText(String.valueOf(attendanceThisMonth));
+//
+//                    totalThisMonth.setText("/"+String.valueOf(calendarToday.getActualMaximum(Calendar.DAY_OF_MONTH)));
+//
+//                    pageChangeListener.onPageSelected(pageChangeListener.currentPage);
+//                }
+//
+//                @Override
+//                public void onError(Throwable e) {
+//                    if (progressDialog.isShowing() && this != null) {
+//                        progressDialog.dismiss();
+//                    }
+//                    Log.d("Response", e.getMessage());
+//                    Toast.makeText(getContext(),
+//                        "Something went wrong. Please try again later.",
+//                        Toast.LENGTH_LONG).show();
+//
+//                }
+//
+//                @Override
+//                public void onComplete() {
+//
+//                }
+//            });
+//
+//
+//    }
 
 
     void getAttendanceAvg() {
-        ApiService apiService= RetroClient.getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""),getContext().getApplicationContext());
+        ApiService apiService= RetroClient.getApiService(myPrefs.getString("token", ""),getContext().getApplicationContext());
 
 
         apiService.getAttendanceAvg("/api/v1/analytics/attendance?type=totalPercentage&status=true&user="+myPrefs.getString("user_id","")).subscribeOn(
@@ -1788,6 +1790,76 @@ public class CaldroidFragment extends DialogFragment {
             });
 
 
+
     }
+    void getAttendance() {
+        ApiService apiService = RetroClient.getApiService(myPrefs.getString("token", ""), getContext().getApplicationContext());
+        apiService.getAttendance("/api/v1/cms/attendance?user=" + myPrefs.getString("user_id", "") + "&page=1&perPageCount=10000").subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<ItemParent>() {
+            @Override
+            public void accept(ItemParent itemParent) throws Exception {
+
+                List<Attendance> value=itemParent.getAttendance();
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss.SSS'Z'");
+                sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
+
+                Date attendanceDate = new Date();
+                Calendar calendar=Calendar.getInstance();
+                Calendar calendarToday=Calendar.getInstance();
+
+
+                int attendanceThisMonth=0;
+                for(int i=0;i<value.size();i++){
+
+                    if(value.get(i).getStatus()==true) {
+                        try {
+                            attendanceDate = sdf.parse(value.get(i).getModifiedAt());
+                            calendar.setTime(attendanceDate);
+                            if (calendar.get(Calendar.MONTH) == calendarToday
+                                    .get(Calendar.MONTH)) {
+                                attendanceThisMonth = attendanceThisMonth + 1;
+                            }
+
+                            selectedDates.add(new DateTime(calendar.get(Calendar.YEAR),
+                                    calendar.get(Calendar.MONTH) + 1,
+                                    calendar.get(Calendar.DAY_OF_MONTH), 0, 0, 0, 0));
+
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                attended.setText(String.valueOf(attendanceThisMonth));
+
+                totalThisMonth.setText("/"+String.valueOf(calendarToday.getActualMaximum(Calendar.DAY_OF_MONTH)));
+
+                pageChangeListener.onPageSelected(pageChangeListener.currentPage);
+            }
+        });
+
+    }
+// .observeOn(AndroidSchedulers.mainThread()).subscribe(
+//                new Observer<ItemParent>() {
+//                    @Override
+//                    public void onSubscribe(Disposable d) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onNext(ItemParent value) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onComplete() {
+//
+//                    }
+//                }
+//        )
+
 
 }

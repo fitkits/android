@@ -63,7 +63,7 @@ public class GoalAdapter extends RecyclerView.Adapter<GoalAdapter.ShowViewHolder
        // Picasso.with(context).load(Constants.base_url+userMasterGoalList.get(position).getImageURL()).into(holder.goalIcon);
 
 if(position==0) {
-    holder.goalIcon.setImageDrawable(context.getResources().getDrawable(R.drawable.popcorn));
+    holder.goalIcon.setImageDrawable(context.getResources().getDrawable(R.drawable.veg));
     holder.goalName.setText("CALORIES");
     DecimalFormat decimalFormat = new DecimalFormat("#.00");
     float cals=userMasterGoal.getGoals().getCaloriesPerDay().getValue();
@@ -83,7 +83,7 @@ if(position==0) {
     if (userMasterGoal.getGoals().getCaloriesPerDay().getValue() == 0) {
         holder.goalValLay.setVisibility(View.GONE);
         holder.goalText.setText("Set a daily calorie goal!");
-        holder.goalDesc.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
+        holder.goalDesc.setText("Set yourself a calorie goal. Stay within the limits daily, go!");
     } else {
         holder.goalValLay.setVisibility(View.VISIBLE);
         holder.goalText.setText("Your daily calorie goal");
@@ -112,7 +112,7 @@ else if(position==1) {
     if (userMasterGoal.getGoals().getActivePerDay().getValue() == 0) {
         holder.goalValLay.setVisibility(View.GONE);
         holder.goalText.setText("Set a daily active hours goal!");
-        holder.goalDesc.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
+        holder.goalDesc.setText("Keep yourself active daily, walk/bicycle wherever possible.");
     } else {
         holder.goalValLay.setVisibility(View.VISIBLE);
         holder.goalText.setText("Your daily active hours goal");
@@ -140,7 +140,7 @@ else if(position==2) {
     if (userMasterGoal.getGoals().getWeight().getValue() == 0) {
         holder.goalValLay.setVisibility(View.GONE);
         holder.goalText.setText("Set a daily weight goal!");
-        holder.goalDesc.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
+        holder.goalDesc.setText("What's your goal weight ");
     } else {
         holder.goalValLay.setVisibility(View.VISIBLE);
         holder.goalText.setText("Your daily weight goal");
@@ -168,7 +168,7 @@ else if(position==3) {
     if (userMasterGoal.getGoals().getSleepDurationPerDay().getValue() == 0) {
         holder.goalValLay.setVisibility(View.GONE);
         holder.goalText.setText("Set a daily sleep goal!");
-        holder.goalDesc.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
+        holder.goalDesc.setText("Sleep is vital. Stick to a routine every night.");
     } else {
         holder.goalValLay.setVisibility(View.VISIBLE);
         holder.goalText.setText("Your daily sleep goal");
@@ -196,7 +196,7 @@ else if(position==4) {
     if (userMasterGoal.getGoals().getWaterConsumptionPerDay().getValue() == 0) {
         holder.goalValLay.setVisibility(View.GONE);
         holder.goalText.setText("Set a daily water goal!");
-        holder.goalDesc.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
+        holder.goalDesc.setText("Keep yourself hydrated, carry a sipper with you always.");
     } else {
         holder.goalValLay.setVisibility(View.VISIBLE);
         holder.goalText.setText("Your daily water goal");

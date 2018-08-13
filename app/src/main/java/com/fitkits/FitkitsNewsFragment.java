@@ -66,7 +66,7 @@ SharedPreferences myPrefs;
     return view;
   }
   void loadBlogList(){
-    ApiService apiService=RetroClient.getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""),getActivity().getApplicationContext());
+    ApiService apiService=RetroClient.getApiService(myPrefs.getString("token", ""),getActivity().getApplicationContext());
 
     apiService.getFeeds().subscribeOn(
         Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(

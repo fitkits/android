@@ -26,12 +26,28 @@ public class User extends RealmObject {
   @SerializedName("__v")
   @Expose
   private Integer v;
+
+  public String getJmt() {
+    return jmt;
+  }
+
+  public void setJmt(String jmt) {
+    this.jmt = jmt;
+  }
+
+  @SerializedName("jwt")
+
+  @Expose
+  private String jmt;
   @SerializedName("fcmRegistrationToken")
   @Expose
   private String fcmRegistrationToken;
   @SerializedName("goals")
   @Expose
   private Goals goals;
+  @SerializedName("pendingMembership")
+  @Expose
+  private PendingMembership pendingMembership;
 
   @SerializedName("endurance")
   @Expose
@@ -113,6 +129,15 @@ public class User extends RealmObject {
   public User(Goals goals){
     this.goals=goals;
   }
+//  public User(String bloodGroup,String gender,String dob,Integer weight,String foodPreference){
+//    this.bloodGroup=bloodGroup;
+//    this.gender=gender;
+//    this.dob=dob;
+//    this.weight=weight;
+//    this.foodPreference=foodPreference;
+//  }
+
+  public User(PendingMembership pendingMembership){this.pendingMembership=pendingMembership;}
 
   public User(String name,Long mobileNumber){
     this.name=name;
@@ -140,6 +165,9 @@ public class User extends RealmObject {
   public void setGoals(Goals goals) {
     this.goals = goals;
   }
+
+  public PendingMembership getPendingMembership(){return pendingMembership;}
+  public void setPendingMembership(PendingMembership pendingMembership){this.pendingMembership=pendingMembership;}
 
   public RealmList<Stats> getImages() {
     return images;
@@ -231,7 +259,7 @@ public class User extends RealmObject {
 
   @Override
   public String toString() {
-    return new ToStringBuilder(this).append("id", id).append("name", name).append("mobileNumber", mobileNumber).append("v", v).append("fcmRegistrationToken", fcmRegistrationToken).append("goals", goals).append("gender", gender).append("modifiedAt", modifiedAt).toString();
+    return new ToStringBuilder(this).append("id", id).append("name", name).append("mobileNumber", mobileNumber).append("v", v).append("fcmRegistrationToken", fcmRegistrationToken).append("goals", goals).append("pendingMembership",pendingMembership).append("gender", gender).append("jwt", jmt).append("modifiedAt", modifiedAt).toString();
   }
 
 }

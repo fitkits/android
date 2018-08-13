@@ -99,7 +99,7 @@ public static TextView average,averageTitle;
 
   void getCalorieAggregateWeekly() {
     ApiService apiService = RetroClient
-        .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""), getApplicationContext());
+        .getApiService(myPrefs.getString("token", ""), getApplicationContext());
 
     apiService.getCalorieAggregateMonthly(myPrefs.getString("user_id","")).subscribeOn(
         Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
@@ -151,7 +151,7 @@ public static TextView average,averageTitle;
 
   void getCalorieAggregateMonthly() {
     ApiService apiService = RetroClient
-        .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""), getApplicationContext());
+        .getApiService(myPrefs.getString("token", ""), getApplicationContext());
 
     apiService.getCalorieAggregateQuarterly(myPrefs.getString("user_id","")).subscribeOn(
         Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
@@ -194,7 +194,7 @@ public static TextView average,averageTitle;
 
   void getCalorieAggregateQuarterly() {
     ApiService apiService = RetroClient
-        .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""), getApplicationContext());
+        .getApiService(myPrefs.getString("token", ""), getApplicationContext());
 
     apiService.getCalorieAggregateYearly(myPrefs.getString("user_id","")).subscribeOn(
         Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
@@ -262,7 +262,7 @@ public static TextView average,averageTitle;
 
   void getCalorieAggregateYearly() {
     ApiService apiService = RetroClient
-        .getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""), getApplicationContext());
+        .getApiService(myPrefs.getString("token", ""), getApplicationContext());
 
     apiService.getCalorieAggregateAllYear(myPrefs.getString("user_id","")).subscribeOn(
         Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(

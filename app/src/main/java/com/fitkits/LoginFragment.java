@@ -76,7 +76,7 @@ SharedPreferences myPrefs;
   }
 
   public void sendOtp(String mobileNumber) {
-    final ApiService apiService = RetroClient.getApiService("","",getActivity().getApplicationContext());
+    final ApiService apiService = RetroClient.getApiService("",getActivity().getApplicationContext());
 
     OTP user_ = new OTP(mobileNumber);
     apiService.sendOTP(user_).subscribeOn(

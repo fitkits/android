@@ -226,7 +226,7 @@ public class WaterDialog extends BlurDialogFragment {
 
     void setWaterGoal(String noc)  {
 
-        ApiService apiService=RetroClient.getApiService(myPrefs.getString("mobileNumber",""),myPrefs.getString("otp",""),getActivity().getApplicationContext());
+        ApiService apiService=RetroClient.getApiService(myPrefs.getString("token", ""),getActivity().getApplicationContext());
 
             WaterConsumptionPerDay waterConsumptionPerDay=new WaterConsumptionPerDay(Integer.valueOf(noc)*250);
             Goals goals=new Goals(waterConsumptionPerDay);
