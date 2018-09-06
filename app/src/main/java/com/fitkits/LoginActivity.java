@@ -176,7 +176,7 @@ public class LoginActivity extends AppCompatActivity {
                             }
                             if (value.size() != 0) {
 
-                                if (daysRemain < 8 && daysRemain>0) {
+                                if (daysRemain < 8 && daysRemain > 0) {
                                     RenewDialog renewDialog = new RenewDialog();
                                     Bundle bundle = new Bundle();
                                     bundle.putLong("daysRemain", daysRemain);
@@ -184,14 +184,14 @@ public class LoginActivity extends AppCompatActivity {
                                     renewDialog.setArguments(bundle);
                                     renewDialog.show(getSupportFragmentManager(), "");
                                 } else {
-                                    if(daysRemain>8){
+                                    if (daysRemain > 8) {
                                         Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                                         // intent.putExtra("start", "1");
                                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                         startActivity(intent);
                                         finish();
 
-                                    }else{
+                                    } else {
                                         Intent intent = new Intent(LoginActivity.this, SubscriptionActivity.class);
                                         intent.putExtra("start", "1");
                                         startActivity(intent);
@@ -257,7 +257,7 @@ public class LoginActivity extends AppCompatActivity {
                     pending.show(getSupportFragmentManager(), "");
                 }
                 //if (pending)
-                if (!pending ) {
+                if (!pending) {
                     getRenewDetail();
 
                 }

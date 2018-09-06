@@ -1,134 +1,135 @@
 package com.fitkits.Model;
 
 
-import com.fitkits.LoginActivity;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
 import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
-import java.util.List;
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 
 public class User extends RealmObject {
 
-  @PrimaryKey
-  @SerializedName("_id")
-  @Expose
-  private String id;
-  @SerializedName("name")
-  @Expose
-  private String name;
-  @SerializedName("mobileNumber")
-  @Expose
-  private Long mobileNumber;
-  @SerializedName("__v")
-  @Expose
-  private Integer v;
+    @PrimaryKey
+    @SerializedName("_id")
+    @Expose
+    private String id;
+    @SerializedName("name")
+    @Expose
+    private String name;
+    @SerializedName("mobileNumber")
+    @Expose
+    private Long mobileNumber;
+    @SerializedName("__v")
+    @Expose
+    private Integer v;
 
-  public String getJmt() {
-    return jmt;
-  }
+    public String getJwt() {
+        return jwt;
+    }
 
-  public void setJmt(String jmt) {
-    this.jmt = jmt;
-  }
+    public void setJwt(String jwt) {
+        this.jwt = jwt;
+    }
 
-  @SerializedName("jwt")
+    @SerializedName("jwt")
+    @Expose
+    private String jwt;
+    @SerializedName("fcmRegistrationToken")
+    @Expose
+    private String fcmRegistrationToken;
+    @SerializedName("goals")
+    @Expose
+    private Goals goals;
+    @SerializedName("pendingMembership")
+    @Expose
+    private PendingMembership pendingMembership;
 
-  @Expose
-  private String jmt;
-  @SerializedName("fcmRegistrationToken")
-  @Expose
-  private String fcmRegistrationToken;
-  @SerializedName("goals")
-  @Expose
-  private Goals goals;
-  @SerializedName("pendingMembership")
-  @Expose
-  private PendingMembership pendingMembership;
-
-  @SerializedName("endurance")
-  @Expose
-  private RealmList<Stats> endurance ;
-  @SerializedName("flex")
-  @Expose
-  private RealmList<Stats> flex;
-  @SerializedName("strength")
-  @Expose
-  private RealmList<Stats> strength ;
-  @SerializedName("images")
-  @Expose
-  private RealmList<Stats> images ;
+    @SerializedName("endurance")
+    @Expose
+    private RealmList<Stats> endurance;
+    @SerializedName("flex")
+    @Expose
+    private RealmList<Stats> flex;
+    @SerializedName("strength")
+    @Expose
+    private RealmList<Stats> strength;
+    @SerializedName("images")
+    @Expose
+    private RealmList<Stats> images;
 
 
-  @SerializedName("dob")
-  @Expose
-  private String dob;
-  @SerializedName("height")
-  @Expose
-  private Double height;
-  @SerializedName("weight")
-  @Expose
-  private Integer weight;
-  @SerializedName("foodPreference")
-  @Expose
-  private String foodPreference;
-  @SerializedName("bloodGroup")
-  @Expose
-  private String bloodGroup;
-  @SerializedName("gender")
-  @Expose
-  private String gender;
-  @SerializedName("modifiedAt")
-  @Expose
-  private String modifiedAt;
+    @SerializedName("dob")
+    @Expose
+    private String dob;
+    @SerializedName("height")
+    @Expose
+    private Double height;
+    @SerializedName("weight")
+    @Expose
+    private Integer weight;
+    @SerializedName("foodPreference")
+    @Expose
+    private String foodPreference;
+    @SerializedName("bloodGroup")
+    @Expose
+    private String bloodGroup;
+    @SerializedName("gender")
+    @Expose
+    private String gender;
+    @SerializedName("modifiedAt")
+    @Expose
+    private String modifiedAt;
 
-  public String getId() {
-    return id;
-  }
+    public String getId() {
+        return id;
+    }
 
-  public void setId(String id) {
-    this.id = id;
-  }
+    public void setId(String id) {
+        this.id = id;
+    }
 
-  public String getName() {
-    return name;
-  }
+    public String getName() {
+        return name;
+    }
 
-  public void setName(String name) {
-    this.name = name;
-  }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-  public Long getMobileNumber() {
-    return mobileNumber;
-  }
+    public Long getMobileNumber() {
+        return mobileNumber;
+    }
 
-  public void setMobileNumber(Long mobileNumber) {
-    this.mobileNumber = mobileNumber;
-  }
+    public void setMobileNumber(Long mobileNumber) {
+        this.mobileNumber = mobileNumber;
+    }
 
-  public Integer getV() {
-    return v;
-  }
+    public Integer getV() {
+        return v;
+    }
 
-  public void setV(Integer v) {
-    this.v = v;
-  }
+    public void setV(Integer v) {
+        this.v = v;
+    }
 
-  public String getFcmRegistrationToken() {
-    return fcmRegistrationToken;
-  }
+    public String getFcmRegistrationToken() {
+        return fcmRegistrationToken;
+    }
 
-  public void setFcmRegistrationToken(String fcmRegistrationToken) {
-    this.fcmRegistrationToken = fcmRegistrationToken;
-  }
-  public User(){
-  }
-  public User(Goals goals){
-    this.goals=goals;
-  }
+    public void setFcmRegistrationToken(String fcmRegistrationToken) {
+        this.fcmRegistrationToken = fcmRegistrationToken;
+    }
+
+    public User() {
+    }
+
+    public User(Goals goals) {
+        this.goals = goals;
+    }
 //  public User(String bloodGroup,String gender,String dob,Integer weight,String foodPreference){
 //    this.bloodGroup=bloodGroup;
 //    this.gender=gender;
@@ -137,130 +138,138 @@ public class User extends RealmObject {
 //    this.foodPreference=foodPreference;
 //  }
 
-  public User(PendingMembership pendingMembership){this.pendingMembership=pendingMembership;}
+    public User(PendingMembership pendingMembership) {
+        this.pendingMembership = pendingMembership;
+    }
 
-  public User(String name,Long mobileNumber){
-    this.name=name;
-    this.mobileNumber=mobileNumber;
-  }
-  public User(String bg, String gender,
-      String dob, String ht, String wt, String foodPref) {
-    this.bloodGroup=bg;
-    this.gender=gender;
-    this.dob=dob;
-    this.height=Double.parseDouble(ht);
-    this.weight=Integer.parseInt(wt);
-    this.foodPreference=foodPref;
+    public User(String name, Long mobileNumber) {
+        this.name = name;
+        this.mobileNumber = mobileNumber;
+    }
 
-  }
+    public User(String bg, String gender,
+                String dob, String ht, String wt, String foodPref) {
+        this.bloodGroup = bg;
+        this.gender = gender;
+        this.dob = dob;
+        this.height = Double.parseDouble(ht);
+        this.weight = Integer.parseInt(wt);
+        this.foodPreference = foodPref;
 
-  public User(String fcmRegistrationToken){
-    this.fcmRegistrationToken=fcmRegistrationToken;
-  }
+    }
 
-  public Goals getGoals() {
-    return goals;
-  }
+    public User(String fcmRegistrationToken) {
+        this.fcmRegistrationToken = fcmRegistrationToken;
+    }
 
-  public void setGoals(Goals goals) {
-    this.goals = goals;
-  }
+    public Goals getGoals() {
+        return goals;
+    }
 
-  public PendingMembership getPendingMembership(){return pendingMembership;}
-  public void setPendingMembership(PendingMembership pendingMembership){this.pendingMembership=pendingMembership;}
+    public void setGoals(Goals goals) {
+        this.goals = goals;
+    }
 
-  public RealmList<Stats> getImages() {
-    return images;
-  }
+    public PendingMembership getPendingMembership() {
+        return pendingMembership;
+    }
 
-  public void setImages(RealmList<Stats> images) {
-    this.images = images;
-  }
+    public void setPendingMembership(PendingMembership pendingMembership) {
+        this.pendingMembership = pendingMembership;
+    }
 
-  public RealmList<Stats> getEndurance() {
-    return endurance;
-  }
+    public RealmList<Stats> getImages() {
+        return images;
+    }
 
-  public void setEndurance(RealmList<Stats> endurance) {
-    this.endurance = endurance;
-  }
+    public void setImages(RealmList<Stats> images) {
+        this.images = images;
+    }
 
-  public RealmList<Stats> getFlex() {
-    return flex;
-  }
+    public RealmList<Stats> getEndurance() {
+        return endurance;
+    }
 
-  public void setFlex(RealmList<Stats> flex) {
-    this.flex = flex;
-  }
+    public void setEndurance(RealmList<Stats> endurance) {
+        this.endurance = endurance;
+    }
 
-  public RealmList<Stats> getStrength() {
-    return strength;
-  }
+    public RealmList<Stats> getFlex() {
+        return flex;
+    }
 
-  public void setStrength(RealmList<Stats> strength) {
-    this.strength = strength;
-  }
+    public void setFlex(RealmList<Stats> flex) {
+        this.flex = flex;
+    }
 
-  public String getGender() {
-    return gender;
-  }
+    public RealmList<Stats> getStrength() {
+        return strength;
+    }
 
-  public void setGender(String gender) {
-    this.gender = gender;
-  }
+    public void setStrength(RealmList<Stats> strength) {
+        this.strength = strength;
+    }
 
-  public String getModifiedAt() {
-    return modifiedAt;
-  }
+    public String getGender() {
+        return gender;
+    }
 
-  public void setModifiedAt(String modifiedAt) {
-    this.modifiedAt = modifiedAt;
-  }
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
 
-  public String getDob() {
-    return dob;
-  }
+    public String getModifiedAt() {
+        return modifiedAt;
+    }
 
-  public void setDob(String dob) {
-    this.dob = dob;
-  }
+    public void setModifiedAt(String modifiedAt) {
+        this.modifiedAt = modifiedAt;
+    }
 
-  public Double getHeight() {
-    return height;
-  }
+    public String getDob() {
+        return dob;
+    }
 
-  public void setHeight(Double height) {
-    this.height = height;
-  }
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
 
-  public Integer getWeight() {
-    return weight;
-  }
+    public Double getHeight() {
+        return height;
+    }
 
-  public void setWeight(Integer weight) {
-    this.weight = weight;
-  }
+    public void setHeight(Double height) {
+        this.height = height;
+    }
 
-  public String getFoodPreference() {
-    return foodPreference;
-  }
+    public Integer getWeight() {
+        return weight;
+    }
 
-  public void setFoodPreference(String foodPreference) {
-    this.foodPreference = foodPreference;
-  }
+    public void setWeight(Integer weight) {
+        this.weight = weight;
+    }
 
-  public String getBloodGroup() {
-    return bloodGroup;
-  }
+    public String getFoodPreference() {
+        return foodPreference;
+    }
 
-  public void setBloodGroup(String bloodGroup) {
-    this.bloodGroup = bloodGroup;
-  }
+    public void setFoodPreference(String foodPreference) {
+        this.foodPreference = foodPreference;
+    }
 
-  @Override
-  public String toString() {
-    return new ToStringBuilder(this).append("id", id).append("name", name).append("mobileNumber", mobileNumber).append("v", v).append("fcmRegistrationToken", fcmRegistrationToken).append("goals", goals).append("pendingMembership",pendingMembership).append("gender", gender).append("jwt", jmt).append("modifiedAt", modifiedAt).toString();
-  }
+    public String getBloodGroup() {
+        return bloodGroup;
+    }
+
+    public void setBloodGroup(String bloodGroup) {
+        this.bloodGroup = bloodGroup;
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this).append("id", id).append("name", name).append("mobileNumber", mobileNumber).append("v", v).append("fcmRegistrationToken", fcmRegistrationToken).append("goals", goals).append("pendingMembership", pendingMembership).append("gender", gender).append("jwt", jwt).append("modifiedAt", modifiedAt).toString();
+    }
 
 }
 
