@@ -265,8 +265,8 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onError(Throwable e) {
-                Toast.makeText(getApplicationContext(), "Please select the number of active hours.", Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(getApplicationContext(), "Something went wrong. Please try again later.", Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
             }
 
             @Override
