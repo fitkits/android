@@ -152,7 +152,7 @@ public class User extends RealmObject {
         this.bloodGroup = bg;
         this.gender = gender;
         this.dob = dob;
-        this.height = Double.parseDouble(ht);
+        this.height = ht.isEmpty() ? 0 : Double.parseDouble(ht);
         this.weight = Integer.parseInt(wt);
         this.foodPreference = foodPref;
 

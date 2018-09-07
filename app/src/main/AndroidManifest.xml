@@ -44,7 +44,7 @@
 
         <meta-data
             android:name="com.razorpay.ApiKey"
-            android:value="rzp_test_EZUc85OddZeYex" />
+            android:value="rzp_live_k8BDqVb0qB2C5K" />
 
         <activity
             android:name=".SubscriptionActivity"

@@ -43,7 +43,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetroClient {
 
-    private static final String ROOT_URL = "http://139.59.80.139";
+    private static final String ROOT_URL = "http://142.93.208.162";
     static String authToken = "";
 
     private static Retrofit getRetrofitInstance(String token, Context context) {

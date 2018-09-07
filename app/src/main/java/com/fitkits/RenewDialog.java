@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.ms_square.etsyblur.BlurConfig;
 import com.ms_square.etsyblur.BlurDialogFragment;
 
@@ -27,7 +28,7 @@ public class RenewDialog extends BlurDialogFragment {
 
 
     Button renew;
-TextView skip,remainDays;
+    TextView skip, remainDays;
 
 
     @Override
@@ -43,10 +44,10 @@ TextView skip,remainDays;
         dialog.getWindow().setGravity(Gravity.BOTTOM);
 
         dialog.getWindow().setLayout(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-        renew=(Button)dialog.findViewById(R.id.renew);
-        skip=(TextView) dialog.findViewById(R.id.skip);
-        remainDays=(TextView) dialog.findViewById(R.id.daysRemain);
-        if(getArguments()!=null){
+        renew = (Button) dialog.findViewById(R.id.renew);
+        skip = (TextView) dialog.findViewById(R.id.skip);
+        remainDays = (TextView) dialog.findViewById(R.id.daysRemain);
+        if (getArguments() != null) {
             remainDays.setText(String.valueOf(getArguments().getLong("daysRemain")));
         }
 
@@ -55,9 +56,9 @@ TextView skip,remainDays;
             @Override
             public void onClick(View view) {
                 dismiss();
-                Intent intent=new Intent(getActivity(), SubscriptionActivity.class);
-                if(getArguments()!=null&&getArguments().getString("start").equals("1"))
-                intent.putExtra("start","1");
+                Intent intent = new Intent(getActivity(), SubscriptionActivity.class);
+                if (getArguments() != null && getArguments().getString("start").equals("1"))
+                    intent.putExtra("start", "1");
                 startActivity(intent);
                 //getActivity().finish();
             }
@@ -65,12 +66,11 @@ TextView skip,remainDays;
         skip.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(getArguments()!=null&&getArguments().getLong("daysRemain")>0) {
+                if (getArguments() != null && getArguments().getLong("daysRemain") > 0) {
                     startActivity(new Intent(getActivity(), GoalActivity.class));
                     getActivity().finish();
-                }
-                else{
-                    Toast.makeText(getActivity(),"Membership due, please continue",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getActivity(), "Membership due, please continue", Toast.LENGTH_SHORT).show();
                 }
 
 
@@ -95,19 +95,15 @@ TextView skip,remainDays;
                 .debug(true)
                 .build();
     }
+
     public interface InterfaceCommunicatorOtp {
-        void  sendRequestCodeOtp();
+        void sendRequestCodeOtp();
     }
+
     @Override
     public void onStop() {
         super.onStop();
     }
-
-
-
-
-
-
 
 
 }

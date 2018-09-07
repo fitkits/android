@@ -24,7 +24,7 @@ import okhttp3.OkHttpClient;
 
 public class Constants {
 
-    public static String base_url = "http://139.59.80.139";
+    public static String base_url = "http://142.93.208.162";
 
     public static boolean isNetworkAvailable(Context context) {
         ConnectivityManager connectivityManager

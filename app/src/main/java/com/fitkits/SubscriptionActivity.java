@@ -386,7 +386,7 @@ public class SubscriptionActivity extends AppCompatActivity implements PaymentRe
         try {
             JSONObject options = new JSONObject();
             options.put("name", "FitKits");
-            options.put("description", "Order #1");
+            options.put("description", "Subscription");
             //You can omit the image option to fetch the image from dashboard
             options.put("image", "https://rzp-mobile.s3.amazonaws.com/images/rzp.png");
             options.put("currency", "INR");
@@ -395,7 +395,7 @@ public class SubscriptionActivity extends AppCompatActivity implements PaymentRe
 
             JSONObject preFill = new JSONObject();
             preFill.put("email", "user@fitkits.com");
-            preFill.put("contact", "9876543210");
+            preFill.put("contact", myPrefs.getString("mobileNumber", ""));
 
             options.put("prefill", preFill);
 
