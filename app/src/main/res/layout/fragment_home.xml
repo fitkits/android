@@ -19,11 +19,11 @@
     android:layout_height="wrap_content">
 
   </LinearLayout>
-  <com.fitkits.CustomViewPager
+  <com.fitkits.Misc.Pagers.CustomViewPager
     android:id="@+id/banner"
     android:layout_below="@id/appbar"
     android:layout_width="match_parent"
-    android:layout_height="160dp"></com.fitkits.CustomViewPager>
+    android:layout_height="160dp"></com.fitkits.Misc.Pagers.CustomViewPager>
   <View
     android:layout_below="@id/banner"
     android:layout_width="match_parent"

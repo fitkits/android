@@ -1,10 +1,9 @@
 package com.fitkits.Model;
 
-import com.fitkits.MembershipItem;
+import com.fitkits.Membership.MembershipItem;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import org.reactivestreams.Subscription;
 
 public class ItemParent {
 

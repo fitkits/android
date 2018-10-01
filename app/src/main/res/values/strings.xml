@@ -4,5 +4,58 @@
   <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
 
   <string name="freshchat_file_provider_authority">com.fitkits.provider</string>
+  <string name="TOAST_ACTIVE_HOURS_ALREADY_LOGGED">You have already logged your active hours.</string>
+  <string name="TOAST_DEFAULT_ERROR_MESSAGE">Something went wrong. Please try again later.</string>
+  <string name="TOAST_CALORIES_ALREADY_LOGGED">You have already logged your calories.</string>
+  <string name="TOAST_REACHED_GOAL">You\'ve reached your goal.</string>
+  <string name="TOAST_SET_GOAL">Please set your goal.</string>
+  <string name="TOAST_LOG_CALORIES">Please log today\'s calorie.</string>
+  <string name="TXT_WEEKLY_AVERAGE">Weekly Average</string>
+  <string name="TXT_MONTHLY_AVERAGE">Monthly Average</string>
+  <string name="TXT_QUARTERLY_AVERAGE">Quarterly Average</string>
+  <string name="TXT_YEARLY_AVERAGE">Yearly Average</string>
+  <string name="TXT_CALORIES_CONSUMED">calories consumed</string>
+  <string name="TXT_HOURS">hours</string>
+  <string name="TOAST_SLEEP_ALREADY_LOGGED">You have already logged your sleep hours.</string>
+  <string name="TOAST_LOG_SLEEP">Please log today\'s sleep hours.</string>
+  <string name="TOAST_LOG_WATER">Please log today\'s water intake.</string>
+  <string name="TXT_GLASSES">glasses</string>
+    <string name="TOAST_WEIGHT_ALREADY_LOGGED">You have already logged your weight.</string>
+    <string name="TXT_LOG_WEIGHT">Please Log today\'s weight.</string>
+  <string name="TXT_KGS">\" kilograms\"</string>
+    <string name="TOAST_ENTER_VALID_MOBILE">Please enter a valid 10 digit mobile number.</string>
+  <string name="TOAST_NO_INETERNET">No Internet Connection Available! Please Check your Connection.</string>
+    <string name="MODEL_ERROR_COLOR_EMPTY">Colors list cannot be empty</string>
+  <string name="TOAST_SELECT_ACTIVE_HOURS">Please select the number of active hours.</string>
+  <string name="TOAST_SELECT_MEAL">Please select the number of meals.</string>
+  <string name="TOAST_SET_CALORIE_GOAL">Please enter the calorie goal.</string>
+  <string name="TOAST_MEMBERSHIP_DUE">Membership due, please continue</string>
+  <string name="TOAST_SELECT_WAKEUP_TIME">Please select the wakeup time.</string>
+  <string name="TOAST_SELECT_BED_TIME">Please select the bed time.</string>
+  <string name="TOAST_INPUT_WATER_INTAKE">Please input the water intake amount.</string>
+  <string name="TOAST_SELECT_DATE">Please select the date.</string>
+  <string name="TOAST_SELECT_WEIGHT">Please enter the weight.</string>
+  <string name="TXT_GOAL_CALORIE_TEXT">Set a daily calorie goal!</string>
+  <string name="TXT_GOAL_CALORIE_DESC">\"Set yourself a calorie goal. Stay within the limits daily, go!</string>
+  <string name="TXT_DAILY_GOAL_CALORIES">Your daily calorie goal</string>
+  <string name="TXT_CLICK_TO_EDIT">Click to Edit</string>
+  <string name="TXT_GOAL_ACTIVE_HOURS_TEXT">Set a daily active goal!</string>
+  <string name="TXT_GOAL_ACTIVE_HOURS_DESC">Keep yourself active daily, walk/bicycle wherever possible.</string>
+  <string name="TXT_DAILY_ACTIVE_HOURS">Your daily active hours goal</string>
+  <string name="TXT_GOAL_WEIGHT_TEXT">Set a daily weight goal!</string>
+  <string name="TXT_GOAL_WEIGHT_DESC">\"Set yourself a weight goal.</string>
+  <string name="TXT_DAILY_GOAL_WEIGHT">Your daily weight goal</string>
+  <string name="TXT_GOAL_SLEEP_TEXT">Set a daily sleep goal!</string>
+  <string name="TXT_GOAL_SLEEP_DESC">Sleep is vital. Stick to a routine every night</string>
+  <string name="TXT_DAILY_GOAL_SLEEP">Your daily Sleep goal</string>
+  <string name="TXT_GOAL_WATER_TEXT">Set a daily water intake goal!</string>
+  <string name="TXT_GOAL_WATER_DESC">Keep yourself hydrated, carry a sipper with you always.</string>
+  <string name="TXT_DAILY_GOAL_WATER">Your daily water intake goal</string>
+  <string name="TXT_SOCIAL_CAPTION">Working out at Fitkits is keeping my body in shape! Visit Fitkits or download the app now at http://fitkits.in</string>
+  <string name="TOAST_ENTER_NAME">Please Enter your name</string>
+  <string name="TOAST_EXTENRAL_STORAGE_PERMISSION_DENIED">Permission denied to read your External storage</string>
+  <string name="NOTIFICATION_DATA_LOGGED_SUCCESS">Your data has been logged successfully</string>
+  <string name="NOTIFICATION_DATA_LOGGED_FAILED">Couldn\'t push data to server</string>
+
 
 </resources>

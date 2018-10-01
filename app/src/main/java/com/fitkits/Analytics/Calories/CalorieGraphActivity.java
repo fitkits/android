@@ -26,20 +26,17 @@ import android.widget.Toast;
 import com.fitkits.Analytics.GoalData;
 import com.fitkits.Analytics.GoalDataViewPagerAdapter;
 import com.fitkits.Answers.LogCalorieDialog;
-import com.fitkits.ApiService;
-import com.fitkits.CalorieDialog;
-import com.fitkits.CustomFixedHeightViewPager;
-import com.fitkits.Answers.LogWeightDialog;
+import com.fitkits.RealmObjects.ApiService;
+import com.fitkits.Dialogs.CalorieDialog;
+import com.fitkits.Misc.Pagers.CustomFixedHeightViewPager;
 import com.fitkits.Model.CalorieAnswer;
 import com.fitkits.Model.ItemParent;
 import com.fitkits.Model.User;
 import com.fitkits.Model.WeeklyData;
 import com.fitkits.R;
-import com.fitkits.RetroClient;
-import com.fitkits.WeightDialog;
+import com.fitkits.Misc.RetroClient;
 import com.fitkits.chart.animation.Animation;
 import com.fitkits.chart.model.BarSet;
-import com.fitkits.chart.model.LineSet;
 import com.fitkits.chart.renderer.AxisRenderer.LabelPosition;
 import com.fitkits.chart.tooltip.Tooltip;
 import com.fitkits.chart.util.Tools;
@@ -125,7 +122,7 @@ public class CalorieGraphActivity extends AppCompatActivity implements LogCalori
         CalorieAnswer calorieAnswer= realmUI.where(CalorieAnswer.class).equalTo("date", current).findFirst();
         User user=realmUI.where(User.class).findFirst();
         if (calorieAnswer!=null&&calorieAnswer.getValue()>=user.getGoals().getCaloriesPerDay().getValue()) {
-          Toast.makeText(CalorieGraphActivity.this,"You have already logged your calories.",Toast.LENGTH_SHORT).show();
+          Toast.makeText(CalorieGraphActivity.this,R.string.TOAST_CALORIES_ALREADY_LOGGED,Toast.LENGTH_SHORT).show();
 
         } else {
           LogCalorieDialog logCalorieDialog = new LogCalorieDialog();
@@ -378,15 +375,15 @@ public class CalorieGraphActivity extends AppCompatActivity implements LogCalori
                         float req = datesList.get(i).getVal() - userMasterGoal.getGoals().getCaloriesPerDay().getValue();
                         target.setText(req + "cals to go!");
                       } else {
-                        target.setText("You've reached your goal.");
+                        target.setText(R.string.TOAST_REACHED_GOAL);
 
                       }
                     } else {
-                      target.setText("Please set your goal.");
+                      target.setText(R.string.TOAST_SET_GOAL);
 
                     }
                   } else {
-                    target.setText("Please log today's calorie.");
+                    target.setText(R.string.TOAST_LOG_CALORIES);
 
                   }
 
@@ -457,7 +454,7 @@ public class CalorieGraphActivity extends AppCompatActivity implements LogCalori
               }
               Log.d("Response", e.getMessage());
               Toast.makeText(CalorieGraphActivity.this,
-                  "Something went wrong. Please try again later.",
+                  R.string.TOAST_DEFAULT_ERROR_MESSAGE,
                   Toast.LENGTH_LONG).show();
 
             }

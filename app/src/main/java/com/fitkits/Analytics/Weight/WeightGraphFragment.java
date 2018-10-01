@@ -20,7 +20,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.fitkits.Analytics.GoalData;
-import com.fitkits.ApiService;
+import com.fitkits.RealmObjects.ApiService;
 import com.fitkits.Model.Aggregate;
 import com.fitkits.Model.ItemParent;
 import com.fitkits.Model.Monthly;
@@ -29,9 +29,8 @@ import com.fitkits.Model.User;
 import com.fitkits.Model.WeeklyData;
 import com.fitkits.Model.Yearly;
 import com.fitkits.R;
-import com.fitkits.RetroClient;
+import com.fitkits.Misc.RetroClient;
 import com.fitkits.chart.animation.Animation;
-import com.fitkits.chart.model.BarSet;
 import com.fitkits.chart.model.LineSet;
 import com.fitkits.chart.renderer.AxisRenderer.LabelPosition;
 import com.fitkits.chart.tooltip.Tooltip;
@@ -470,7 +469,7 @@ float sum=0;
                     }
                     Log.d("Response", e.getMessage());
                     Toast.makeText(getContext(),
-                        "Something went wrong. Please try again later.",
+                        R.string.TOAST_DEFAULT_ERROR_MESSAGE,
                         Toast.LENGTH_LONG).show();
                 }
 
@@ -609,7 +608,7 @@ float sum=0;
             }
             Log.d("Response", e.getMessage());
             Toast.makeText(getContext(),
-                "Something went wrong. Please try again later.",
+                R.string.TOAST_DEFAULT_ERROR_MESSAGE,
                 Toast.LENGTH_LONG).show();
           }
 
@@ -725,7 +724,7 @@ float sum=0;
             }
             Log.d("Response", e.getMessage());
             Toast.makeText(getContext(),
-                "Something went wrong. Please try again later.",
+                R.string.TOAST_DEFAULT_ERROR_MESSAGE,
                 Toast.LENGTH_LONG).show();
           }
 
@@ -894,7 +893,7 @@ float sum=0;
             }
             Log.d("Response", e.getMessage());
             Toast.makeText(getContext(),
-                "Something went wrong. Please try again later.",
+                R.string.TOAST_DEFAULT_ERROR_MESSAGE,
                 Toast.LENGTH_LONG).show();
 
           }

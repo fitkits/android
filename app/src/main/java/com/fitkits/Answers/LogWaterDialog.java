@@ -1,6 +1,6 @@
 package com.fitkits.Answers;
 
-import static com.fitkits.HomeActivity.homeActivity;
+import static com.fitkits.Home.Activities.HomeActivity.homeActivity;
 import static com.fitkits.Analytics.Water.WaterGraphActivity.waterGraphActivity;
 
 import android.app.Dialog;
@@ -26,17 +26,11 @@ import android.widget.Button;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.fitkits.ApiService;
-import com.fitkits.Constants;
+import com.fitkits.RealmObjects.ApiService;
+import com.fitkits.Misc.Constants;
 import com.fitkits.Model.WaterAnswer;
-import com.fitkits.NumberOfCups;
 import com.fitkits.R;
-import com.fitkits.RetroClient;
-import com.fitkits.User_;
-import com.fitkits.WaterLog;
-import com.fitkits.Water_Data;
-import com.fitkits.Water_Goal_;
-import com.fitkits.Water_Response;
+import com.fitkits.Misc.RetroClient;
 import com.ms_square.etsyblur.BlurConfig;
 import com.ms_square.etsyblur.BlurDialogFragment;
 import io.reactivex.Observer;
@@ -44,7 +38,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import io.realm.Realm;
-import io.realm.RealmList;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;

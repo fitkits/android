@@ -26,16 +26,16 @@ import android.widget.Toast;
 
 import com.fitkits.Analytics.GoalData;
 import com.fitkits.Analytics.GoalDataViewPagerAdapter;
-import com.fitkits.ApiService;
-import com.fitkits.CustomFixedHeightViewPager;
+import com.fitkits.RealmObjects.ApiService;
+import com.fitkits.Misc.Pagers.CustomFixedHeightViewPager;
 import com.fitkits.Answers.LogWeightDialog;
 import com.fitkits.Model.ItemParent;
 import com.fitkits.Model.User;
 import com.fitkits.Model.WeeklyData;
 import com.fitkits.Model.WeightAnswer;
 import com.fitkits.R;
-import com.fitkits.RetroClient;
-import com.fitkits.WeightDialog;
+import com.fitkits.Misc.RetroClient;
+import com.fitkits.Dialogs.WeightDialog;
 import com.fitkits.chart.animation.Animation;
 import com.fitkits.chart.model.LineSet;
 import com.fitkits.chart.renderer.AxisRenderer.LabelPosition;
@@ -121,7 +121,7 @@ public class WeightGraphActivity extends AppCompatActivity implements LogWeightD
                 String current = sdf_new.format(cal.getTime());
                 weightAnswer = realmUI.where(WeightAnswer.class).equalTo("date", current).findFirst();
                 if (weightAnswer != null) {
-                    Toast.makeText(WeightGraphActivity.this, "You have already logged your weight.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(WeightGraphActivity.this, R.string.TOAST_WEIGHT_ALREADY_LOGGED, Toast.LENGTH_SHORT).show();
 
                 } else {
                     LogWeightDialog logWeightDialog = new LogWeightDialog();
@@ -351,15 +351,15 @@ public class WeightGraphActivity extends AppCompatActivity implements LogWeightD
                                             float req = datesList.get(i).getVal() - userMasterGoal.getGoals().getWeight().getValue();
                                             target.setText(req + "Kgs to go!");
                                         } else {
-                                            target.setText("You've reached your goal.");
+                                            target.setText(R.string.TOAST_REACHED_GOAL);
 
                                         }
                                     } else {
-                                        target.setText("Please set your goal.");
+                                        target.setText(R.string.TOAST_SET_GOAL);
 
                                     }
                                 } else {
-                                    target.setText("Please Log today's weight.");
+                                    target.setText(R.string.TXT_LOG_WEIGHT);
 
                                 }
 
@@ -435,7 +435,7 @@ public class WeightGraphActivity extends AppCompatActivity implements LogWeightD
                         }
                         Log.d("Response", e.getMessage());
                         Toast.makeText(WeightGraphActivity.this,
-                                "Something went wrong. Please try again later.",
+                                R.string.TOAST_DEFAULT_ERROR_MESSAGE,
                                 Toast.LENGTH_LONG).show();
 
                     }

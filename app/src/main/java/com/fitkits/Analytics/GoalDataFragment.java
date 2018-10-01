@@ -14,12 +14,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-import com.fitkits.ApiService;
+import com.fitkits.RealmObjects.ApiService;
 import com.fitkits.Model.ItemParent;
 import com.fitkits.Model.WeeklyData;
 import com.fitkits.R;
-import com.fitkits.RetroClient;
-import com.fitkits.SimpleDividerItemDecoration;
+import com.fitkits.Misc.RetroClient;
+import com.fitkits.Misc.SimpleDividerItemDecoration;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import io.reactivex.Observer;
@@ -223,7 +223,7 @@ public class GoalDataFragment extends Fragment {
                         }
                         Log.d("Response", e.getMessage());
                         Toast.makeText(getContext(),
-                            "Something went wrong. Please try again later.",
+                            R.string.TOAST_DEFAULT_ERROR_MESSAGE,
                             Toast.LENGTH_LONG).show();
 
                     }

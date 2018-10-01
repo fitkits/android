@@ -23,23 +23,20 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.fitkits.ActiveDialog;
+import com.fitkits.Dialogs.ActiveDialog;
 import com.fitkits.Analytics.GoalData;
 import com.fitkits.Analytics.GoalDataViewPagerAdapter;
 import com.fitkits.Answers.LogActiveDialog;
-import com.fitkits.ApiService;
-import com.fitkits.CustomFixedHeightViewPager;
-import com.fitkits.Answers.LogWeightDialog;
+import com.fitkits.RealmObjects.ApiService;
+import com.fitkits.Misc.Pagers.CustomFixedHeightViewPager;
 import com.fitkits.Model.ActivityAnswer;
 import com.fitkits.Model.ItemParent;
 import com.fitkits.Model.User;
 import com.fitkits.Model.WeeklyData;
 import com.fitkits.R;
-import com.fitkits.RetroClient;
-import com.fitkits.WeightDialog;
+import com.fitkits.Misc.RetroClient;
 import com.fitkits.chart.animation.Animation;
 import com.fitkits.chart.model.BarSet;
-import com.fitkits.chart.model.LineSet;
 import com.fitkits.chart.renderer.AxisRenderer.LabelPosition;
 import com.fitkits.chart.tooltip.Tooltip;
 import com.fitkits.chart.util.Tools;
@@ -126,7 +123,7 @@ public class ActiveHoursGraphActivity extends AppCompatActivity implements LogAc
         userMasterGoal= realmUI.where(User.class).findFirst();
         activityAnswer= realmUI.where(ActivityAnswer.class).equalTo("date", current).findFirst();
         if (activityAnswer != null||userMasterGoal==null) {
-          Toast.makeText(ActiveHoursGraphActivity.this,"You have already logged your active hours.",Toast.LENGTH_SHORT).show();
+          Toast.makeText(ActiveHoursGraphActivity.this,R.string.TOAST_ACTIVE_HOURS_ALREADY_LOGGED,Toast.LENGTH_SHORT).show();
 
         } else {
           LogActiveDialog logActiveDialog = new LogActiveDialog();

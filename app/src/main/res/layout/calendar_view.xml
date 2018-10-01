@@ -142,14 +142,14 @@
   android:layout_marginBottom="50dp"
   android:layout_height="wrap_content"
   android:orientation="vertical">
-    <com.fitkits.MyGridView
+    <com.fitkits.Misc.MyGridView
         android:id="@+id/weekday_gridview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
       android:paddingLeft="15dp"
       android:paddingRight="15dp"
         android:numColumns="7" >
-    </com.fitkits.MyGridView>
+    </com.fitkits.Misc.MyGridView>
 
     <com.fitkits.CustomCalendarView.InfiniteViewPager
         android:id="@+id/months_infinite_pager"

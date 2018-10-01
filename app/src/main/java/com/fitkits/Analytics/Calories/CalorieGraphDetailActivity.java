@@ -1,9 +1,6 @@
 package com.fitkits.Analytics.Calories;
 
-import static java.security.AccessController.getContext;
-
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -15,21 +12,18 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.fitkits.ApiService;
+import com.fitkits.RealmObjects.ApiService;
 import com.fitkits.Model.Aggregate;
 import com.fitkits.R;
-import com.fitkits.RetroClient;
+import com.fitkits.Misc.RetroClient;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+
 import java.util.Calendar;
-import java.util.Date;
 
 public class CalorieGraphDetailActivity extends AppCompatActivity {
 
@@ -67,21 +61,21 @@ public static TextView average,averageTitle;
       @Override
       public void onPageSelected(int position) {
       if(position==0){
-        averageTitle.setText("Weekly Average");
+        averageTitle.setText(R.string.TXT_WEEKLY_AVERAGE);
         getCalorieAggregateWeekly();
       }
       else if(position==1){
-        averageTitle.setText("Monthly Average");
+        averageTitle.setText(R.string.TXT_MONTHLY_AVERAGE);
         getCalorieAggregateMonthly();
 
       }
       else if(position==2){
-        averageTitle.setText("Quarterly Average");
+        averageTitle.setText(R.string.TXT_QUARTERLY_AVERAGE);
         getCalorieAggregateQuarterly();
 
       }
       else if(position==3){
-        averageTitle.setText("Yearly Average");
+        averageTitle.setText(R.string.TXT_YEARLY_AVERAGE);
         getCalorieAggregateYearly();
       }
       }
@@ -125,7 +119,7 @@ public static TextView average,averageTitle;
 
               }
               if(week==value.getAggregate().getValue().get(i).getWeek()+1){
-                average.setText(value.getAggregate().getValue().get(i).getAverage()+" calories consumed");
+                average.setText(value.getAggregate().getValue().get(i).getAverage().toString() + R.string.TXT_CALORIES_CONSUMED );
               }
             }
 
@@ -138,7 +132,7 @@ public static TextView average,averageTitle;
 
             Log.d("Response", e.getMessage());
             Toast.makeText(CalorieGraphDetailActivity.this,
-                "Something went wrong. Please try again later.",
+                R.string.TOAST_DEFAULT_ERROR_MESSAGE,
                 Toast.LENGTH_LONG).show();
           }
 
@@ -167,7 +161,7 @@ public static TextView average,averageTitle;
 
             for(int i=0;i<value.getAggregate().getValue().size();i++){
               if((calendar.get(Calendar.MONTH)+1)==value.getAggregate().getValue().get(i).getMonth()){
-                average.setText(value.getAggregate().getValue().get(i).getAverage()+" calories consumed");
+                average.setText(value.getAggregate().getValue().get(i).getAverage().toString()+ R.string.TXT_CALORIES_CONSUMED);
               }
             }
 
@@ -180,7 +174,7 @@ public static TextView average,averageTitle;
 
             Log.d("Response", e.getMessage());
             Toast.makeText(CalorieGraphDetailActivity.this,
-                "Something went wrong. Please try again later.",
+                R.string.TOAST_DEFAULT_ERROR_MESSAGE,
                 Toast.LENGTH_LONG).show();
           }
 
@@ -213,28 +207,28 @@ public static TextView average,averageTitle;
             for(int i=0;i<value.getAggregate().getValue().size();i++){
               if(month>=1&&month<=3) {
                 if (value.getAggregate().getValue().get(i).getQuarter().equals("FIRST")) {
-                  average.setText(value.getAggregate().getValue().get(i).getAverage()
-                          + " calories consumed");
+                  average.setText(value.getAggregate().getValue().get(i).getAverage().toString()
+                          + R.string.TXT_CALORIES_CONSUMED);
                 }
               }
               else if(month>=4&&month<=6) {
 
                 if (value.getAggregate().getValue().get(i).getQuarter().equals("SECOND")) {
-                  average.setText(value.getAggregate().getValue().get(i).getAverage()
-                          + " calories consumed");
+                  average.setText(value.getAggregate().getValue().get(i).getAverage().toString()
+                          + R.string.TXT_CALORIES_CONSUMED);
                 }
               }
               else if(month>=7&&month<=9) {
                 if (value.getAggregate().getValue().get(i).getQuarter().equals("THIRD")) {
-                  average.setText(value.getAggregate().getValue().get(i).getAverage()
-                          + " calories consumed");
+                  average.setText(value.getAggregate().getValue().get(i).getAverage().toString()
+                          + R.string.TXT_CALORIES_CONSUMED);
                 }
               }
               else if(month>=10&&month<=12) {
                  if(value.getAggregate().getValue().get(i).getQuarter().equals("FOURTH")) {
                   average.setText(
-                     value.getAggregate().getValue().get(i).getAverage()
-                          + " calories consumed");
+                     value.getAggregate().getValue().get(i).getAverage().toString()
+                          + R.string.TXT_CALORIES_CONSUMED);
                 }
               }
 
@@ -249,7 +243,7 @@ public static TextView average,averageTitle;
 
             Log.d("Response", e.getMessage());
             Toast.makeText(CalorieGraphDetailActivity.this,
-                "Something went wrong. Please try again later.",
+                R.string.TOAST_DEFAULT_ERROR_MESSAGE,
                 Toast.LENGTH_LONG).show();
           }
 
@@ -279,7 +273,7 @@ public static TextView average,averageTitle;
 
             for (int i = 0; i < value.getAggregate().getValue().size(); i++) {
               if((calendar.get(Calendar.YEAR))==value.getAggregate().getValue().get(i).getYear()){
-                average.setText(value.getAggregate().getValue().get(i).getAverage()+" calories consumed");
+                average.setText(value.getAggregate().getValue().get(i).getAverage().toString() + R.string.TXT_CALORIES_CONSUMED );
               }
 
             }
@@ -293,7 +287,7 @@ public static TextView average,averageTitle;
 
             Log.d("Response", e.getMessage());
             Toast.makeText(CalorieGraphDetailActivity.this,
-                "Something went wrong. Please try again later.",
+                R.string.TOAST_DEFAULT_ERROR_MESSAGE,
                 Toast.LENGTH_LONG).show();
           }
 

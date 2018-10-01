@@ -19,17 +19,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.fitkits.Analytics.GoalData;
 import com.fitkits.Analytics.GoalDataViewPagerAdapter;
-import com.fitkits.ApiService;
-import com.fitkits.CustomFixedHeightViewPager;
+import com.fitkits.RealmObjects.ApiService;
+import com.fitkits.Misc.Pagers.CustomFixedHeightViewPager;
 import com.fitkits.Answers.LogWaterDialog;
 import com.fitkits.Answers.LogWaterDialog.InterfaceCommunicator;
 import com.fitkits.Model.ItemParent;
 import com.fitkits.Model.User;
 import com.fitkits.Model.WeeklyData;
 import com.fitkits.R;
-import com.fitkits.RetroClient;
-import com.fitkits.WaterDialog;
-import com.fitkits.WaterGlassAdapter;
+import com.fitkits.Misc.RetroClient;
+import com.fitkits.Dialogs.WaterDialog;
+import com.fitkits.Misc.Adapters.WaterGlassAdapter;
 import com.fitkits.chart.tooltip.Tooltip;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -305,17 +305,17 @@ public class WaterGraphActivity extends AppCompatActivity implements InterfaceCo
                       target.setText(decimalFormat.format(req/250) + " glasses to go!");
 
                       } else {
-                        target.setText("You've reached your goal.");
+                        target.setText(R.string.TOAST_REACHED_GOAL);
 
                       }
                     }
                     else{
-                      target.setText("Please set your goal.");
+                      target.setText(R.string.TOAST_SET_GOAL);
 
                     }
                   }
                   else{
-                    target.setText("Please log today's water intake.");
+                    target.setText(R.string.TOAST_LOG_WATER);
 
                   }
 
@@ -340,7 +340,7 @@ Log.d("con","->"+datesList.get(datesList.size()-1).getVal());
               }
               Log.d("Response", e.getMessage());
               Toast.makeText(WaterGraphActivity.this,
-                  "Something went wrong. Please try again later.",
+                  R.string.TOAST_DEFAULT_ERROR_MESSAGE,
                   Toast.LENGTH_LONG).show();
 
             }

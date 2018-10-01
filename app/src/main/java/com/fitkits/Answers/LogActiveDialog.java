@@ -1,9 +1,7 @@
 package com.fitkits.Answers;
 
 import static com.fitkits.Analytics.ActiveHours.ActiveHoursGraphActivity.activityGraphActivity;
-import static com.fitkits.Analytics.Water.WaterGraphActivity.waterGraphActivity;
-import static com.fitkits.GoalActivity.goalActivity;
-import static com.fitkits.HomeActivity.homeActivity;
+import static com.fitkits.Home.Activities.HomeActivity.homeActivity;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -29,15 +27,12 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.fitkits.ApiService;
-import com.fitkits.Constants;
-import com.fitkits.Model.ActivePerDay;
+import com.fitkits.RealmObjects.ApiService;
+import com.fitkits.Misc.Constants;
 import com.fitkits.Model.ActivityAnswer;
-import com.fitkits.Model.Goals;
 import com.fitkits.Model.User;
 import com.fitkits.R;
-import com.fitkits.RetroClient;
-import com.fitkits.WaterDialog;
+import com.fitkits.Misc.RetroClient;
 import com.ms_square.etsyblur.BlurConfig;
 import com.ms_square.etsyblur.BlurDialogFragment;
 import io.reactivex.Observer;

@@ -1,8 +1,7 @@
 package com.fitkits.Answers;
 
 import static com.fitkits.Analytics.Weight.WeightGraphActivity.weightGraphActivity;
-import static com.fitkits.GoalActivity.goalActivity;
-import static com.fitkits.HomeActivity.homeActivity;
+import static com.fitkits.Home.Activities.HomeActivity.homeActivity;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -27,21 +26,12 @@ import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.fitkits.ApiService;
-import com.fitkits.Constants;
-import com.fitkits.CurrentWeight;
-import com.fitkits.GoalDate;
-import com.fitkits.GoalWeight;
-import com.fitkits.Model.Weight;
+import com.fitkits.RealmObjects.ApiService;
+import com.fitkits.Misc.Constants;
 import com.fitkits.Model.WeightAnswer;
 import com.fitkits.R;
-import com.fitkits.RecordedDate;
-import com.fitkits.RetroClient;
-import com.fitkits.User_;
-import com.fitkits.WeightLog;
-import com.fitkits.Weight_Data;
-import com.fitkits.Weight_Goal_;
-import com.fitkits.Weight_Response;
+import com.fitkits.Misc.RetroClient;
+import com.fitkits.RealmObjects.WeightLog;
 import com.ms_square.etsyblur.BlurConfig;
 import com.ms_square.etsyblur.BlurDialogFragment;
 import io.reactivex.Observer;
@@ -49,14 +39,9 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import io.realm.Realm;
-import io.realm.RealmList;
-import io.realm.RealmObject;
-import java.text.ParseException;
+
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
-import java.util.Observable;
 import java.util.TimeZone;
 import okhttp3.ResponseBody;
 

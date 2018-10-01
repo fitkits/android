@@ -14,11 +14,11 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.fitkits.Analytics.ActiveHours.ActiveHoursGraphAdapter;
-import com.fitkits.ApiService;
+
+import com.fitkits.RealmObjects.ApiService;
 import com.fitkits.Model.Aggregate;
 import com.fitkits.R;
-import com.fitkits.RetroClient;
+import com.fitkits.Misc.RetroClient;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -61,21 +61,21 @@ public static TextView average,averageTitle;
       @Override
       public void onPageSelected(int position) {
       if(position==0){
-        averageTitle.setText("Weekly Average");
+        averageTitle.setText(R.string.TXT_WEEKLY_AVERAGE);
         getWeightAggregateWeekly();
       }
       else if(position==1){
-        averageTitle.setText("Monthly Average");
+        averageTitle.setText(R.string.TXT_MONTHLY_AVERAGE);
         getWeightAggregateMonthly();
 
       }
       else if(position==2){
-        averageTitle.setText("Quarterly Average");
+        averageTitle.setText(R.string.TXT_QUARTERLY_AVERAGE);
         getWeightAggregateQuarterly();
 
       }
       else if(position==3){
-        averageTitle.setText("Yearly Average");
+        averageTitle.setText(R.string.TXT_YEARLY_AVERAGE);
         getWeightAggregateYearly();
       }
       }
@@ -118,7 +118,7 @@ public static TextView average,averageTitle;
 
               }
               if(week==value.getAggregate().getValue().get(i).getWeek()+1){
-                average.setText(value.getAggregate().getValue().get(i).getAverage()+" kilograms");
+                average.setText(value.getAggregate().getValue().get(i).getAverage().toString()+R.string.TXT_KGS);
               }
             }
 
@@ -131,7 +131,7 @@ public static TextView average,averageTitle;
 
             Log.d("Response", e.getMessage());
             Toast.makeText(WeightGraphDetailActivity.this,
-                "Something went wrong. Please try again later.",
+                R.string.TOAST_DEFAULT_ERROR_MESSAGE,
                 Toast.LENGTH_LONG).show();
           }
 
@@ -160,7 +160,7 @@ public static TextView average,averageTitle;
 
             for(int i=0;i<value.getAggregate().getValue().size();i++){
               if((calendar.get(Calendar.MONTH)+1)==value.getAggregate().getValue().get(i).getMonth()){
-                average.setText(value.getAggregate().getValue().get(i).getAverage()+" kilograms");
+                average.setText(value.getAggregate().getValue().get(i).getAverage().toString()+R.string.TXT_KGS);
               }
             }
 
@@ -173,7 +173,7 @@ public static TextView average,averageTitle;
 
             Log.d("Response", e.getMessage());
             Toast.makeText(WeightGraphDetailActivity.this,
-                "Something went wrong. Please try again later.",
+                R.string.TOAST_DEFAULT_ERROR_MESSAGE,
                 Toast.LENGTH_LONG).show();
           }
 
@@ -206,28 +206,28 @@ public static TextView average,averageTitle;
             for(int i=0;i<value.getAggregate().getValue().size();i++){
               if(month>=1&&month<=3) {
                 if (value.getAggregate().getValue().get(i).getQuarter().equals("FIRST")) {
-                  average.setText(value.getAggregate().getValue().get(i).getAverage()
-                          + " kilograms");
+                  average.setText(value.getAggregate().getValue().get(i).getAverage().toString()
+                          + R.string.TXT_KGS);
                 }
               }
               else if(month>=4&&month<=6) {
 
                 if (value.getAggregate().getValue().get(i).getQuarter().equals("SECOND")) {
-                  average.setText(value.getAggregate().getValue().get(i).getAverage()
-                          + " kilograms");
+                  average.setText(value.getAggregate().getValue().get(i).getAverage().toString()
+                          + R.string.TXT_KGS);
                 }
               }
               else if(month>=7&&month<=9) {
                 if (value.getAggregate().getValue().get(i).getQuarter().equals("THIRD")) {
-                  average.setText(value.getAggregate().getValue().get(i).getAverage()
-                          + " kilograms");
+                  average.setText(value.getAggregate().getValue().get(i).getAverage().toString()
+                          + R.string.TXT_KGS);
                 }
               }
               else if(month>=10&&month<=12) {
                  if(value.getAggregate().getValue().get(i).getQuarter().equals("FOURTH")) {
                   average.setText(
-                     value.getAggregate().getValue().get(i).getAverage()
-                          + " kilograms");
+                     value.getAggregate().getValue().get(i).getAverage().toString()
+                          + R.string.TXT_KGS);
                 }
               }
 
@@ -242,7 +242,7 @@ public static TextView average,averageTitle;
 
             Log.d("Response", e.getMessage());
             Toast.makeText(WeightGraphDetailActivity.this,
-                "Something went wrong. Please try again later.",
+                R.string.TOAST_DEFAULT_ERROR_MESSAGE,
                 Toast.LENGTH_LONG).show();
           }
 
@@ -272,7 +272,7 @@ public static TextView average,averageTitle;
 
             for (int i = 0; i < value.getAggregate().getValue().size(); i++) {
               if((calendar.get(Calendar.YEAR))==value.getAggregate().getValue().get(i).getYear()){
-                average.setText(value.getAggregate().getValue().get(i).getAverage()+" kilograms");
+                average.setText(value.getAggregate().getValue().get(i).getAverage().toString()+R.string.TXT_KGS);
               }
 
             }
@@ -286,7 +286,7 @@ public static TextView average,averageTitle;
 
             Log.d("Response", e.getMessage());
             Toast.makeText(WeightGraphDetailActivity.this,
-                "Something went wrong. Please try again later.",
+                R.string.TOAST_DEFAULT_ERROR_MESSAGE,
                 Toast.LENGTH_LONG).show();
           }
 

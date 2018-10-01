@@ -14,10 +14,10 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.fitkits.ApiService;
+import com.fitkits.RealmObjects.ApiService;
 import com.fitkits.Model.Aggregate;
 import com.fitkits.R;
-import com.fitkits.RetroClient;
+import com.fitkits.Misc.RetroClient;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -61,21 +61,21 @@ public static TextView average,averageTitle;
       @Override
       public void onPageSelected(int position) {
       if(position==0){
-        averageTitle.setText("Weekly Average");
+        averageTitle.setText(R.string.TXT_WEEKLY_AVERAGE);
         getWaterAggregateWeekly();
       }
       else if(position==1){
-        averageTitle.setText("Monthly Average");
+        averageTitle.setText(R.string.TXT_MONTHLY_AVERAGE);
         getWaterAggregateMonthly();
 
       }
       else if(position==2){
-        averageTitle.setText("Quarterly Average");
+        averageTitle.setText(R.string.TXT_QUARTERLY_AVERAGE);
         getWaterAggregateQuarterly();
 
       }
       else if(position==3){
-        averageTitle.setText("Yearly Average");
+        averageTitle.setText(R.string.TXT_YEARLY_AVERAGE);
         getWaterAggregateYearly();
       }
       }
@@ -119,7 +119,7 @@ public static TextView average,averageTitle;
               }
               if(week==value.getAggregate().getValue().get(i).getWeek()+1){
                 DecimalFormat decimalFormat = new DecimalFormat("#.00");
-                average.setText(decimalFormat.format(value.getAggregate().getValue().get(i).getAverage()/250)+" glasses ");              }
+                average.setText(decimalFormat.format(value.getAggregate().getValue().get(i).getAverage()/250).toString()+R.string.TXT_GLASSES);              }
             }
 
 
@@ -131,7 +131,7 @@ public static TextView average,averageTitle;
 
             Log.d("Response", e.getMessage());
             Toast.makeText(WaterGraphDetailActivity.this,
-                "Something went wrong. Please try again later.",
+                R.string.TOAST_DEFAULT_ERROR_MESSAGE,
                 Toast.LENGTH_LONG).show();
           }
 
@@ -161,7 +161,7 @@ public static TextView average,averageTitle;
             for(int i=0;i<value.getAggregate().getValue().size();i++){
               if((calendar.get(Calendar.MONTH)+1)==value.getAggregate().getValue().get(i).getMonth()){
                 DecimalFormat decimalFormat = new DecimalFormat("#.00");
-                average.setText(decimalFormat.format(value.getAggregate().getValue().get(i).getAverage()/250)+" glasses ");              }
+                average.setText(decimalFormat.format(value.getAggregate().getValue().get(i).getAverage()/250).toString()+R.string.TXT_GLASSES);              }
             }
 
 
@@ -173,7 +173,7 @@ public static TextView average,averageTitle;
 
             Log.d("Response", e.getMessage());
             Toast.makeText(WaterGraphDetailActivity.this,
-                "Something went wrong. Please try again later.",
+                R.string.TOAST_DEFAULT_ERROR_MESSAGE,
                 Toast.LENGTH_LONG).show();
           }
 
@@ -207,26 +207,26 @@ public static TextView average,averageTitle;
               if(month>=1&&month<=3) {
                 if (value.getAggregate().getValue().get(i).getQuarter().equals("FIRST")) {
                   DecimalFormat decimalFormat = new DecimalFormat("#.00");
-                  average.setText(decimalFormat.format(value.getAggregate().getValue().get(i).getAverage()/250)+" glasses ");
+                  average.setText(decimalFormat.format(value.getAggregate().getValue().get(i).getAverage()/250).toString()+R.string.TXT_GLASSES);
                 }
               }
               else if(month>=4&&month<=6) {
 
                 if (value.getAggregate().getValue().get(i).getQuarter().equals("SECOND")) {
                   DecimalFormat decimalFormat = new DecimalFormat("#.00");
-                  average.setText(decimalFormat.format(value.getAggregate().getValue().get(i).getAverage()/250)+" glasses ");
+                  average.setText(decimalFormat.format(value.getAggregate().getValue().get(i).getAverage()/250).toString()+R.string.TXT_GLASSES);
                 }
               }
               else if(month>=7&&month<=9) {
                 if (value.getAggregate().getValue().get(i).getQuarter().equals("THIRD")) {
                   DecimalFormat decimalFormat = new DecimalFormat("#.00");
-                  average.setText(decimalFormat.format(value.getAggregate().getValue().get(i).getAverage()/250)+" glasses ");
+                  average.setText(decimalFormat.format(value.getAggregate().getValue().get(i).getAverage()/250).toString()+R.string.TXT_GLASSES);
                 }
               }
               else if(month>=10&&month<=12) {
                  if(value.getAggregate().getValue().get(i).getQuarter().equals("FOURTH")) {
                    DecimalFormat decimalFormat = new DecimalFormat("#.00");
-                   average.setText(decimalFormat.format(value.getAggregate().getValue().get(i).getAverage()/250)+" glasses ");
+                   average.setText(decimalFormat.format(value.getAggregate().getValue().get(i).getAverage()/250).toString()+R.string.TXT_GLASSES);
                  }
               }
 
@@ -241,7 +241,7 @@ public static TextView average,averageTitle;
 
             Log.d("Response", e.getMessage());
             Toast.makeText(WaterGraphDetailActivity.this,
-                "Something went wrong. Please try again later.",
+                R.string.TOAST_DEFAULT_ERROR_MESSAGE,
                 Toast.LENGTH_LONG).show();
           }
 
@@ -272,7 +272,7 @@ public static TextView average,averageTitle;
             for (int i = 0; i < value.getAggregate().getValue().size(); i++) {
               if((calendar.get(Calendar.YEAR))==value.getAggregate().getValue().get(i).getYear()){
                 DecimalFormat decimalFormat = new DecimalFormat("#.00");
-                average.setText(decimalFormat.format(value.getAggregate().getValue().get(i).getAverage()/250)+" glasses ");
+                average.setText(decimalFormat.format(value.getAggregate().getValue().get(i).getAverage()/250).toString()+R.string.TXT_GLASSES);
               }
 
             }
@@ -286,7 +286,7 @@ public static TextView average,averageTitle;
 
             Log.d("Response", e.getMessage());
             Toast.makeText(WaterGraphDetailActivity.this,
-                "Something went wrong. Please try again later.",
+                R.string.TOAST_DEFAULT_ERROR_MESSAGE,
                 Toast.LENGTH_LONG).show();
           }
 

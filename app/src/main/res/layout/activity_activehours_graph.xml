@@ -222,12 +222,12 @@
               app:tabGravity="fill"
               app:tabMode="fixed">
             </android.support.design.widget.TabLayout>
-            <com.fitkits.CustomFixedHeightViewPager
+            <com.fitkits.Misc.Pagers.CustomFixedHeightViewPager
               android:background="@color/white"
               android:id="@+id/weightDataViewPager"
               android:layout_marginBottom="20dp"
               android:layout_width="match_parent"
-              android:layout_height="wrap_content"></com.fitkits.CustomFixedHeightViewPager>
+              android:layout_height="wrap_content"></com.fitkits.Misc.Pagers.CustomFixedHeightViewPager>
 
         </LinearLayout>
 

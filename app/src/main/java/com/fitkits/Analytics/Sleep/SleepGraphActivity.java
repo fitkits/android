@@ -26,20 +26,17 @@ import android.widget.Toast;
 import com.fitkits.Analytics.GoalData;
 import com.fitkits.Analytics.GoalDataViewPagerAdapter;
 import com.fitkits.Answers.LogSleepDialog;
-import com.fitkits.ApiService;
-import com.fitkits.CustomFixedHeightViewPager;
-import com.fitkits.Answers.LogWeightDialog;
+import com.fitkits.RealmObjects.ApiService;
+import com.fitkits.Misc.Pagers.CustomFixedHeightViewPager;
 import com.fitkits.Model.ItemParent;
 import com.fitkits.Model.SleepAnswer;
 import com.fitkits.Model.User;
 import com.fitkits.Model.WeeklyData;
 import com.fitkits.R;
-import com.fitkits.RetroClient;
-import com.fitkits.SleepDialog;
-import com.fitkits.WeightDialog;
+import com.fitkits.Misc.RetroClient;
+import com.fitkits.Dialogs.SleepDialog;
 import com.fitkits.chart.animation.Animation;
 import com.fitkits.chart.model.BarSet;
-import com.fitkits.chart.model.LineSet;
 import com.fitkits.chart.renderer.AxisRenderer.LabelPosition;
 import com.fitkits.chart.tooltip.Tooltip;
 import com.fitkits.chart.util.Tools;
@@ -126,7 +123,7 @@ public class SleepGraphActivity extends AppCompatActivity implements LogSleepDia
         String current = sdf_new.format(cal.getTime());
         sleepAnswer = realmUI.where(SleepAnswer.class).equalTo("date", current).findFirst();
         if (sleepAnswer != null) {
-          Toast.makeText(SleepGraphActivity.this,"You have already logged your sleep hours.",Toast.LENGTH_SHORT).show();
+          Toast.makeText(SleepGraphActivity.this,R.string.TOAST_SLEEP_ALREADY_LOGGED ,Toast.LENGTH_SHORT).show();
 
         } else {
           LogSleepDialog logSleepDialog = new LogSleepDialog();
@@ -391,15 +388,15 @@ public class SleepGraphActivity extends AppCompatActivity implements LogSleepDia
                         float req = datesList.get(i).getVal() - userMasterGoal.getGoals().getSleepDurationPerDay().getValue();
                         target.setText(req + " hours to go!");
                       } else {
-                        target.setText("You've reached your goal.");
+                        target.setText(R.string.TOAST_REACHED_GOAL);
 
                       }
                     } else {
-                      target.setText("Please set your goal.");
+                      target.setText(R.string.TOAST_SET_GOAL);
 
                     }
                   } else {
-                    target.setText("Please log today's sleep hours.");
+                    target.setText(R.string.TOAST_LOG_SLEEP);
 
                   }
 
@@ -469,7 +466,7 @@ public class SleepGraphActivity extends AppCompatActivity implements LogSleepDia
               }
               Log.d("Response", e.getMessage());
               Toast.makeText(SleepGraphActivity.this,
-                  "Something went wrong. Please try again later.",
+                  R.string.TOAST_DEFAULT_ERROR_MESSAGE,
                   Toast.LENGTH_LONG).show();
 
             }
