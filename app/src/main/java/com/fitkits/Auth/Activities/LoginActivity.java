@@ -10,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.fitkits.Auth.Dialogs.OtpDialog;
+import com.fitkits.OnBoarding.Activities.OnboardActivity;
 import com.fitkits.RealmObjects.ApiService;
 import com.fitkits.CustomCalendarView.CaldroidFragment;
 import com.fitkits.Home.Activities.HomeActivity;
@@ -28,14 +30,27 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import io.realm.ObjectChangeSet;
 import io.realm.Realm;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
-
+import java.util.Map;
+/**
+ * =================
+ * |Raghu's Comment
+ * =================
+ * This code has gotten too complex to make it modular
+ * without rewrite. So I've made some changes as much
+ * as possible and giving you a flow to understand
+ * what happens. In the code.
+ *
+ * NOW GO TO ONCREATE().
+ */
 public class LoginActivity extends AppCompatActivity {
 
     CaldroidFragment caldroidFragment;
@@ -50,6 +65,10 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         loginActivity = this;
+        /**
+         * Once the app is launched, the SplashScreenFragment which is just a UI thing with no logic,
+         * is launched and after 5000ms, a handler is fired to start the flow. See the Handler below.
+         */
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, new SplashScreenFragment()).commit();
     /*startActivity(new Intent(LoginActivity.this,GoalActivity.class));
@@ -57,13 +76,6 @@ public class LoginActivity extends AppCompatActivity {
         caldroidFragment = new CaldroidFragment();
         myPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         Realm.init(getApplicationContext());
-
-        // //////////////////////////////////////////////////////////////////////
-        // **** This is to show customized fragment. If you want customized
-        // version, uncomment below line ****
-//		 caldroidFragment = new CaldroidSampleCustomFragment();
-
-        // Setup arguments
 
         // If Activity is created after rotation
         if (savedInstanceState != null) {
@@ -78,68 +90,44 @@ public class LoginActivity extends AppCompatActivity {
             args.putInt(CaldroidFragment.YEAR, cal.get(Calendar.YEAR));
             args.putBoolean(CaldroidFragment.ENABLE_SWIPE, true);
             args.putBoolean(CaldroidFragment.SIX_WEEKS_IN_CALENDAR, true);
-
-            // Uncomment this to customize startDayOfWeek
-            // args.putInt(CaldroidFragment.START_DAY_OF_WEEK,
-            // CaldroidFragment.TUESDAY); // Tuesday
-
-            // Uncomment this line to use Caldroid in compact mode
-            // args.putBoolean(CaldroidFragment.SQUARE_TEXT_VIEW_CELL, false);
-
-            // Uncomment this line to use dark theme
-//            args.putInt(CaldroidFragment.THEME_RESOURCE, com.caldroid.R.style.CaldroidDefaultDark);
-
             caldroidFragment.setArguments(args);
         }
+        /**
+         * This handler is launched after 5000ms and it checks for user_id
+         * in the prefs. If it doesnt exist, then we try to launch the
+         * LoginFragment, else, we check for PendingState. PendingState is
+         * simply a check to see if there is any subscription pending.
+         */
         new Handler().postDelayed(new Runnable() {
+
             public void run() {
+                /**
+                 * if this if gets to true, the it means we have a
+                 * new user and hence, we take him to the LoginFragment.
+                 * GO TO LOGIN FRAGMENT FOR THIS FLOW. IF YOU WANT TO CHECK
+                 * FLOW OF EXISTING USER, GO TO THE ELSE PART.
+                 */
                 if (myPrefs.getString("user_id", "").equals("")) {
                     getSupportFragmentManager().beginTransaction()
                             .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left)
                             .replace(R.id.container, new LoginFragment()).commit();
                 } else {
+                    /**
+                     * this is where the pending subscription is checked.
+                     * NOW GO TO THAT FUNCTION DEFINITION.
+                     */
                     getPendingstate();
 
-//            if (pending.equals("false")){
-//                getRenewDetail();
-//
-//            }else {
-//
-//            }
-
-                    //getRenewDetail();
                 }
 
             }
         }, 5000);
-//      new Handler().postDelayed(new Runnable() {
-//          public void run() {
-//              if(myPrefs.getString("user_id","").equals("")) {
-//                  getSupportFragmentManager().beginTransaction()
-//                          .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left)
-//                          .replace(R.id.container, new LoginFragment()).commit();
-//              }
-//              else{
-//                //  getPendingstate();
-//
-//                  if (pending.equals("false")){
-//                      getRenewDetail();
-//
-//                  }else {
-//
-//                  }
-//
-//                  //getRenewDetail();
-//              }
-//
-//          }
-//      }, 5000);
-
     }
 
 
     void getRenewDetail() {
 
+//        Toast.makeText(getApplicationContext(),"INSIDE LOGINACTIVITY",Toast.LENGTH_LONG).show();
         ApiService apiService = RetroClient
                 .getApiService(myPrefs.getString("token", ""),
                         getApplicationContext());
@@ -240,6 +228,13 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void getPendingstate() {
+        /**
+         * This is the code that checks for the pending subscription.
+         * Previously, It didnt had checks for the scenario where
+         * the user clicks home button in phone, or exits the app without
+         * filling the onboarding form. Ive made sure that that scenario
+         * is covered.
+         */
         ApiService apiService = RetroClient
                 .getApiService(myPrefs.getString("token", ""),
                         getApplicationContext());
@@ -255,29 +250,93 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onNext(User value) {
-                if (progressDialog.isShowing()) {
-                    progressDialog.dismiss();
-                }
+                 Log.d("RAGHU", value.getHeight() + "/" + value.getWeight() + "/" + value.getGender());
 
-                pending = value.getPendingMembership().getIsPending();
-                if (pending) {
-                    Pending pending = new Pending();
-                    pending.show(getSupportFragmentManager(), "");
-                }
-                //if (pending)
-                if (!pending) {
-                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                    // intent.putExtra("start", "1");
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
+                /**
+                 * This small check verifies if every piece of onBoarding information
+                 * is taken from user before showing him the app.
+                 * There are some data like DOB and Gender which are not
+                 * Checked because they are the middle screens in the onboarding
+                 * screens. Their presence is already checked by making sure
+                 * their next screen value is captured.
+                 */
+
+                boolean isHeightNull = (value.getHeight() == null);
+                boolean isWeightNull = (value.getWeight() == null);
+                boolean isFoodPreferenceNull  = (value.getFoodPreference() == null);
+                boolean isBloodGroupNull  = (value.getBloodGroup() == null);
+                if(isHeightNull || isWeightNull || isFoodPreferenceNull || isBloodGroupNull) {
+                    /**
+                     * If that condition fails, Then OnBoarding is started again. This flow happens
+                     * again and again until the user gives us all data we need.
+                     */
+
+                    startActivity(new Intent(LoginActivity.this, OnboardActivity.class));
                     finish();
+                }
+                else {
+                    if (progressDialog.isShowing()) {
+                        progressDialog.dismiss();
+                    }
+
+                    /**
+                     * If we've got all the data we need, It means, we have successfully onboarded
+                     * the user who had missing details.
+                     *
+                     * NOTE: New users dont come under this flow because they will have their
+                     * "user_id" set to "" and hence the initial check we did in OnCreate will
+                     * take them to the login fragment right away. This is only for users, who have
+                     * missed their onBoarding or had data inconsistencies.
+                     *
+                     * NOTE: existing users who had missed their onBoarding details
+                     * will have their details updated with this new release.
+                     */
+                    pending = value.getPendingMembership().getIsPending();
+                    if (pending) {
+                        /**
+                         * If they had successfully registered and Onboarded,
+                         * then they will be shown the Pending subscription screen
+                         * until they subscribe.
+                         */
+                        Pending pending = new Pending();
+                        pending.show(getSupportFragmentManager(), "");
+                    }
+                    //if (pending)
+                    if (!pending) {
+                        /**
+                         * at this point, the user is a valid consistent user, with an active
+                         * subscription. So we take them to the HomeActivity.
+                         */
+
+                        getRenewDetail();
+//                        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+//                        // intent.putExtra("start", "1");
+//                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                        startActivity(intent);
+//                        finish();
+                    }
                 }
             }
 
             @Override
             public void onError(Throwable e) {
-                Toast.makeText(getApplicationContext(), R.string.TOAST_DEFAULT_ERROR_MESSAGE, Toast.LENGTH_SHORT).show();
+                /**
+                 * This is to Handle the case of inconsistent
+                 * users. Who have thier perfs filled but their
+                 * Auth failed due to changes in DB or deleted user.
+                 * We just clear their data and ask them to login again.
+                 */
+                if(e.getMessage().contains("HTTP 401 Unauthorized")) {
+                    // we do this to trigger OnBoard in cases where the app uses
+                    // orphaned perfs.
+                    myPrefs.edit().putString("user_id","").commit();
+                    getSupportFragmentManager().beginTransaction()
+                            .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left)
+                            .replace(R.id.container, new LoginFragment()).commit();
+                }
+                Toast.makeText(getApplicationContext(), "Session Expired! Please Login Again", Toast.LENGTH_SHORT).show();
                 progressDialog.dismiss();
+
             }
 
             @Override

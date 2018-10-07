@@ -32,7 +32,13 @@ import io.reactivex.schedulers.Schedulers;
 import okhttp3.ResponseBody;
 
 /**
- * A placeholder fragment containing a simple view.
+ * ================
+ * Raghu's Comment
+ * ================
+ *
+ * This Fragment is made for Login and OTP verification.
+ * Entry points of it are in LoginActivity. Please refer
+ * LoginActivity.java.
  */
 public class LoginFragment extends Fragment implements InterfaceCommunicatorOtp, OtpDialog.InterfaceCommunicator {
     CardView mobile_login;
@@ -55,15 +61,25 @@ public class LoginFragment extends Fragment implements InterfaceCommunicatorOtp,
 
         mobileNumber = (EditText) view.findViewById(R.id.mobileNumber);
 
+        /**
+         * The Next button Click Listener
+         */
         next.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+                /**
+                 * Check for proper mobile number
+                 */
                 if (mobileNumber.getText().length() == 10) {
+                    /**
+                     * This function handles the API request to
+                     * ask the backend to send an OTP. Go inside
+                     * its definition for more info.
+                     */
                     sendOtp(mobileNumber.getText().toString());
 
                 } else {
-                    Toast
-                            .makeText(getActivity(), R.string.TOAST_ENTER_VALID_MOBILE, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), R.string.TOAST_ENTER_VALID_MOBILE, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -74,6 +90,11 @@ public class LoginFragment extends Fragment implements InterfaceCommunicatorOtp,
     @Override
     public void sendRequestCodeOtp() {
         new Handler().postDelayed(new Runnable() {
+            /**
+             * Here we open the OTPDialog to ask the
+             * user to input the OTP. Go to OTPDialog.java
+             * to proceed with the flow.
+             */
             public void run() {
                 new OtpDialog().show(getChildFragmentManager(), "");
 
@@ -104,8 +125,25 @@ public class LoginFragment extends Fragment implements InterfaceCommunicatorOtp,
                 }
 
                 try {
+                    /**
+                     * Once we send the SMS successfully, the backend respond with
+                     * a success message and the number it sent the message to.
+                     * We store it in perfs for future use.
+                     */
                     myPrefs.edit().putString("mobileNumber", mobileNumber).commit();
 
+                    /**
+                     * the sendRequestCodeOTP is a poorly named function. it basically just
+                     * does VerifyOTP API call and some logic.
+                     * I didn't renamed it because I'm still not aware of the
+                     * full codebase and don't want to break any dependencies.
+                     *
+                     * GO TO sendReuqestCodeOTP function from here.
+                     *
+                     * NOTE: dont control click sendRequestOTP, it will take
+                     * you to the interface definition. This method has been
+                     * overridden here. so CTRL+F for it.
+                     */
                     InterfaceCommunicatorOtp interfaceCommunicatorOtp = (InterfaceCommunicatorOtp) loginFragment;
                     interfaceCommunicatorOtp.sendRequestCodeOtp();
 
