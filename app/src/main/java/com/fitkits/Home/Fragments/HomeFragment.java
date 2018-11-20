@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Debug;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
@@ -26,6 +27,7 @@ import com.fitkits.Analytics.Calories.CalorieGraphActivity;
 import com.fitkits.Analytics.Sleep.SleepGraphActivity;
 import com.fitkits.Analytics.Water.WaterGraphActivity;
 import com.fitkits.Analytics.Weight.WeightGraphActivity;
+import com.fitkits.Goals.Activities.GoalActivity;
 import com.fitkits.Home.Adapters.BannerViewPagerAdapter;
 import com.fitkits.CustomCalendarView.CaldroidFragment;
 import com.fitkits.Misc.Pagers.CustomViewPager;
@@ -43,6 +45,8 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import io.realm.Realm;
+import io.realm.RealmResults;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -55,7 +59,8 @@ import java.util.TimeZone;
  */
 public class HomeFragment extends Fragment {
 
-  CardView weightCard,calorieCard,activityCard,sleepCard,waterCard,viewAttendance;
+  CardView weightCard,calorieCard,activityCard,waterCard,viewAttendance;
+  CardView sleepCard;
   TextView calories,weight,active,sleep,water,attended,totalThisMonth;
   Realm realmUI;
   LinearLayout content,viewFeed;
@@ -88,24 +93,43 @@ public class HomeFragment extends Fragment {
     calories=(TextView)view.findViewById(R.id.calories);
     weight=(TextView)view.findViewById(R.id.weight);
     active=(TextView)view.findViewById(R.id.active);
-    sleep=(TextView)view.findViewById(R.id.sleep);
+//    sleep=(TextView)view.findViewById(R.id.sleep);
     water=(TextView)view.findViewById(R.id.water);
     attended=(TextView)view.findViewById(R.id.attended);
     totalThisMonth=(TextView)view.findViewById(R.id.totalThisMonth);
 
     realmUI=Realm.getDefaultInstance();
 
-    com.fitkits.Model.User userMasterGoal=realmUI.where(com.fitkits.Model.User.class).findFirst();
 
 
-    if(userMasterGoal!=null) {
-      calories.setText(String.valueOf(userMasterGoal.getGoals().getCaloriesPerDay().getValue()));
-      weight.setText(String.valueOf(userMasterGoal.getGoals().getWeight().getValue()));
-      active.setText(String.valueOf(userMasterGoal.getGoals().getActivePerDay().getValue()));
-      sleep.setText(String.valueOf(userMasterGoal.getGoals().getSleepDurationPerDay().getValue()));
-      water.setText(
-          String.valueOf(userMasterGoal.getGoals().getWaterConsumptionPerDay().getValue() / 250));
+    RealmResults<User> userMasterGoals=realmUI.where(com.fitkits.Model.User.class).findAll();
+    com.fitkits.Model.Goals userMasterGoal = null;
+    for (int i = 0; i < userMasterGoals.size(); i++) {
+      Log.d("RAGHU",userMasterGoals.get(i).getId() + " =====> " +myPrefs.getString("user_id", "DEFAULT"));
+      if((userMasterGoals.get(i).getId()).contentEquals(myPrefs.getString("user_id", "DEFAULT"))) {
+        userMasterGoal= userMasterGoals.get(i).getGoals();
+        Log.d("RAGHU","INSIDE" + userMasterGoal.toString());
+      }
     }
+
+
+      if((userMasterGoal!=null) && ((userMasterGoal.getCaloriesPerDay().getValue()!=0)
+              &&(userMasterGoal.getSleepDurationPerDay().getValue()!=0)
+              &&(userMasterGoal.getActivePerDay().getValue()!=0)
+              &&(userMasterGoal.getWaterConsumptionPerDay().getValue()!=0)
+              &&(userMasterGoal.getWeight().getValue()!=0))) {
+      calories.setText(String.valueOf(userMasterGoal.getCaloriesPerDay().getValue()));
+      weight.setText(String.valueOf(userMasterGoal.getWeight().getValue()));
+      active.setText(String.valueOf(userMasterGoal.getActivePerDay().getValue()));
+//      sleep.setText(String.valueOf(userMasterGoal.getGoals().getSleepDurationPerDay().getValue()));
+      water.setText(
+              String.valueOf(userMasterGoal.getWaterConsumptionPerDay().getValue() / 250));
+    }
+    else {
+      startActivity(new Intent(getActivity(), GoalActivity.class));
+      getActivity().finish();
+    }
+
 
     getAttendance();
 
@@ -157,6 +181,11 @@ public class HomeFragment extends Fragment {
       }
     });
 
+    /**
+     * Commenting all codes related to sleep insights.
+     * if we want to include it back. please uncomment it
+     *
+     */
     sleepCard.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View view) {

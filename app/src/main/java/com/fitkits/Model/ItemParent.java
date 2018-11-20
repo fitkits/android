@@ -1,6 +1,10 @@
 package com.fitkits.Model;
 
+import android.util.Log;
+
 import com.fitkits.Membership.MembershipItem;
+
+import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -56,7 +60,15 @@ public class ItemParent {
   }
 
   public List<MembershipItem> getMembership() {
-    return membership;
+
+    List<MembershipItem> activeMembership = new ArrayList<>();
+    for(int i = 0; i < membership.size(); i++) {
+      if(membership.get(i).getEnabled()) {
+        Log.e("RAGHU",membership.get(i).toString());
+        activeMembership.add(membership.get(i));
+      }
+    }
+    return activeMembership;
   }
 
   public void setMembership(List<MembershipItem> membership) {

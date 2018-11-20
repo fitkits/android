@@ -4,7 +4,7 @@
 
     <uses-feature
         android:name="android.hardware.camera"
-        android:required="false"></uses-feature>
+        android:required="false" />
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -14,11 +14,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
-
         <activity
             android:name=".Auth.Activities.LoginActivity"
             android:label="@string/app_name"
@@ -30,17 +28,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".chart.Activities.MyStatsActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/SubTheme">
-
-        </activity>
-        <activity android:name=".chart.Activities.BarChartActivity">
-
-        </activity>
+            android:theme="@style/SubTheme"></activity>
+        <activity android:name=".chart.Activities.BarChartActivity"></activity>
 
         <meta-data
             android:name="com.razorpay.ApiKey"
@@ -75,16 +68,12 @@
             android:name=".Home.Activities.HomeActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/SubTheme">
-
-        </activity>
+            android:theme="@style/SubTheme"></activity>
         <activity
             android:name=".Goals.Activities.GoalActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/SubTheme">
-
-        </activity>
+            android:theme="@style/SubTheme"></activity>
         <activity
             android:name=".Misc.Activities.MyDetailActivity"
             android:label="@string/app_name"
@@ -104,53 +93,52 @@
             android:name=".Analytics.Calories.CalorieGraphDetailActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/CalorieGraphAppTheme"></activity>
+            android:theme="@style/CalorieGraphAppTheme" />
         <activity
             android:name=".Analytics.Sleep.SleepGraphDetailActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/SleepGraphAppTheme"></activity>
+            android:theme="@style/SleepGraphAppTheme" />
         <activity
             android:name=".Analytics.ActiveHours.ActiveHoursGraphDetailActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/ActiveHoursGraphAppTheme"></activity>
+            android:theme="@style/ActiveHoursGraphAppTheme" />
         <activity
             android:name=".Analytics.Weight.WeightGraphActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/WeightGraphAppTheme"></activity>
+            android:theme="@style/WeightGraphAppTheme" />
         <activity
             android:name=".Analytics.Weight.WeightGraphDetailActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/WeightGraphAppTheme"></activity>
-
+            android:theme="@style/WeightGraphAppTheme" />
         <activity
             android:name=".Analytics.ActiveHours.ActiveHoursGraphActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/ActiveHoursGraphAppTheme"></activity>
+            android:theme="@style/ActiveHoursGraphAppTheme" />
         <activity
             android:name=".Analytics.Sleep.SleepGraphActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/SleepGraphAppTheme"></activity>
+            android:theme="@style/SleepGraphAppTheme" />
         <activity
             android:name=".Analytics.Calories.CalorieGraphActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/CalorieGraphAppTheme"></activity>
+            android:theme="@style/CalorieGraphAppTheme" />
         <activity
             android:name=".Analytics.Water.WaterGraphActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/WaterGraphAppTheme"></activity>
+            android:theme="@style/WaterGraphAppTheme" />
         <activity
             android:name=".Analytics.Water.WaterGraphDetailActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/WaterGraphAppTheme"></activity>
+            android:theme="@style/WaterGraphAppTheme" />
         <!-- Register the Alarm Receiver -->
         <receiver
             android:name=".Misc.BroadcastReceivers.AlarmReceiver"
@@ -159,6 +147,7 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+
         <service
             android:name=".Services.ServerSync"
             android:exported="false">
@@ -187,6 +176,9 @@
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="@string/default_notification_channel_id" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
         <!-- [END fcm_default_channel] -->
 
         <provider
@@ -198,14 +190,14 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/freshchat_file_provider_paths" />
         </provider>
-        <service
-            android:name=".Services.MyFirebaseMessagingService">
+
+        <service android:name=".Services.MyFirebaseMessagingService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 
+        <activity android:name=".Home.Activities.WebViewActivity"></activity>
     </application>
-
 
 </manifest>

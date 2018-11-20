@@ -54,7 +54,7 @@
                           android:layout_height="100dp"
                           app:border_width="5dp"
                           app:border_color="@color/white"
-                          android:src="@drawable/fitkits_logo"/>
+                          android:src="@drawable/logo"/>
 
                     </RelativeLayout>
 
@@ -185,15 +185,16 @@
           </LinearLayout>
 
           </LinearLayout>
-            <TextView
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:textSize="12sp"
-              android:layout_marginTop="15dp"
-              android:layout_gravity="center_horizontal"
-              android:textColor="@color/black"
-              android:text="Skip this step >>"
-              />
+
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center_horizontal"
+                  android:layout_marginTop="15dp"
+                  android:text="Skip this step >>"
+                  android:textColor="@color/black"
+                  android:textSize="12sp"
+                  android:visibility="invisible" />
           </LinearLayout>
 
         </LinearLayout>

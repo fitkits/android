@@ -4,9 +4,22 @@
   android:background="@drawable/ic_splash_bg"
   android:gravity="center"
   android:layout_height="match_parent">
-<ImageView
-  android:layout_width="213dp"
-  android:layout_height="213dp"
-  android:src="@drawable/fitkits_logo"
-  android:scaleType="fitXY"/>
+
+    <ImageView
+        android:layout_width="213dp"
+        android:layout_height="213dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/fitkits_splash" />
+
+    <TextView
+        android:id="@+id/versionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:text=""
+        android:textAllCaps="false"
+        android:textColor="@color/caldroid_white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="visible" />
 </LinearLayout>

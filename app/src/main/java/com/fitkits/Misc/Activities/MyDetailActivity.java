@@ -25,7 +25,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 public class MyDetailActivity extends AppCompatActivity {
-EditText name,mobileNumber;
+EditText name,mobileNumber,email;
 Button update;
 ApiService apiService;
 SharedPreferences myPrefs;
@@ -35,6 +35,7 @@ ProgressDialog progressDialog;
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_profile_my_details);
     name=(EditText)findViewById(R.id.name);
+    email = (EditText)findViewById(R.id.email);
     mobileNumber=(EditText)findViewById(R.id.mobileNumber);
     update=(Button) findViewById(R.id.update);
     LinearLayout back=(LinearLayout)findViewById(R.id.back);
@@ -59,7 +60,12 @@ ProgressDialog progressDialog;
         if(name.getText().length()>0){
           if(mobileNumber.getText().length()==10){
             if (Constants.isNetworkAvailable(MyDetailActivity.this)) {
-              updateProfileDetail();
+                if(email.getText().length() > 0) {
+                    updateProfileDetail();
+                }
+                else {
+                    Toast.makeText(MyDetailActivity.this,R.string.TOAST_ENTER_VALID_EMAIL, Toast.LENGTH_SHORT).show();
+                }
 
             } else {
               Toast.makeText(MyDetailActivity.this, R.string.TOAST_NO_INETERNET, Toast.LENGTH_SHORT).show();
@@ -104,7 +110,7 @@ ProgressDialog progressDialog;
 
             name.setText(value.getName());
             name.setSelection(name.getText().length());
-
+            email.setText((value.getEmail()));
             mobileNumber.setText(value.getMobileNumber().toString());
 
           }
@@ -130,7 +136,7 @@ ProgressDialog progressDialog;
 
   void updateProfileDetail(){
 
-    User user_profile=new User(name.getText().toString(),Long.parseLong(mobileNumber.getText().toString()));
+    User user_profile=new User(name.getText().toString(),Long.parseLong(mobileNumber.getText().toString()), email.getText().toString());
 
     apiService.updateProfile("/api/v1/cms/users/"+myPrefs.getString("user_id",""),user_profile).subscribeOn(
         Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
@@ -150,6 +156,7 @@ ProgressDialog progressDialog;
             }
             myPrefs.edit().putString("user_id",value.getId()).commit();
             myPrefs.edit().putString("name",value.getName()).commit();
+              myPrefs.edit().putString("emailID",value.getEmail()).commit();
 
             myPrefs.edit().putString("mobileNumber",value.getMobileNumber().toString()).commit();
             finish();

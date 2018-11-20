@@ -74,9 +74,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="14sp"
+          android:hint="Enter your Name"
         android:textColor="#000000"
         android:letterSpacing="0.04"
-        android:text="Sreekesh Krishnan"
+        android:text=""
         />
     </LinearLayout>
     <LinearLayout
@@ -128,6 +129,51 @@
       android:layout_weight="0.9">
     </LinearLayout>
   </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/black22"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:orientation="horizontal">
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="0.1"
+          android:orientation="horizontal">
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_email"/>
+
+
+        <EditText
+            android:id="@+id/email"
+            android:padding="0dp"
+            android:layout_marginLeft="15dp"
+            android:backgroundTint="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:inputType="textEmailAddress"
+            android:hint="Enter your Email"
+            android:textColor="#000000"
+            android:letterSpacing="0.04"
+            android:text=""
+            />
+      </LinearLayout>
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:gravity="center_vertical|right"
+          android:layout_weight="0.9">
+      </LinearLayout>
+    </LinearLayout>
   </LinearLayout>
   <LinearLayout
     android:layout_alignParentBottom="true"

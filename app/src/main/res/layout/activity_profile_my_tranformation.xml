@@ -101,7 +101,7 @@
                           android:layout_height="100dp"
                           app:border_width="5dp"
                           app:border_color="@color/white"
-                          android:src="@drawable/fitkits_logo"/>
+                          android:src="@mipmap/logo"/>
 
                     </RelativeLayout>
 

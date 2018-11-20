@@ -4,7 +4,9 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.view.Gravity;
@@ -18,6 +20,39 @@ import android.widget.LinearLayout.LayoutParams;
 import com.fitkits.R;
 import com.ms_square.etsyblur.BlurConfig;
 import com.ms_square.etsyblur.BlurDialogFragment;
+
+import java.io.File;
+import java.io.IOException;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+
+
+import android.app.Activity;
+import android.content.Intent;
+import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.net.Uri;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.util.Log;
+import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
+
 
 /**
  * Created by akshay on 10/07/17.
@@ -52,12 +87,24 @@ Button close;
         open_camera.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+//                File photoFile = null;
+//                try {
+//                     photoFile = createImageFile();
+//                }
+//                catch (IOException e) {
+//                    Toast.makeText(getContext(),e.getMessage(),Toast.LENGTH_LONG).show();
+//                }
 
                 Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+//                cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(photoFile));
+
                 getActivity().startActivityForResult(cameraIntent, 1888);
+
                 dismiss();
             }
         });
+
+
 
         gallery.setOnClickListener(new OnClickListener() {
             @Override
@@ -97,7 +144,23 @@ Button close;
         super.onStop();
     }
 
+    String mCurrentPhotoPath;
+    private File createImageFile() throws IOException {
+        // Create an image file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp + "_";
+        String storageDir = Environment.getExternalStorageDirectory() + "/picupload";
+        File dir = new File(storageDir);
+        if (!dir.exists())
+            dir.mkdir();
 
+        File image = new File(storageDir + "/" + imageFileName + ".jpg");
+
+        // Save a file: path for use with ACTION_VIEW intents
+        mCurrentPhotoPath = image.getAbsolutePath();
+        Log.i("RAGHU", "photo path = " + mCurrentPhotoPath);
+        return image;
+    }
 
 }
 

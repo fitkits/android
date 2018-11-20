@@ -54,7 +54,7 @@
                           android:layout_height="100dp"
                           app:border_width="5dp"
                           app:border_color="@color/white"
-                          android:src="@drawable/fitkits_logo"/>
+                          android:src="@drawable/logo"/>
 
                     </RelativeLayout>
 
@@ -88,16 +88,15 @@
                             android:textColor="#000000"
                             android:text="Step 1 of 6"
                             />
-                          <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="12sp"
-                            android:layout_marginTop="10dp"
-                            android:textColor="#000000"
-                            android:gravity="end"
-                            android:text="Always remember, you’re working on yourself for yourself
-                             by yourself. Let’s get started? "
-                            />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:gravity="end"
+                                android:text="Always remember, you’re working on yourself for yourself by yourself. Let’s get started?"
+                                android:textColor="#000000"
+                                android:textSize="12sp" />
                            
                         </LinearLayout>
   <LinearLayout

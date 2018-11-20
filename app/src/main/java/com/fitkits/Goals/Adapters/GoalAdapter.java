@@ -196,8 +196,8 @@ else if(position==4) {
 
     if (userMasterGoal.getGoals().getWaterConsumptionPerDay().getValue() == 0) {
         holder.goalValLay.setVisibility(View.GONE);
-        holder.goalText.setText(R.string.TXT_GOAL_WEIGHT_TEXT);
-        holder.goalDesc.setText(R.string.TXT_GOAL_WEIGHT_DESC);
+        holder.goalText.setText(R.string.TXT_GOAL_WATER_TEXT);
+        holder.goalDesc.setText(R.string.TXT_GOAL_WATER_DESC);
     } else {
         holder.goalValLay.setVisibility(View.VISIBLE);
         holder.goalText.setText(R.string.TXT_DAILY_GOAL_WATER);

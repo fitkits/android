@@ -31,6 +31,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import io.realm.Realm;
+import io.realm.RealmResults;
 
 public class GoalActivity extends AppCompatActivity implements CalorieDialog.InterfaceCommunicator,ActiveDialog.InterfaceCommunicator,WeightDialog.InterfaceCommunicator,SleepDialog.InterfaceCommunicator,WaterDialog.InterfaceCommunicator {
 
@@ -173,10 +174,17 @@ public class GoalActivity extends AppCompatActivity implements CalorieDialog.Int
           @Override
           public void onNext(User value) {
 
+
             realmUI.beginTransaction();
             realmUI.copyToRealmOrUpdate(value);
             realmUI.commitTransaction();
             userMasterGoal=value;
+//            Log.d("RAGHU",value + "\n\n" + userMasterGoal);
+//            RealmResults<User> userMasterGoals=realmUI.where(com.fitkits.Model.User.class).findAll();
+//            for (int i = 0; i < userMasterGoals.size(); i++) {
+//              Log.d("RAGHU","\n" + userMasterGoals.get(i));
+//
+//            }
             goalRecylceView.setAdapter(new GoalAdapter(getSupportFragmentManager(),GoalActivity.this,userMasterGoal));
             if((userMasterGoal.getGoals().getCaloriesPerDay().getValue()!=0)&&(userMasterGoal.getGoals().getSleepDurationPerDay().getValue()!=0)&&(userMasterGoal.getGoals().getActivePerDay().getValue()!=0)&&(userMasterGoal.getGoals().getWaterConsumptionPerDay().getValue()!=0)&&(userMasterGoal.getGoals().getWeight().getValue()!=0)){
               done.setBackgroundColor(getResources().getColor(R.color.black));
@@ -192,7 +200,7 @@ public class GoalActivity extends AppCompatActivity implements CalorieDialog.Int
           @Override
           public void onError(Throwable e) {
             Log.d("response",e.toString());
-            Toast.makeText(getApplicationContext(),R.string.TOAST_DEFAULT_ERROR_MESSAGE,Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(),R.string.TOAST_DEFAULT_ERROR_MESSAGE,Toast.LENGTH_SHORT).show();
           }
 
           @Override

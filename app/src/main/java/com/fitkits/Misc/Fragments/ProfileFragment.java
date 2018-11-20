@@ -3,6 +3,7 @@ package com.fitkits.Misc.Fragments;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
@@ -20,6 +21,7 @@ import android.widget.Toast;
 
 import com.fitkits.Auth.Activities.LoginActivity;
 import com.fitkits.Dialogs.RenewDialog;
+import com.fitkits.Home.Activities.WebViewActivity;
 import com.fitkits.Misc.Activities.LinkSocialMediaActivity;
 import com.fitkits.Misc.Activities.MyDetailActivity;
 import com.fitkits.Misc.Activities.MyTransformationActivity;
@@ -55,7 +57,7 @@ ProgressDialog progressDialog;
   public ProfileFragment() {
   }
 ApiService apiService;
-  LinearLayout myStats,logout,expirse_layoyt,freshchat;
+  LinearLayout myStats,logout,expirse_layoyt,freshchat, faq, legal;
   TextView loggedInAs,expirse_date;
   long daysRemain;
   SharedPreferences myPrefs;
@@ -75,6 +77,8 @@ ApiService apiService;
     TextView title = (TextView) toolbar.findViewById(R.id.toolbar_title);
     loggedInAs = (TextView)view.findViewById(R.id.loggedInAs);
     myStats = (LinearLayout) view.findViewById(R.id.mystats);
+    faq = (LinearLayout)view.findViewById((R.id.faq));
+      legal = (LinearLayout)view.findViewById((R.id.legal));
     logout = (LinearLayout)view.findViewById(R.id.logout);
 
     ImageView dropdown = (ImageView) toolbar.findViewById(R.id.toolbar_dropdown);
@@ -109,6 +113,30 @@ ApiService apiService;
 
       }
     });
+    faq.setOnClickListener(new OnClickListener() {
+        @Override
+        public void onClick(View view) {
+//            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.faqURL)));
+//            startActivity(browserIntent);
+
+            Intent intent = new Intent(getContext(), WebViewActivity.class);
+            intent.putExtra("URL", getString(R.string.faqURL));
+            startActivity(intent);
+        }
+    });
+
+      legal.setOnClickListener(new OnClickListener() {
+          @Override
+          public void onClick(View view) {
+//              Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.legalURL)));
+//              startActivity(browserIntent);
+
+              Intent intent = new Intent(getContext(), WebViewActivity.class);
+              intent.putExtra("URL", getString(R.string.faqURL));
+              startActivity(intent);
+          }
+      });
+
     freshchat.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View view) {

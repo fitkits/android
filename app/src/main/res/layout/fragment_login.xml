@@ -22,7 +22,7 @@
     <ImageView
       android:layout_width="213dp"
       android:layout_height="213dp"
-      android:src="@drawable/fitkits_logo"
+      android:src="@drawable/logo"
       android:scaleType="fitXY"/>
   </LinearLayout>
   <LinearLayout

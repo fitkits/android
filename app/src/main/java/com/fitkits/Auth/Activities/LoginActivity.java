@@ -11,6 +11,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.fitkits.Auth.Dialogs.OtpDialog;
+import com.fitkits.Model.Migration;
 import com.fitkits.OnBoarding.Activities.OnboardActivity;
 import com.fitkits.RealmObjects.ApiService;
 import com.fitkits.CustomCalendarView.CaldroidFragment;
@@ -32,6 +33,9 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import io.realm.ObjectChangeSet;
 import io.realm.Realm;
+import io.realm.RealmConfiguration;
+import io.realm.RealmMigration;
+import io.realm.exceptions.RealmMigrationNeededException;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -76,6 +80,15 @@ public class LoginActivity extends AppCompatActivity {
         caldroidFragment = new CaldroidFragment();
         myPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         Realm.init(getApplicationContext());
+
+            // Get a Realm instance for this thread
+            RealmConfiguration config = new RealmConfiguration.Builder()
+//                    .deleteRealmIfMigrationNeeded()
+                    .schemaVersion(1)
+                    .migration(new Migration())
+                    .build();
+
+            Realm.setDefaultConfiguration(config);
 
         // If Activity is created after rotation
         if (savedInstanceState != null) {
@@ -180,7 +193,11 @@ public class LoginActivity extends AppCompatActivity {
                                     renewDialog.setArguments(bundle);
                                     renewDialog.show(getSupportFragmentManager(), "");
                                 } else {
-                                    if (daysRemain > 8) {
+                                    /**
+                                     * for bypassing to test. comment on prod
+                                     */
+//                                    if(false) {
+                                      if (daysRemain > 8) {
                                         Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                                         // intent.putExtra("start", "1");
                                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -191,6 +208,7 @@ public class LoginActivity extends AppCompatActivity {
                                         Intent intent = new Intent(LoginActivity.this, SubscriptionActivity.class);
                                         intent.putExtra("start", "1");
                                         startActivity(intent);
+
 
                                     }
 
@@ -348,4 +366,6 @@ public class LoginActivity extends AppCompatActivity {
 
 
 }
+
+
 

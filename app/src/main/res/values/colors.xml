@@ -38,7 +38,7 @@
   <color name="light_green_19">#3145ce05</color>
   <color name="light_blue">#55b5e2</color>
 
-  <color name="caldroid_white">#FFFFFF</color>
+  <color name="caldroid_white">#ffffff</color>
   <color name="caldroid_black">#000000</color>
   <color name="caldroid_transparent">#00000000</color>
   <!-- For settings framework -->

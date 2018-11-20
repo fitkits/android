@@ -14,6 +14,7 @@ import com.fitkits.Model.WeightAnswer;
 import io.reactivex.Observable;
 
 import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -181,5 +182,9 @@ public interface ApiService {
   @PATCH
   Observable<ResponseBody> updateProfileImage(@Url String path, @Part MultipartBody.Part image);
 
+  @Multipart
+  @PATCH
+  Observable<ResponseBody> updateProfileImagesWithWeight(@Url String path, @Part MultipartBody.Part image,
+                                                         @Part("weight") RequestBody weight);
 
 }

@@ -19,7 +19,7 @@ import com.ms_square.etsyblur.BlurConfig;
 import com.ms_square.etsyblur.BlurDialogFragment;
 
 public class Pending extends BlurDialogFragment {
-    Button renew;
+    Button renew, back;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -35,6 +35,7 @@ public class Pending extends BlurDialogFragment {
 
         dialog.getWindow().setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
         renew = (Button) dialog.findViewById(R.id.renew1);
+        back = (Button) dialog.findViewById(R.id.back);
 
 
         renew.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +46,15 @@ public class Pending extends BlurDialogFragment {
                 //intent.putExtra("start", "1");
                 startActivity(intent);
                 getActivity().finish();
+            }
+        });
+
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().finishAffinity();
+
             }
         });
 

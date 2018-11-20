@@ -128,53 +128,53 @@
           android:layout_width="match_parent"
           android:background="#f1f1f1"
           android:layout_height="match_parent">
-            <android.support.v7.widget.CardView
-              android:layout_marginRight="16dp"
-              android:layout_marginLeft="16dp"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              app:cardCornerRadius="3dp"
-              android:layout_marginTop="10dp">
-                <LinearLayout
-                  android:layout_width="match_parent"
-                  android:background="@drawable/card_border_line_red_top"
-                  android:layout_height="3dp"></LinearLayout>
-                <LinearLayout
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:padding="10dp"
-                  android:gravity="center_vertical"
-                  android:weightSum="1"
-                  android:orientation="horizontal">
-                    <ImageView
-                      android:layout_width="30dp"
-                      android:layout_height="30dp"
-                      android:src="@drawable/popcorn"
-                      android:layout_marginRight="10dp"/>
-                    <LinearLayout
-                      android:layout_weight="1"
-                      android:layout_width="match_parent"
-                      android:orientation="vertical"
-                      android:layout_height="wrap_content">
-                        <TextView
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:textSize="14sp"
-                          android:textColor="@color/black"
-                          android:letterSpacing="0.01"
-                          android:text="Calorie insights"
-                          />
-                        <TextView
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:textSize="9sp"
-                          android:textColor="@color/black58"
-                          android:letterSpacing="0.02"
-                          android:text="Looks like you're sleeping very well. 7-8 hours of sleep helps you get the best of your nutrition and exercise!"
-                          />
-                    </LinearLayout>
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
+            <!--<android.support.v7.widget.CardView-->
+              <!--android:layout_marginRight="16dp"-->
+              <!--android:layout_marginLeft="16dp"-->
+              <!--android:layout_width="match_parent"-->
+              <!--android:layout_height="wrap_content"-->
+              <!--app:cardCornerRadius="3dp"-->
+              <!--android:layout_marginTop="10dp">-->
+                <!--<LinearLayout-->
+                  <!--android:layout_width="match_parent"-->
+                  <!--android:background="@drawable/card_border_line_red_top"-->
+                  <!--android:layout_height="3dp"></LinearLayout>-->
+                <!--<LinearLayout-->
+                  <!--android:layout_width="match_parent"-->
+                  <!--android:layout_height="wrap_content"-->
+                  <!--android:padding="10dp"-->
+                  <!--android:gravity="center_vertical"-->
+                  <!--android:weightSum="1"-->
+                  <!--android:orientation="horizontal">-->
+                    <!--<ImageView-->
+                      <!--android:layout_width="30dp"-->
+                      <!--android:layout_height="30dp"-->
+                      <!--android:src="@drawable/popcorn"-->
+                      <!--android:layout_marginRight="10dp"/>-->
+                    <!--<LinearLayout-->
+                      <!--android:layout_weight="1"-->
+                      <!--android:layout_width="match_parent"-->
+                      <!--android:orientation="vertical"-->
+                      <!--android:layout_height="wrap_content">-->
+                        <!--<TextView-->
+                          <!--android:layout_width="wrap_content"-->
+                          <!--android:layout_height="wrap_content"-->
+                          <!--android:textSize="14sp"-->
+                          <!--android:textColor="@color/black"-->
+                          <!--android:letterSpacing="0.01"-->
+                          <!--android:text="Calorie insights"-->
+                          <!--/>-->
+                        <!--<TextView-->
+                          <!--android:layout_width="wrap_content"-->
+                          <!--android:layout_height="wrap_content"-->
+                          <!--android:textSize="9sp"-->
+                          <!--android:textColor="@color/black58"-->
+                          <!--android:letterSpacing="0.02"-->
+                          <!--android:text="Looks like you're sleeping very well. 7-8 hours of sleep helps you get the best of your nutrition and exercise!"-->
+                          <!--/>-->
+                    <!--</LinearLayout>-->
+                <!--</LinearLayout>-->
+            <!--</android.support.v7.widget.CardView>-->
             <android.support.v7.widget.CardView
               android:id="@+id/logWeight"
               android:layout_width="match_parent"

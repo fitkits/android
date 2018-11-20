@@ -146,6 +146,13 @@ public class OtpDialog extends BlurDialogFragment {
     public void verifyOtp(String otp) {
         final ApiService apiService = RetroClient.getApiService("", getActivity().getApplicationContext());
 
+        /**
+         * to bypass OTP check. comment on production.
+         */
+//        myPrefs.edit().putString("user_id", "5b9244f3b813af0c4aaff13e").commit();
+//                            myPrefs.edit().putString("otp", otp).commit();
+//                            myPrefs.edit().putString("token", "Bearer " +  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YjkyNDRmM2I4MTNhZjBjNGFhZmYxM2UiLCJpYXQiOjE1MzYzMTI1NjN9.hww8yXYECIwUsRHUzxMpt5OBqKS52mBkeM4LSBeaHaE").commit();
+//        getRenewDetail();
 
         OTP userOtp = new OTP(myPrefs.getString("mobileNumber", ""), otp);
         apiService.verifyOtp(userOtp).subscribeOn(

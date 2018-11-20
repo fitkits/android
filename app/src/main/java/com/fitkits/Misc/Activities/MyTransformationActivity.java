@@ -53,6 +53,8 @@ public class MyTransformationActivity extends AppCompatActivity {
   RecyclerView uploadRecyclerView;
   CardView uploadPic;
   Button close;
+  boolean gotStoragePermission   = false;
+  boolean gotCameraPermission = false;
   ApiService apiService;
   public Uri selectedImage;
   ProgressDialog progressDialog;
@@ -80,14 +82,45 @@ public class MyTransformationActivity extends AppCompatActivity {
     uploadPic.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View view) {
-        if ((ContextCompat.checkSelfPermission(MyTransformationActivity.this,
+        if (((ContextCompat.checkSelfPermission(MyTransformationActivity.this,
             permission.WRITE_EXTERNAL_STORAGE)
-            != PackageManager.PERMISSION_GRANTED)) {
+            != PackageManager.PERMISSION_GRANTED))) {
+          gotStoragePermission = false;
+        }
+        else {
+          gotStoragePermission = true;
+        }
 
+        if(((ContextCompat.checkSelfPermission(MyTransformationActivity.this,
+                permission.CAMERA)
+                != PackageManager.PERMISSION_GRANTED))) {
+          gotCameraPermission = false;
+
+        }
+        else {
+          gotCameraPermission = true;
+        }
+
+        Toast.makeText(getApplicationContext(),gotCameraPermission + "/" + gotCameraPermission,Toast.LENGTH_LONG).show();
+        if((!gotStoragePermission) && (!gotCameraPermission)) {
           ActivityCompat.requestPermissions(MyTransformationActivity.this,
-              new String[]{ permission.WRITE_EXTERNAL_STORAGE},
-              1);
-        } else {
+                  new String[]{ permission.WRITE_EXTERNAL_STORAGE,  permission.CAMERA},
+                  1);
+        }
+        else if(!gotStoragePermission) {
+          ActivityCompat.requestPermissions(MyTransformationActivity.this,
+                  new String[]{ permission.WRITE_EXTERNAL_STORAGE },
+                  1);
+        }
+        else if(!gotCameraPermission) {
+          ActivityCompat.requestPermissions(MyTransformationActivity.this,
+                  new String[]{ permission.CAMERA},
+                  1);
+        }
+
+        else if(gotStoragePermission && gotCameraPermission)
+        {
+          Toast.makeText(getApplicationContext(),"OPENING",Toast.LENGTH_SHORT).show();
          new CameraOptionsDialog().show(getSupportFragmentManager(),"");
 
         }
@@ -145,7 +178,8 @@ public class MyTransformationActivity extends AppCompatActivity {
       }
     } else if (requestCode == 100 && resultCode == Activity.RESULT_OK && data != null) {
       String path=data.getExtras().getString("uri");
-      updateProfileDetail(path);
+      String currentWeight=data.getExtras().getString("currentWeight");
+      updateProfileDetail(path, currentWeight);
 
     }
   }
@@ -215,7 +249,7 @@ public class MyTransformationActivity extends AppCompatActivity {
     String path = Images.Media.insertImage(inContext.getContentResolver(), inImage, "Title", null);
     return Uri.parse(path);
   }
-  void updateProfileDetail(String selectedImage) {
+  void updateProfileDetail(String selectedImage, String currentWeight) {
     apiService = RetroClient
         .getApiService(myPrefs.getString("token", ""),
             getApplicationContext());
@@ -226,8 +260,11 @@ public class MyTransformationActivity extends AppCompatActivity {
     MultipartBody.Part fileToUpload = MultipartBody.Part
         .createFormData("image", file.getName(), mFile);
 
+    RequestBody finalWeight =
+            RequestBody.create(MediaType.parse("multipart/form-data"), currentWeight);
+
     apiService
-        .updateProfileImage("/api/v1/cms/users/" + myPrefs.getString("user_id", ""), fileToUpload)
+        .updateProfileImagesWithWeight("/api/v1/cms/users/" + myPrefs.getString("user_id", ""), fileToUpload, finalWeight )
         .subscribeOn(
             Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
         new Observer<ResponseBody>() {

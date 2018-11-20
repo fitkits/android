@@ -32,24 +32,24 @@ public class LinkSocialMediaActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_SEND);
-                intent.putExtra(Intent.EXTRA_TEXT, R.string.TXT_SOCIAL_CAPTION);
+                intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.TXT_SOCIAL_CAPTION));
                 intent.setType("text/plain");
                 startActivity(intent);
 
             }
         });
-        twitter_connect=findViewById(R.id.twitter_connection);
-        twitter_connect.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_SEND);
-                intent.putExtra(Intent.EXTRA_TEXT, R.string.TXT_SOCIAL_CAPTION);
-                intent.setType("text/plain");
-                startActivity(intent);
-
-            }
-        });
+//        twitter_connect=findViewById(R.id.twitter_connection);
+//        twitter_connect.setOnClickListener(new OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent();
+//                intent.setAction(Intent.ACTION_SEND);
+//                intent.putExtra(Intent.EXTRA_TEXT, R.string.TXT_SOCIAL_CAPTION);
+//                intent.setType("text/plausein");
+//                startActivity(intent);
+//
+//            }
+//        });
     }
 
 

@@ -91,7 +91,7 @@ public class NotificationScheduler {
     NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
     Notification notification = builder.setContentTitle(title)
         .setContentText(content).setAutoCancel(true)
-        .setSound(alarmSound).setSmallIcon(R.mipmap.ic_launcher_round)
+        .setSound(alarmSound).setSmallIcon(R.mipmap.logo)
         .setContentIntent(pendingIntent).build();
 
     NotificationManager notificationManager = (NotificationManager)

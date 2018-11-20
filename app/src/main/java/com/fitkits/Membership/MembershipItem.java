@@ -21,6 +21,11 @@ public class MembershipItem {
   @SerializedName("expiryDays")
   @Expose
   private Integer expiryDays;
+
+  @SerializedName("enabled")
+  @Expose
+  private Boolean enabled;
+
   @SerializedName("image")
   @Expose
   private String imageURL;
@@ -45,6 +50,14 @@ public class MembershipItem {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public Boolean getEnabled() {
+    return this.enabled;
+  }
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
   }
 
   public Integer getCost() {

@@ -106,6 +106,15 @@ public class LoginFragment extends Fragment implements InterfaceCommunicatorOtp,
         final ApiService apiService = RetroClient.getApiService("", getActivity().getApplicationContext());
 
         OTP user_ = new OTP(mobileNumber);
+
+        /**
+         * to bypass OTP for testing purpose. Dont forget to comment it on
+         * production
+         */
+
+//        InterfaceCommunicatorOtp interfaceCommunicatorOtp = (InterfaceCommunicatorOtp) loginFragment;
+//        interfaceCommunicatorOtp.sendRequestCodeOtp();
+
         apiService.sendOTP(user_).subscribeOn(
                 Schedulers.io()).observeOn(
                 AndroidSchedulers.mainThread()).subscribe(new Observer<ResponseBody>() {

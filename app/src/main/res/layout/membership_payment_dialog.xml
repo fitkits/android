@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+    android:layout_margin="@dimen/card_toolbar_btn"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/pay_text"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/bar_spacing"
+            android:text="How would you like to pay?"
+
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:typeface="sans"
+            tools:layout_editor_absoluteX="44dp"
+            tools:layout_editor_absoluteY="155dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/bar_spacing"
+        android:orientation="horizontal">
+        <Switch
+            android:id="@+id/accept_terms"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/accept_text"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I accept"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:typeface="sans"
+            android:layout_weight="2"
+            tools:layout_editor_absoluteX="44dp"
+            tools:layout_editor_absoluteY="155dp" />
+        <TextView
+            android:id="@+id/terms_text"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" the Terms and Conditions"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:typeface="sans"
+            android:clickable="true"
+            android:textColor="@color/light_blue"
+            android:layout_weight="2"
+            tools:layout_editor_absoluteX="44dp"
+            tools:layout_editor_absoluteY="155dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/button_online"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Online"
+            tools:layout_editor_absoluteX="85dp"
+            tools:layout_editor_absoluteY="241dp" />
+
+        <Button
+            android:id="@+id/button_offline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OFFLINE"
+            tools:layout_editor_absoluteX="196dp"
+            tools:layout_editor_absoluteY="241dp" />
+
+
+
+
+    </LinearLayout>
+</LinearLayout>

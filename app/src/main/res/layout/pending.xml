@@ -52,7 +52,7 @@
                             android:layout_height="100dp"
                             app:border_width="5dp"
                             app:border_color="@color/white"
-                            android:src="@drawable/fitkits_logo"/>
+                            android:src="@drawable/logo"/>
 
                     </RelativeLayout>
                     <TextView
@@ -60,7 +60,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="16sp"
                         android:textColor="#ffffff"
-                        android:text=" Pending Membrship!"
+                        android:text=" Pending Membership!"
                         />
                 </LinearLayout>
                 <android.support.v7.widget.CardView
@@ -134,19 +134,38 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+
+                    android:id="@+id/back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="46dp"
+                    android:layout_weight="1"
+                    android:background="@color/caldroid_holo_blue_dark"
+                    android:text="Back"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"></Button>
+
+                <Button
+                    android:id="@+id/renew1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="46dp"
+                    android:layout_weight="1"
+                    android:background="@color/red"
+                    android:text="REFRESH"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"></Button>
+            </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
                 android:background="@color/white"></View>
-            <Button
-
-                android:id="@+id/renew1"
-                android:layout_width="match_parent"
-                android:layout_height="46dp"
-                android:text="REFRESH"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:background="@color/red"></Button>
         </LinearLayout>
     </RelativeLayout>
 

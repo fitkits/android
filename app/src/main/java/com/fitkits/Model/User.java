@@ -13,6 +13,8 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class User extends RealmObject {
 
+    private String email;
+
     @PrimaryKey
     @SerializedName("_id")
     @Expose
@@ -23,6 +25,7 @@ public class User extends RealmObject {
     @SerializedName("mobileNumber")
     @Expose
     private Long mobileNumber;
+
     @SerializedName("__v")
     @Expose
     private Integer v;
@@ -108,6 +111,14 @@ public class User extends RealmObject {
         this.mobileNumber = mobileNumber;
     }
 
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public Integer getV() {
         return v;
     }
@@ -142,9 +153,10 @@ public class User extends RealmObject {
         this.pendingMembership = pendingMembership;
     }
 
-    public User(String name, Long mobileNumber) {
+    public User(String name, Long mobileNumber , String email) {
         this.name = name;
         this.mobileNumber = mobileNumber;
+        this.email  = email;
     }
 
     public User(String bg, String gender,

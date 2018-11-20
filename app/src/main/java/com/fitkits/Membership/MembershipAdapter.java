@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.fitkits.Dialogs.MembershipPaymentTypeDialog;
 import com.fitkits.RealmObjects.ApiService;
 import com.fitkits.Misc.Constants;
 import com.fitkits.Misc.Constants.PicassoTrustAll;
@@ -41,7 +42,7 @@ public class MembershipAdapter extends RecyclerView.Adapter<MembershipAdapter.Sh
     String membershipId = "";
     boolean ispending = true;
     PendingMembership pendingMembership1;
-    private PendingInterface pendingInterface;
+    public PendingInterface pendingInterface;
     int selectedPos = -1;
     SharedPreferences myPrefs;
 
@@ -104,67 +105,70 @@ public class MembershipAdapter extends RecyclerView.Adapter<MembershipAdapter.Sh
             @Override
             public void onClick(View view) {
                 membershipId = membershipItemList.get(position).getId();
-                AlertDialog.Builder alert = new AlertDialog.Builder(context);
-                alert.setTitle("Payment Method");
-                alert.setMessage("How do you want to pay?");
-                alert.setPositiveButton("Online", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        InterfaceCommunicator interfaceCommunicator = (InterfaceCommunicator) context;
-                        interfaceCommunicator.sendRequestCodePay(position, membershipItemList.get(position).getId(), (membershipItemList.get(position).getCost()));
-
-                    }
-                });
-                alert.setNegativeButton("Offline", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        //PendingMembership pendingMembership1 = new PendingMembership(membershipId, ispending);
-                        ApiService apiService = RetroClient
-                                .getApiService(myPrefs.getString("token", ""), context);
-                        //  getdetails();
-                        PendingMembership pendingMembership1 = new PendingMembership(membershipId, ispending);
-                        User u = new User();
-                        u.setPendingMembership(pendingMembership1);
-                        apiService.update_PendingMembership("/api/v1/cms/users/" + myPrefs.getString("user_id", ""), u).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<User>() {
-                            @Override
-                            public void onSubscribe(Disposable d) {
-                                progressDialog = new ProgressDialog(context);
-                                progressDialog.setMessage("Loading....");
-                                progressDialog.show();
-                                progressDialog.setCancelable(false);
-
-                            }
-
-                            @Override
-                            public void onNext(User value) {
-                                if (progressDialog.isShowing()) {
-                                    progressDialog.dismiss();
-                                }
-
-                                pendingInterface.passActivity();
-                            }
-
-                            @Override
-                            public void onError(Throwable e) {
-                                // Toast.makeText(getApplicationContext(),"Please select the number of active hours.",Toast.LENGTH_SHORT).show();
-                                if (progressDialog.isShowing()) {
-                                    progressDialog.dismiss();
-                                }
-                                Toast.makeText(context, R.string.TOAST_DEFAULT_ERROR_MESSAGE,
-                                        Toast.LENGTH_LONG).show();
-                            }
-
-                            @Override
-                            public void onComplete() {
-
-                            }
-                        });
-                        //Post the data and move to pending
-
-
-                    }
-                });
-                alert.show();
+                MembershipPaymentTypeDialog cdd = new MembershipPaymentTypeDialog(context,R.style.Theme_AppCompat_Light_Dialog_Alert,membershipItemList,position, pendingInterface);
+                cdd.show();
+//                AlertDialog.Builder alert = new AlertDialog.Builder(context);
+//                alert.setTitle("Payment Method");
+//                alert.setMessage("How do you want to pay?");
+//                alert.setPositiveButton("Online", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialogInterface, int i) {
+//
+//                        InterfaceCommunicator interfaceCommunicator = (InterfaceCommunicator) context;
+//                        interfaceCommunicator.sendRequestCodePay(position, membershipItemList.get(position).getId(), (membershipItemList.get(position).getCost()));
+//
+//                    }
+//                });
+//                alert.setNegativeButton("Offline", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialogInterface, int i) {
+//                        //PendingMembership pendingMembership1 = new PendingMembership(membershipId, ispending);
+//                        ApiService apiService = RetroClient
+//                                .getApiService(myPrefs.getString("token", ""), context);
+//                        //  getdetails();
+//                        PendingMembership pendingMembership1 = new PendingMembership(membershipId, ispending);
+//                        User u = new User();
+//                        u.setPendingMembership(pendingMembership1);
+//                        apiService.update_PendingMembership("/api/v1/cms/users/" + myPrefs.getString("user_id", ""), u).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<User>() {
+//                            @Override
+//                            public void onSubscribe(Disposable d) {
+//                                progressDialog = new ProgressDialog(context);
+//                                progressDialog.setMessage("Loading....");
+//                                progressDialog.show();
+//                                progressDialog.setCancelable(false);
+//
+//                            }
+//
+//                            @Override
+//                            public void onNext(User value) {
+//                                if (progressDialog.isShowing()) {
+//                                    progressDialog.dismiss();
+//                                }
+//
+//                                pendingInterface.passActivity();
+//                            }
+//
+//                            @Override
+//                            public void onError(Throwable e) {
+//                                // Toast.makeText(getApplicationContext(),"Please select the number of active hours.",Toast.LENGTH_SHORT).show();
+//                                if (progressDialog.isShowing()) {
+//                                    progressDialog.dismiss();
+//                                }
+//                                Toast.makeText(context, R.string.TOAST_DEFAULT_ERROR_MESSAGE,
+//                                        Toast.LENGTH_LONG).show();
+//                            }
+//
+//                            @Override
+//                            public void onComplete() {
+//
+//                            }
+//                        });
+//                        //Post the data and move to pending
+//
+//
+//                    }
+//                });
+//                alert.show();
 
             }
         });

@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,6 +22,7 @@ public class PreviewActivity extends AppCompatActivity {
   Bitmap bitmap;
   Button upload;
   TextView transformDate;
+  EditText currentWeight;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,7 @@ public class PreviewActivity extends AppCompatActivity {
     uploadImage=(ImageView)findViewById(R.id.uploadImage);
     upload=(Button) findViewById(R.id.upload);
     transformDate=(TextView) findViewById(R.id.transformDate);
+    currentWeight = (EditText)findViewById(R.id.currentWeight);
     SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
     Calendar calendar=Calendar.getInstance();
     transformDate.setText(sdf.format(calendar.getTime()));
@@ -44,6 +47,7 @@ public class PreviewActivity extends AppCompatActivity {
       public void onClick(View view) {
         Intent intent=new Intent();
         intent.putExtra("imageBitmap",byteArray);
+        intent.putExtra("currentWeight",currentWeight.getText().toString());
         intent.putExtra("uri",uri);
 
         setResult(RESULT_OK,intent);
