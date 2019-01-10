@@ -61,5 +61,8 @@
     <string name="legalURL">https://google.com</string>
     <string name="TOAST_ENTER_VALID_EMAIL">Please enter a valid email id</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>

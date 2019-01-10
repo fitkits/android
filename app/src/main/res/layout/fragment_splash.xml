@@ -21,5 +21,5 @@
         android:textColor="@color/caldroid_white"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:visibility="visible" />
+        android:visibility="gone" />
 </LinearLayout>

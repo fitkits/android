@@ -169,6 +169,8 @@ public interface ApiService {
   @GET("/api/v1/analytics/answers?type=goalAnalysis&goalType=waterConsumptionPerDay&timeFrame=yearly")
   Observable<Aggregate> getWaterAggregateAllYear(@Query("user") String user);
 
+  @GET
+  Observable<String>getAssessments(@Url String Url);
 
   @GET
   Observable<AttAggregate> getAttendanceAvg(@Url String path);

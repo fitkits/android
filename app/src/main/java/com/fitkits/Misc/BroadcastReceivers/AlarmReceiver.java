@@ -18,6 +18,8 @@ import com.fitkits.Services.NotificationScheduler;
 import com.fitkits.Services.ServerSync;
 
 import io.realm.Realm;
+import io.realm.RealmConfiguration;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.TimeZone;
@@ -33,6 +35,15 @@ public class AlarmReceiver extends BroadcastReceiver {
         Realm.init(context);
         realmUI = Realm.getDefaultInstance();
 
+
+        // Get a Realm instance for this thread
+        RealmConfiguration config = new RealmConfiguration.Builder()
+//                    .deleteRealmIfMigrationNeeded()
+                .schemaVersion(1)
+                .migration(new Migration())
+                .build();
+
+        Realm.setDefaultConfiguration(config);
 
         //Trigger the notification
         if (intent.getAction() != null && context != null) {

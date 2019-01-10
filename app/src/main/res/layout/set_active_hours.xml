@@ -37,7 +37,7 @@
                   android:layout_height="wrap_content"
                   android:textSize="20sp"
                   android:textColor="#000000"
-                  android:text="Set your active hours goal."
+                  android:text="No. of Hours."
                   />
             </LinearLayout>
 

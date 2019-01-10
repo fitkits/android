@@ -1,0 +1,135 @@
+package com.fitkits.Misc.Fragments;
+
+import android.content.Context;
+import android.net.Uri;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.fitkits.Misc.Activities.Scores;
+import com.fitkits.R;
+
+/**
+ * A simple {@link Fragment} subclass.
+ * Activities that contain this fragment must implement the
+ * {@link StatsAssessmentFragment.OnFragmentInteractionListener} interface
+ * to handle interaction events.
+ * Use the {@link StatsAssessmentFragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class StatsAssessmentFragment extends Fragment {
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
+    private Bundle scoreBundle;
+    TextView balanceScores,flexibilityScores,cardioScores,strengthScores,muscleScores,postureScores, lastUpdated;
+    private OnFragmentInteractionListener mListener;
+
+    public StatsAssessmentFragment() {
+        // Required empty public constructor
+    }
+
+
+    /**
+     * Use this factory method to create a new instance of
+     * this fragment using the provided parameters.
+     *
+     * @param param1 Parameter 1.
+     * @param param2 Parameter 2.
+     * @return A new instance of fragment StatsAssessmentFragment.
+     */
+    // TODO: Rename and change types and number of parameters
+//    public static StatsAssessmentFragment newInstance(String param1, String param2) {
+//        StatsAssessmentFragment fragment = new StatsAssessmentFragment();
+//        Bundle args = new Bundle();
+//        args.putString(ARG_PARAM1, param1);
+//        args.putString(ARG_PARAM2, param2);
+//        fragment.setArguments(args);
+//        return fragment;
+//    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
+        this.scoreBundle = savedInstanceState;
+
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
+        // Inflate the layout for this fragment
+        View rootView =  inflater.inflate(R.layout.viewpagercontentlayout , container, false);
+        balanceScores = rootView.findViewById(R.id.balance);
+        flexibilityScores = rootView.findViewById(R.id.flexibility);
+        cardioScores = rootView.findViewById(R.id.cardio);
+        strengthScores = rootView.findViewById(R.id.strength);
+        muscleScores = rootView.findViewById(R.id.endurance);
+        postureScores = rootView.findViewById(R.id.posture);
+        lastUpdated = rootView.findViewById(R.id.last_updated);
+        this.updateScores();
+        return rootView;
+    }
+
+    public void updateScores() {
+        this.balanceScores.setText(getArguments().getString("balanceScore"));
+        this.flexibilityScores.setText(getArguments().getString("flexibilityScore"));
+        this.cardioScores.setText(getArguments().getString("cardioScore"));
+        this.muscleScores.setText(getArguments().getString("muscleScore"));
+        this.postureScores.setText(getArguments().getString("postureScore"));
+        this.strengthScores.setText(getArguments().getString("strengthScore"));
+        this.lastUpdated.setText("Last updated on: " + getArguments().getCharSequence("lastUpdated"));
+    }
+    // TODO: Rename method, update argument and hook method into UI event
+    public void onButtonPressed(Uri uri) {
+        if (mListener != null) {
+            mListener.onFragmentInteraction(uri);
+        }
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof OnFragmentInteractionListener) {
+            mListener = (OnFragmentInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
+    }
+
+    /**
+     * This interface must be implemented by activities that contain this
+     * fragment to allow an interaction in this fragment to be communicated
+     * to the activity and potentially other fragments contained in that
+     * activity.
+     * <p>
+     * See the Android Training lesson <a href=
+     * "http://developer.android.com/training/basics/fragments/communicating.html"
+     * >Communicating with Other Fragments</a> for more information.
+     */
+    public interface OnFragmentInteractionListener {
+        // TODO: Update argument type and name
+        void onFragmentInteraction(Uri uri);
+    }
+}
